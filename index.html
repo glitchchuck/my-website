@@ -1,0 +1,2028 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="pageTitle"></title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.12/marked.min.js"></script> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    <style>
+        /* General body styling for consistent typography and color scheme */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        /* Hero section background with a subtle gradient pattern */
+        .hero-bg {
+            background-color: #1a2a45;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 25%),
+                radial-gradient(circle at 80% 90%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 30%);
+        }
+
+        /* Nav link hover transition for a smooth effect */
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #007bff;
+        }
+
+        /* Call-to-action button hover effects */
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+        }
+
+        /* Active state for service and detail tabs */
+        .service-category-tab.active, .service-detail-tab.active {
+            border-color: #007bff;
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        /* Card hover animations for a dynamic feel */
+        .service-card, .team-card, .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover, .team-card:hover, .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Responsive chart container to handle different screen sizes */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+
+        /* Custom message box for non-intrusive notifications */
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #28a745; /* Green for success */
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            text-align: center;
+        }
+        .message-box.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* FAQ accordion styling */
+        .faq-item {
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .faq-question {
+            cursor: pointer;
+            padding: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #343a40;
+        }
+        .faq-answer {
+            padding-bottom: 1rem;
+            color: #495057;
+            display: none;
+        }
+        .faq-question svg {
+            transition: transform 0.3s ease;
+        }
+        .faq-question.active svg {
+            transform: rotate(180deg);
+        }
+
+        /* Styles for conceptual live threat map */
+        .live-map-conceptual::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 15%;
+            width: 20px;
+            height: 20px;
+            background-color: #ef4444; /* Red dot for attack origin */
+            border-radius: 50%;
+            animation: pulse 2s infinite ease-in-out;
+            box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+        }
+        .live-map-conceptual::after {
+            content: '';
+            position: absolute;
+            top: 60%;
+            left: 70%;
+            width: 15px;
+            height: 15px;
+            background-color: #3b82f6; /* Blue dot for target */
+            border-radius: 50%;
+            animation: pulse 2.5s infinite ease-in-out reverse;
+            box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0.8);
+                opacity: 0.7;
+            }
+        }
+
+        /* Quiz specific styles for immediate feedback */
+        .quiz-option-item {
+            position: relative;
+        }
+        .quiz-option-item.correct {
+            background-color: #d4edda; /* Light green */
+            border-color: #28a745; /* Green border */
+        }
+        .quiz-option-item.incorrect {
+            background-color: #f8d7da; /* Light red */
+            border-color: #dc3545; /* Red border */
+        }
+        .quiz-feedback-text {
+            margin-top: 1rem;
+            font-weight: 600;
+            text-align: center;
+        }
+    </style>
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DVZ61Q4W85"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DVZ61Q4W85');
+</script>
+    
+</head>
+<body class="antialiased">
+
+    <!-- Header and Navigation -->
+    <!-- The header uses sticky positioning and a higher z-index to stay on top of other content -->
+    <header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl md:text-2xl font-bold text-gray-800 flex items-center">
+                <span data-lang-key="firmName" class="text-blue-600"></span>
+            </a>
+            <!-- Desktop menu links -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#services" class="nav-link text-gray-600 font-medium" data-lang-key="navServices">Services</a>
+                <a href="#why-us" class="nav-link text-gray-600 font-medium" data-lang-key="navWhyUs">Why Us</a>
+                <a href="#threat-landscape" class="nav-link text-gray-600 font-medium" data-lang-key="navThreats">Threats</a>
+                <a href="#auditing-insights" class="nav-link text-gray-600 font-medium" data-lang-key="navAuditing">Auditing Insights</a>
+                <a href="#testimonials" class="nav-link text-gray-600 font-medium" data-lang-key="navTestimonials">Testimonials</a>
+                <a href="#cyber-quiz" class="nav-link text-gray-600 font-medium" data-lang-key="navCyberQuiz">Cyber Quiz</a>
+                <a href="#faqs" class="nav-link text-gray-600 font-medium" data-lang-key="navFAQs">FAQs</a>
+                <a href="#contact" class="nav-link text-gray-600 font-medium" data-lang-key="navContact">Contact</a>
+                <button id="lang-toggle" class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">नेपाली</button>
+            </div>
+            <!-- Desktop CTA button -->
+            <a href="#contact" class="hidden md:block cta-button bg-blue-600 text-white font-bold py-2 px-5 rounded-full shadow-lg" data-lang-key="getConsultationBtn">
+                Get Consultation
+            </a>
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <!-- Mobile menu dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4">
+            <a href="#services" class="block py-2 text-gray-600 font-medium" data-lang-key="navServices">Services</a>
+            <a href="#why-us" class="block py-2 text-gray-600 font-medium" data-lang-key="navWhyUs">Why Us</a>
+            <a href="#threat-landscape" class="block py-2 text-gray-600 font-medium" data-lang-key="navThreats">Threats</a>
+            <a href="#auditing-insights" class="block py-2 text-gray-600 font-medium" data-lang-key="navAuditing">Auditing Insights</a>
+            <a href="#testimonials" class="block py-2 text-gray-600 font-medium" data-lang-key="navTestimonials">Testimonials</a>
+            <a href="#cyber-quiz" class="block py-2 text-gray-600 font-medium" data-lang-key="navCyberQuiz">Cyber Quiz</a>
+            <a href="#faqs" class="block py-2 text-gray-600 font-medium" data-lang-key="navFAQs">FAQs</a>
+            <a href="#contact" class="block py-2 text-gray-600 font-medium" data-lang-key="navContact">Contact</a>
+            <button id="mobile-lang-toggle" class="block mt-2 bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm font-medium w-full">नेपाली</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-bg text-white">
+            <div class="container mx-auto px-6 py-24 md:py-32 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4" data-lang-key="heroHeadline">Securing Nepal's Digital Future</h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8" data-lang-key="heroSubHeadline">
+                    We provide world-class cybersecurity, IT, and audit solutions tailored for the unique landscape of Nepali businesses. Your shield in the evolving digital world.
+                </p>
+                <a href="#contact" class="cta-button bg-blue-600 text-white font-bold py-4 px-8 rounded-full text-lg shadow-xl" data-lang-key="heroCTA">
+                    Request a Free Quote
+                </a>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="aboutHeadline">About Nepal Cybersecurity, Audit and IT Consultation</h2>
+                    <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto" data-lang-key="aboutSubHeadline">
+                        We are a leading consultation firm in Nepal, dedicated to empowering businesses with robust cybersecurity, efficient IT infrastructure, and meticulous financial audits. Our integrated approach ensures comprehensive protection and operational excellence.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="aboutMissionHeadline">Our Mission & Vision</h3>
+                        <p class="text-gray-600 mb-4" data-lang-key="aboutMissionText1">
+                            Our mission is to be the trusted partner for businesses across Nepal, safeguarding their digital assets and ensuring compliance through expert cybersecurity, IT, and audit services. We envision a digitally secure and resilient Nepal, where businesses can thrive without fear of cyber threats or regulatory non-compliance.
+                        </p>
+                        <p class="text-gray-600" data-lang-key="aboutMissionText2">
+                            We combine deep local market understanding with global best practices, offering tailored solutions that meet the unique challenges and opportunities within the Nepali business environment.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="https://placehold.co/600x400/e2e8f0/334155?text=Professional+Team+Meeting" alt="Consultation Team" class="rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="servicesHeadline">Your Digital Journey, Secured: Our Services</h2>
+                    <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto" data-lang-key="servicesSubHeadline">
+                        From fortifying your defenses to optimizing your operations and ensuring financial integrity, we offer a unique blend of specialized services.
+                    </p>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-2 mb-8" id="service-category-tabs">
+                    <button data-category="cybersecurity" class="service-category-tab active font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300">
+                        <i class="fas fa-shield-alt mr-2"></i> <span data-lang-key="tabCybersecurity">Cybersecurity Solutions</span>
+                    </button>
+                    <button data-category="it-consultation" class="service-category-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300">
+                        <i class="fas fa-cogs mr-2"></i> <span data-lang-key="tabITConsultation">IT Strategy & Support</span>
+                    </button>
+                    <button data-category="cpa-ca-audits" class="service-category-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300">
+                        <i class="fas fa-file-invoice-dollar mr-2"></i> <span data-lang-key="tabCPA_CAAudits">Expert Audit & Assurance</span>
+                    </button>
+                </div>
+
+                <div id="service-category-content">
+                    <div id="cybersecurity" class="service-category-pane">
+                        <div class="flex flex-wrap justify-center gap-2 mb-8" id="cybersecurity-tabs">
+                            <button data-target="vapt" class="service-detail-tab active font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="vaptTab">VAPT</button>
+                            <button data-target="incident-response" class="service-detail-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="incidentResponseTab">Incident Response</button>
+                            <button data-target="awareness-training" class="service-detail-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="awarenessTrainingTab">Awareness Training</button>
+                        </div>
+                        <div id="cybersecurity-detail-content">
+                            <div id="vapt" class="bg-gray-50 rounded-lg p-8 md:p-12">
+                                <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="vaptHeadline">Proactive Security: Vulnerability & Penetration Testing (VAPT)</h3>
+                                <p class="text-gray-600 mb-4" data-lang-key="vaptDescription">We act as ethical hackers, identifying and safely exploiting weaknesses in your systems *before* malicious attackers can. Our VAPT services simulate real-world attacks, giving you a crystal-clear view of your security posture and how to strengthen it.</p>
+                                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                    <li data-lang-key="vaptBenefit1"><strong>Your Gains:</strong> Proactively eliminate security gaps, meet compliance standards, and safeguard your valuable data.</li>
+                                    <li data-lang-key="vaptProcess1"><strong>Our Approach:</strong> Detailed scoping, information gathering, threat modeling, controlled exploitation, and comprehensive reporting with clear, actionable steps.</li>
+                                </ul>
+                            </div>
+                            <div id="incident-response" class="service-detail-pane hidden">
+                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="incidentResponseHeadline">Rapid Response: Incident Management & Forensics</h3>
+                                    <p class="text-gray-600 mb-4" data-lang-key="incidentResponseDescription">When a cyber incident strikes, every moment is critical. Our expert rapid response team is ready to help you quickly contain the threat, remove the attacker, and restore your operations while meticulously preserving evidence for analysis.</p>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                        <li data-lang-key="incidentResponseBenefit1"><strong>Your Gains:</strong> Minimize financial and reputational damage, swiftly resume business operations, and learn from incidents to prevent future occurrences.</li>
+                                        <li data-lang-key="incidentResponseProcess1"><strong>Our Approach:</strong> Swift Containment, Thorough Eradication, Efficient Recovery, and In-depth Post-Incident Analysis.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="awareness-training" class="service-detail-pane hidden">
+                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="awarenessTrainingHeadline">Empower Your Team: Security Awareness Training</h3>
+                                    <p class="text-gray-600 mb-4" data-lang-key="awarenessTrainingDescription">Your employees are your strongest defense. We provide engaging, practical training programs that transform your staff into a vigilant human firewall, equipped to recognize and resist phishing, social engineering, and other common cyber threats.</p>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                        <li data-lang-key="awarenessTrainingBenefit1"><strong>Your Gains:</strong> Significantly reduce human error, cultivate a robust security-first culture, and drastically lower the risk of successful cyberattacks.</li>
+                                        <li data-lang-key="awarenessTrainingProcess1"><strong>Our Approach:</strong> Tailored training modules, realistic phishing simulations, and measurable progress tracking.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="it-consultation" class="service-category-pane hidden">
+                        <div class="flex flex-wrap justify-center gap-2 mb-8" id="it-consultation-tabs">
+                            <button data-target="network-design" class="service-detail-tab active font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="networkDesignTab">Network Design & Implementation</button>
+                            <button data-target="data-management" class="service-detail-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="dataManagementTab">Data Management</button>
+                            <button data-target="system-integration" class="service-detail-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="systemIntegrationTab">System Integration</button>
+                        </div>
+                        <div id="it-consultation-detail-content">
+                            <div id="network-design" class="service-detail-pane">
+                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="networkDesignHeadline">Foundation for Growth: Network Design & Setup</h3>
+                                    <p class="text-gray-600 mb-4" data-lang-key="networkDesignDescription">We engineer and deploy resilient, scalable, and secure network infrastructures that form the backbone of your business operations and future expansion.</p>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                        <li data-lang-key="networkDesignBenefit1"><strong>Your Gains:</strong> Optimized performance, fortified security, and a network ready for tomorrow's demands.</li>
+                                        <li data-lang-key="networkDesignProcess1"><strong>Our Approach:</strong> Needs Assessment, Strategic Design, Seamless Implementation, Rigorous Testing, and Comprehensive Documentation.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="data-management" class="service-detail-pane hidden">
+                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="dataManagementHeadline">Unlock Insights: Data Management & Analytics</h3>
+                                    <p class="text-gray-600 mb-4" data-lang-key="dataManagementDescription">From establishing robust data governance to implementing advanced analytics, we empower you to manage your data effectively, extract valuable insights, and make truly informed business decisions.</p>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                        <li data-lang-key="dataManagementBenefit1"><strong>Your Gains:</strong> Smarter decision-making, superior data quality, and effortless compliance with data privacy regulations.</li>
+                                        <li data-lang-key="dataManagementProcess1"><strong>Our Approach:</strong> Data Strategy Development, Quality Assurance, Data Warehousing Solutions, and Business Intelligence Reporting.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="system-integration" class="service-detail-pane hidden">
+                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="systemIntegrationHeadline">Seamless Operations: System Integration</h3>
+                                    <p class="text-gray-600 mb-4" data-lang-key="systemIntegrationDescription">We bridge the gaps between your diverse systems and applications, creating a unified operational environment that streamlines workflows and significantly boosts overall efficiency.</p>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                        <li data-lang-key="systemIntegrationBenefit1"><strong>Your Gains:</strong> Reduced manual effort, smooth data flow, and enhanced team productivity. </li>
+                                        <li data-lang-key="systemIntegrationProcess1"><strong>Our Approach:</strong> Thorough Requirements Analysis, Custom Solution Design, Expert Development, Rigorous Testing, and Smooth Deployment.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="cpa-ca-audits" class="service-category-pane hidden">
+                        <div class="flex flex-wrap justify-center gap-2 mb-8" id="cpa-ca-audits-tabs">
+                            <button data-target="financial-audit" class="service-detail-tab active font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="financialAuditTab">Financial Statement Audit</button>
+                            <button data-target="compliance-audit" class="service-detail-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="complianceAuditTab">Compliance Audit</button>
+                            <button data-target="tax-audit" class="service-detail-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="taxAuditTab">Tax Audit</button>
+                        </div>
+                        <div id="cpa-ca-audits-detail-content">
+                            <div id="financial-audit" class="service-detail-pane">
+                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="financialAuditHeadline">Financial Clarity: Independent Statement Audits</h3>
+                                    <p class="text-gray-600 mb-4" data-lang-key="financialAuditDescription">Our seasoned CPAs and CAs conduct meticulous audits of your financial statements, ensuring absolute accuracy, complete transparency, and strict adherence to all accounting standards.</p>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                        <li data-lang-key="financialAuditBenefit1"><strong>Your Gains:</strong> Boosted credibility, increased investor confidence, and early detection of financial discrepancies.</li>
+                                        <li data-lang-key="financialAuditProcess1"><strong>Our Approach:</strong> Strategic Planning, Comprehensive Risk Assessment, Thorough Evidence Gathering, Clear Reporting, and Proactive Follow-up.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="compliance-audit" class="service-detail-pane hidden">
+                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="complianceAuditHeadline">Regulatory Confidence: Compliance Audits</h3>
+                                    <p class="text-gray-600 mb-4" data-lang-key="complianceAuditDescription">We verify that your operations, especially for sectors like construction, fully comply with all relevant local and international regulations and legal requirements, minimizing your risk exposure.</p>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                        <li data-lang-key="complianceAuditBenefit1"><strong>Your Gains:</strong> Avoidance of costly penalties, significant reduction in legal risks, and strong corporate governance.</li>
+                                        <li data-lang-key="complianceAuditProcess1"><strong>Our Approach:</strong> Regulatory Mapping, Control Effectiveness Testing, Gap Analysis, and Actionable Remediation Planning.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="tax-audit" class="service-detail-pane hidden">
+                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="taxAuditHeadline">Tax Optimization: Expert Tax Audits</h3>
+                                    <p class="text-gray-600 mb-4" data-lang-key="taxAuditDescription">Our tax audits meticulously verify the accuracy of your tax returns and ensure full compliance with tax laws, helping you minimize risks and strategically optimize your tax liabilities.</p>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                        <li data-lang-key="taxAuditBenefit1"><strong>Your Gains:</strong> Assurance of tax adherence, identification of potential tax savings, and prevention of tax disputes.</li>
+                                        <li data-lang-key="taxAuditProcess1"><strong>Our Approach:</strong> Review of Financial Records, Verification of Tax Calculations, Comprehensive Compliance Checks, and Official Reporting to Tax Authorities.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Us Section -->
+        <section id="why-us" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="whyUsHeadline">Why Partner With Us? Your Advantage, Our Expertise</h2>
+                    <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto" data-lang-key="whyUsSubHeadline">We combine global expertise with deep local understanding to deliver unparalleled cybersecurity, IT, and audit services in Nepal.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 text-center mb-16">
+                    <div class="service-card bg-white p-8 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold mb-2" data-lang-key="whyUsCard1Title">Integrated Expertise</h3>
+                        <p class="text-gray-600" data-lang-key="whyUsCard1Text">Unique blend of cybersecurity, IT, and financial audit capabilities under one roof.</p>
+                    </div>
+                    <div class="service-card bg-white p-8 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold mb-2" data-lang-key="whyUsCard2Title">Local & Global Standards</h3>
+                        <p class="text-gray-600" data-lang-key="whyUsCard2Text">Deep understanding of Nepali context combined with international best practices.</p>
+                    </div>
+                    <div class="service-card bg-white p-8 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold mb-2" data-lang-key="whyUsCard3Title">Client-Centric Solutions</h3>
+                        <p class="text-gray-600" data-lang-key="whyUsCard3Text">Tailored strategies that align with your specific business needs and goals.</p>
+                    </div>
+                </div>
+
+                <div class="text-center mb-12">
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800" data-lang-key="teamHeadline">Our Leadership Team: Driving Your Success</h3>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                    <div class="team-card bg-white p-6 rounded-lg shadow-sm text-center">
+                        <img src="https://placehold.co/150x150/e2e8f0/334155?text=Alish+Uprety" class="w-32 h-32 rounded-full mx-auto mb-4" alt="Alish Uprety Photo">
+                        <h4 class="text-xl font-bold" data-lang-key="teamMember1Name">Alish Uprety</h4>
+                        <p class="text-blue-600 font-medium" data-lang-key="teamMember1Role">Lead Cybersecurity Strategist</p>
+                        <p class="text-gray-500 text-sm mt-2" data-lang-key="teamMember1Bio">Extensive experience in fortifying digital defenses for large businesses in the USA, bringing global best practices to Nepal.</p>
+                    </div>
+                    <div class="team-card bg-white p-6 rounded-lg shadow-sm text-center">
+                        <img src="https://placehold.co/150x150/e2e8f0/334155?text=Bhawesh+Shrestha" class="w-32 h-32 rounded-full mx-auto mb-4" alt="Bhawesh Shrestha Photo">
+                        <h4 class="text-xl font-bold" data-lang-key="teamMember2Name">Bhawesh Shrestha</h4>
+                        <p class="text-blue-600 font-medium" data-lang-key="teamMember2Role">Lead Auditor (CPA/CA)</p>
+                        <p class="text-gray-500 text-sm mt-2" data-lang-key="teamMember2Bio">Over 1000 successful audits and extensive involvement in huge projects across diverse sectors in Nepal, ensuring financial integrity and compliance.</p>
+                    </div>
+                    <div class="team-card bg-white p-6 rounded-lg shadow-sm text-center">
+                        <img src="https://placehold.co/150x150/e2e8f0/334155?text=Akash+Sharma" class="w-32 h-32 rounded-full mx-auto mb-4" alt="Akash Sharma Photo">
+                        <h4 class="text-xl font-bold" data-lang-key="teamMember4Name">Akash Sharma</h4>
+                        <p class="text-blue-600 font-medium" data-lang-key="teamMember4Role">Lead Principal Developer</p>
+                        <p class="text-gray-500 text-sm mt-2" data-lang-key="teamMember4Bio">A seasoned developer with extensive experience at industry giants like Google and T-Mobile, driving innovation in high-impact development sectors.</p>
+                    </div>
+                    <div class="team-card bg-white p-6 rounded-lg shadow-sm text-center">
+                        <img src="https://placehold.co/150x150/e2e8f0/334155?text=Team+of+Experts" class="w-32 h-32 rounded-full mx-auto mb-4" alt="Other Team Member Photo">
+                        <h4 class="text-xl font-bold" data-lang-key="teamMember3Name">Our Expert Team</h4>
+                        <p class="text-blue-600 font-medium" data-lang-key="teamMember3Role">Specialists in IT & Regulatory Compliance</p>
+                        <p class="text-gray-500 text-sm mt-2" data-lang-key="teamMember3Bio">A dedicated team ensuring your business adheres to all local and international regulatory frameworks, minimizing legal risks and fostering good governance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Threat Landscape Section -->
+        <section id="threat-landscape" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="threatLandscapeHeadline">Navigating Nepal's Cyber Threat Landscape</h2>
+                    <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto" data-lang-key="threatLandscapeSubHeadline">Explore the evolving digital risks facing Nepali businesses. Understanding these threats is your first step towards robust defense.</p>
+                </div>
+                <div class="chart-container bg-gray-50 p-4 rounded-lg shadow-inner">
+                    <canvas id="threatChart"></canvas>
+                </div>
+
+                <div class="mt-16 text-center">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="threatInsightsHeadline">Real-time Threat Insights (Simulated Data)</h3>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-6" data-lang-key="threatInsightsSubHeadline">
+                        In a live system, this section would dynamically update with the latest cybersecurity statistics for Nepal's sectors. Below are recent findings highlighting the ongoing challenges:
+                    </p>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left max-w-4xl mx-auto">
+                        <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
+                            <p class="text-blue-700 font-bold text-xl mb-2" data-lang-key="insight1Value">52</p>
+                            <p class="text-gray-700" data-lang-key="insight1Desc">Average daily cybercrime cases reported in Nepal (Fiscal Year 2024-25).</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
+                            <p class="text-blue-700 font-bold text-xl mb-2" data-lang-key="insight2Value">87.82% Increase</p>
+                            <p class="text-gray-700" data-lang-key="insight2Desc">Surge in financial scams and fraud cases (FY 2023-24 to FY 2024-25).</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
+                            <p class="text-blue-700 font-bold text-xl mb-2" data-lang-key="insight3Value">~52%</p>
+                            <p class="text-gray-700" data-lang-key="insight3Desc">Of cybercrime cases are related to hacking (as of August 2024).</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
+                            <p class="text-blue-700 font-bold text-xl mb-2" data-lang-key="insight4Value">Over 80%</p>
+                            <p class="text-gray-700" data-lang-key="insight4Desc">Of Nepal's websites are vulnerable to cyber attacks (as of January 2024).</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
+                            <p class="text-blue-700 font-bold text-xl mb-2" data-lang-key="insight5Value">67%</p>
+                            <p class="text-gray-700" data-lang-key="insight5Desc">Of SMEs in Nepal lack basic cybersecurity practices (2023 poll).</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
+                            <p class="text-blue-700 font-bold text-xl mb-2" data-lang-key="insight6Value">Financial Sector</p>
+                            <p class="text-gray-700" data-lang-key="insight6Desc">Most frequently attacked sector in Nepal.</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-8" data-lang-key="insightNote">
+                        <span class="font-bold" data-lang-key="noteLabel">Note:</span> The data above is based on recent reports and statistics from Nepali Cyber Bureau and cybersecurity analyses (as of July 2025). In a production environment, these insights would be fed by real-time data sources.
+                    </p>
+                </div>
+
+                <div class="mt-16 text-center">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="liveThreatMapHeadline">Global Cyber Threat Monitor (Conceptual)</h3>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-lang-key="liveThreatMapDescription">
+                        This section provides a conceptual view of real-time global cyber threats, highlighting the dynamic nature of cyber warfare. While not a live map, it displays recent cybersecurity news and trends from around the world, demonstrating the constant need for vigilance and expert defense.
+                    </p>
+                    <div class="bg-gray-200 h-96 w-full max-w-xl mx-auto mt-8 rounded-lg flex flex-col items-center justify-center text-gray-500 text-center italic live-map-conceptual p-4">
+                        <p class="text-white mb-4 font-bold" data-lang-key="mapPlaceholder">Global Cyber Attack Trends (Conceptual Graph)</p>
+                        <canvas id="globalThreatGraph" class="w-full h-48"></canvas>
+                        <div id="global-threat-news" class="text-sm text-gray-300 overflow-y-auto w-full h-full text-left mt-4">
+                            </div>
+                        <p id="global-threat-error" class="text-red-300 hidden" data-lang-key="globalThreatError">Failed to load global threat news. Please try again later.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Auditing Insights Section -->
+        <section id="auditing-insights" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="auditingHeadline">Auditing in Nepal: Navigating Challenges, Unlocking Opportunities</h2>
+                    <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto" data-lang-key="auditingSubHeadline">
+                        Our audit services offer more than compliance; they provide critical insights into your financial health and operational integrity across diverse sectors.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="auditFindingsHeadline">Common Audit Findings in Nepal</h3>
+                        <p class="text-gray-600 mb-4" data-lang-key="auditFindingsIntro">Based on our experience, common issues identified during audits in Nepal often include:</p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li data-lang-key="auditFinding1">Inadequate internal controls, leading to potential fraud or errors.</li>
+                            <li data-lang-key="auditFinding2">Non-compliance with local tax laws and regulations.</li>
+                            <li data-lang-key="auditFinding3">Lack of proper documentation for financial transactions, especially in construction projects.</li>
+                            <li data-lang-key="auditFinding4">Under-reporting or misclassification of income and expenses.</li>
+                            <li data-lang-key="auditFinding5">Weak asset management and inventory control systems.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="lowInvolvementHeadline">Why Low Involvement in Auditing?</h3>
+                        <p class="text-gray-600 mb-4" data-lang-key="lowInvolvementIntro">Despite its critical importance, many businesses and individuals in Nepal may not fully engage in professional auditing due to several factors:</p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li data-lang-key="lowInvolvementReason1">**Lack of Awareness:** Limited understanding of the long-term benefits of regular, comprehensive audits beyond mere tax compliance. </li>
+                            <li data-lang-key="lowInvolvementReason2">**Perceived Cost:** Businesses, especially SMEs, may view auditing as an unnecessary expense rather than an great investment in financial health and risk mitigation. </li>
+                            <li data-lang-key="lowInvolvementReason3">**Limited Capacity:** Shortage of qualified and experienced auditors, particularly for specialized sectors like complex construction projects. </li>
+                            <li data-lang-key="lowInvolvementReason4">**Informal Practices:** Prevalence of informal financial practices in some sectors, making formal auditing challenging. </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="consequencesHeadline">Consequences of Inadequate Auditing</h3>
+                    <p class="text-gray-600 max-w-3xl mx-auto" data-lang-key="consequencesText">
+                        Neglecting proper auditing can lead to severe consequences, including legal penalties, loss of investor and stakeholder trust, undetected fraud, inaccurate financial reporting, and missed opportunities for operational improvements. Our firm helps mitigate these risks by providing thorough and reliable audit services.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="testimonialsHeadline">Hear From Our Valued Clients: Success Stories</h2>
+                    <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto" data-lang-key="testimonialsSubHeadline">
+                        We are proud to be a trusted partner for businesses across Nepal.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="testimonial-card bg-gray-50 p-8 rounded-lg">
+                        <p class="text-gray-600 italic mb-4" data-lang-key="testimonial1Text">"The cybersecurity assessment was incredibly thorough and opened our eyes to vulnerabilities we never knew existed. Their team provided clear, actionable steps to secure our data. We feel much safer now."</p>
+                        <p class="font-bold text-gray-800" data-lang-key="testimonial1Name">IT Director</p>
+                        <p class="text-gray-500" data-lang-key="testimonial1Company">Leading Financial Institution, Kathmandu</p>
+                    </div>
+                    <div class="testimonial-card bg-gray-50 p-8 rounded-lg">
+                        <p class="text-gray-600 italic mb-4" data-lang-key="testimonial2Text">"Navigating the compliance audit for our construction project was a major challenge. The auditors were professional, knowledgeable, and guided us through every step, ensuring we met all regulatory requirements."</p>
+                        <p class="font-bold text-gray-800" data-lang-key="testimonial2Name">Project Manager</p>
+                        <p class="text-gray-500" data-lang-key="testimonial2Company">Major Construction Firm, Pokhara</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Cyber Quiz Section -->
+        <section id="cyber-quiz" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="quizHeadline">Are You Cyber-Smart? Test Your Knowledge!</h2>
+                    <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto" data-lang-key="quizSubHeadline">Test your basic cybersecurity knowledge and see how well prepared you are against common threats.</p>
+                </div>
+
+                <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
+                    <div id="quiz-container">
+                        <h3 id="quiz-question" class="text-xl font-bold text-gray-800 mb-6"></h3>
+                        <div id="quiz-options" class="space-y-4">
+                            </div>
+                        <p id="quiz-instant-feedback" class="quiz-feedback-text hidden"></p>
+                        <button id="next-question-btn" class="mt-8 cta-button bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg w-full opacity-50 cursor-not-allowed" disabled data-lang-key="quizNextBtn">Next Question</button>
+                    </div>
+                    <div id="quiz-results" class="hidden text-center">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="quizResultsHeadline">Quiz Results</h3>
+                        <p class="text-xl font-bold mb-4">
+                            <span data-lang-key="quizScorePrefix">Your Score:</span> <span id="score-display" class="font-extrabold text-blue-600"></span>
+                        </p>
+                        <p id="quiz-feedback" class="text-lg text-gray-600 mb-6"></p>
+                        <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                            <a href="#contact" id="quiz-contact-cta" class="cta-button bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg w-full md:w-auto" data-lang-key="quizContactCTA"></a>
+                            <button id="retake-quiz-btn" class="cta-button bg-gray-400 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg w-full md:w-auto" data-lang-key="quizRetakeBtn">Retake Quiz</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQs Section -->
+        <section id="faqs" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="faqsHeadline">Frequently Asked Questions</h2>
+                    <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto" data-lang-key="faqsSubHeadline">Find quick answers to common questions about our services and the industry.</p>
+                </div>
+
+                <div class="max-w-3xl mx-auto">
+                    <div class="faq-item">
+                        <div class="faq-question" data-lang-key="faq1Question">
+                            What is the importance of cybersecurity for my business in Nepal?
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer" data-lang-key="faq1Answer">
+                            Cybersecurity is crucial as Nepal's digital landscape grows. It protects your sensitive data, prevents financial losses from cyberattacks like ransomware and phishing, maintains customer trust, and ensures compliance with evolving data protection regulations. Without it, businesses face significant risks of breaches, operational disruption, and reputational damage.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" data-lang-key="faq2Question">
+                            What types of audits do you perform for construction sites?
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer" data-lang-key="faq2Answer">
+                            For construction sites and other sectors, our CPA/CA experts conduct Financial Statement Audits, Compliance Audits (ensuring adherence to local building codes, labor laws, and environmental regulations), and Tax Audits. We ensure financial transparency, regulatory compliance, and identify potential risks specific to the construction industry.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" data-lang-key="faq3Question">
+                            How can IT consultation benefit my small business?
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer" data-lang-key="faq3Answer">
+                            IT consultation helps small businesses optimize their technology infrastructure, improve operational efficiency, and make informed IT investments. We can assist with network design, data management strategies, cloud adoption, and system integration, ensuring your technology supports your business goals effectively and securely.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" data-lang-key="faq4Question">
+                            Do you provide services for both large enterprises and SMEs?
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer" data-lang-key="faq4Answer">
+                            Yes, our services are scalable and tailored to meet the needs of businesses of all sizes, from small and medium-sized enterprises (SMEs) to large corporations and government organizations. We understand that each entity has unique requirements and vulnerabilities.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" data-lang-key="faq5Question">
+                            How often should my business conduct a cybersecurity assessment?
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer" data-lang-key="faq5Answer">
+                            It is recommended to conduct cybersecurity assessments (like VAPT) at least annually, or more frequently if your IT environment undergoes significant changes, new systems are deployed, or after any security incident. Regular assessments ensure continuous protection against evolving threats.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gray-100">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="contactHeadline">Ready to Secure Your Future? Let's Connect!</h2>
+                    <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto" data-lang-key="contactSubHeadline">Reach out for a free, no-obligation consultation. We're here to help you thrive.</p>
+                </div>
+                <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
+                    <form id="contactForm">
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1" data-lang-key="formNameLabel">Full Name</label>
+                                <input type="text" id="name" name="Name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1" data-lang-key="formEmailLabel">Email Address</label>
+                                <input type="email" id="email" name="Email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1" data-lang-key="formPhoneLabel">Phone Number</label>
+                            <input type="tel" id="phone" name="Phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div class="mb-6">
+                            <label for="company" class="block text-sm font-medium text-gray-700 mb-1" data-lang-key="formCompanyLabel">Company</label>
+                            <input type="text" id="company" name="Company" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1" data-lang-key="formMessageLabel">Message</label>
+                            <textarea id="message" name="Message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="cta-button bg-blue-600 text-white font-bold py-3 px-10 rounded-full text-lg shadow-lg w-full md:w-auto" data-lang-key="formSubmitBtn">Get in Touch</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-12 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h4 class="text-lg font-bold mb-4" data-lang-key="firmName">Nepal Cybersecurity, Audit and IT Consultation</h4>
+                    <p class="text-gray-400 text-sm" data-lang-key="footerLocation"></p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4" data-lang-key="footerQuickLinks">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="text-gray-400 hover:text-white" data-lang-key="navServices">Services</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white" data-lang-key="navWhyUs">Why Us</a></li>
+                        <li><a href="#faqs" class="text-gray-400 hover:text-white" data-lang-key="navFAQs">FAQs</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white" data-lang-key="navContact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4" data-lang-key="footerConnect">Connect With Us</h4>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook fa-lg"></i></a>
+                    </div>
+                     <p class="text-gray-400 text-sm mt-4"><span data-lang-key="emailPrefix">Email: </span><a href="mailto:NepalCybersecurity@gmail.com" class="hover:text-white">NepalCybersecurity@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500 text-sm">
+                 <p data-lang-key="footerCopyright">&copy; 2025 Nepal Cybersecurity, Audit and IT Consultation. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Message box for form submission feedback -->
+    <div id="messageBox" class="message-box">
+        </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Language content object
+            const content = {
+                en: {
+                    pageTitle: "Nepal Cybersecurity, Audit and IT Consultation - Securing Nepal's Digital Future",
+                    firmName: "Nepal Cybersecurity, Audit and IT Consultation",
+                    navServices: "Our Services",
+                    navWhyUs: "Why Choose Us?",
+                    navThreats: "Threat Landscape",
+                    navAuditing: "Auditing Insights",
+                    navTestimonials: "Client Success",
+                    navCyberQuiz: "Cyber Quiz",
+                    navFAQs: "FAQs",
+                    navContact: "Contact Us",
+                    getConsultationBtn: "Get Consultation",
+                    heroHeadline: "Securing Nepal's Digital Future",
+                    heroSubHeadline: "We provide world-class cybersecurity, IT, and audit solutions tailored for the unique landscape of Nepali businesses. Your shield in the evolving digital world.",
+                    heroCTA: "Request a Free Quote",
+                    aboutHeadline: "About Nepal Cybersecurity, Audit and IT Consultation",
+                    aboutSubHeadline: "We are a leading consultation firm in Nepal, dedicated to empowering businesses with robust cybersecurity, efficient IT infrastructure, and meticulous financial audits. Our integrated approach ensures comprehensive protection and operational excellence.",
+                    aboutMissionHeadline: "Our Mission & Vision",
+                    aboutMissionText1: "Our mission is to be the trusted partner for businesses across Nepal, safeguarding their digital assets and ensuring compliance through expert cybersecurity, IT, and audit services. We envision a digitally secure and resilient Nepal, where businesses can thrive without fear of cyber threats or regulatory non-compliance.",
+                    aboutMissionText2: "We combine deep local market understanding with global best practices, offering tailored solutions that meet the unique challenges and opportunities within the Nepali business environment.",
+                    servicesHeadline: "Your Digital Journey, Secured: Our Services",
+                    servicesSubHeadline: "From fortifying your defenses to optimizing your operations and ensuring financial integrity, we offer a unique blend of specialized services.",
+                    tabCybersecurity: "Cybersecurity Solutions",
+                    tabITConsultation: "IT Strategy & Support",
+                    tabCPA_CAAudits: "Expert Audit & Assurance",
+                    vaptTab: "VAPT",
+                    vaptHeadline: "Proactive Security: Vulnerability & Penetration Testing (VAPT)",
+                    vaptDescription: "We act as ethical hackers, identifying and safely exploiting weaknesses in your systems *before* malicious attackers can. Our VAPT services simulate real-world attacks, giving you a crystal-clear view of your security posture and how to strengthen it.",
+                    vaptBenefit1: "<strong>Your Gains:</strong> Proactively eliminate security gaps, meet compliance standards, and safeguard your valuable data.",
+                    vaptProcess1: "<strong>Our Approach:</strong> Detailed scoping, information gathering, threat modeling, controlled exploitation, and comprehensive reporting with clear, actionable steps.",
+                    incidentResponseTab: "Incident Response",
+                    incidentResponseHeadline: "Rapid Response: Incident Management & Forensics",
+                    incidentResponseDescription: "When a cyber incident strikes, every moment is critical. Our expert rapid response team is ready to help you quickly contain the threat, remove the attacker, and restore your operations while meticulously preserving evidence for analysis.",
+                    incidentResponseBenefit1: "<strong>Your Gains:</strong> Minimize financial and reputational damage, swiftly resume business operations, and learn from incidents to prevent future occurrences.",
+                    incidentResponseProcess1: "<strong>Our Approach:</strong> Swift Containment, Thorough Eradication, Efficient Recovery, and In-depth Post-Incident Analysis.",
+                    awarenessTrainingTab: "Awareness Training",
+                    awarenessTrainingHeadline: "Empower Your Team: Security Awareness Training",
+                    awarenessTrainingDescription: "Your employees are your strongest defense. We provide engaging, practical training programs that transform your staff into a vigilant human firewall, equipped to recognize and resist phishing, social engineering, and other common cyber threats.",
+                    awarenessTrainingBenefit1: "<strong>Your Gains:</strong> Significantly reduce human error, cultivate a robust security-first culture, and drastically lower the risk of successful cyberattacks.",
+                    awarenessTrainingProcess1: "<strong>Our Approach:</strong> Tailored training modules, realistic phishing simulations, and measurable progress tracking.",
+                    networkDesignTab: "Network Design & Implementation",
+                    networkDesignHeadline: "Foundation for Growth: Network Design & Setup",
+                    networkDesignDescription: "We engineer and deploy resilient, scalable, and secure network infrastructures that form the backbone of your business operations and future expansion.",
+                    networkDesignBenefit1: "<strong>Your Gains:</strong> Optimized performance, fortified security, and a network ready for tomorrow's demands.",
+                    networkDesignProcess1: "<strong>Our Approach:</strong> Needs Assessment, Strategic Design, Seamless Implementation, Rigorous Testing, and Comprehensive Documentation.",
+                    dataManagementTab: "Data Management",
+                    dataManagementHeadline: "Unlock Insights: Data Management & Analytics",
+                    dataManagementDescription: "From establishing robust data governance to implementing advanced analytics, we empower you to manage your data effectively, extract valuable insights, and make truly informed business decisions.",
+                    dataManagementBenefit1: "<strong>Your Gains:</strong> Smarter decision-making, superior data quality, and effortless compliance with data privacy regulations.",
+                    dataManagementProcess1: "<strong>Our Approach:</strong> Data Strategy Development, Quality Assurance, Data Warehousing Solutions, and Business Intelligence Reporting.",
+                    systemIntegrationTab: "System Integration",
+                    systemIntegrationHeadline: "Seamless Operations: System Integration",
+                    systemIntegrationDescription: "We bridge the gaps between your diverse systems and applications, creating a unified operational environment that streamlines workflows and significantly boosts overall efficiency.",
+                    systemIntegrationBenefit1: "<strong>Your Gains:</strong> Reduced manual effort, smooth data flow, and enhanced team productivity. ",
+                    systemIntegrationProcess1: "<strong>Our Approach:</strong> Thorough Requirements Analysis, Custom Solution Design, Expert Development, Rigorous Testing, and Smooth Deployment.",
+                    financialAuditTab: "Financial Statement Audit",
+                    financialAuditHeadline: "Financial Clarity: Independent Statement Audits",
+                    financialAuditDescription: "Our seasoned CPAs and CAs conduct meticulous audits of your financial statements, ensuring absolute accuracy, complete transparency, and strict adherence to all accounting standards.",
+                    financialAuditBenefit1: "<strong>Your Gains:</strong> Boosted credibility, increased investor confidence, and early detection of financial discrepancies.",
+                    financialAuditProcess1: "<strong>Our Approach:</strong> Strategic Planning, Comprehensive Risk Assessment, Thorough Evidence Gathering, Clear Reporting, and Proactive Follow-up.",
+                    complianceAuditTab: "Compliance Audit",
+                    complianceAuditHeadline: "Regulatory Confidence: Compliance Audits",
+                    complianceAuditDescription: "We verify that your operations, especially for sectors like construction, fully comply with all relevant local and international regulations and legal requirements, minimizing your risk exposure.",
+                    complianceAuditBenefit1: "<strong>Your Gains:</strong> Avoidance of costly penalties, significant reduction in legal risks, and strong corporate governance.",
+                    complianceAuditProcess1: "<strong>Our Approach:</strong> Regulatory Mapping, Control Effectiveness Testing, Gap Analysis, and Actionable Remediation Planning.",
+                    taxAuditTab: "Tax Audit",
+                    taxAuditHeadline: "Tax Optimization: Expert Tax Audits",
+                    taxAuditDescription: "Our tax audits meticulously verify the accuracy of your tax returns and ensure full compliance with tax laws, helping you minimize risks and strategically optimize your tax liabilities.",
+                    taxAuditBenefit1: "<strong>Your Gains:</strong> Assurance of tax adherence, identification of potential tax savings, and prevention of tax disputes.",
+                    taxAuditProcess1: "<strong>Our Approach:</strong> Review of Financial Records, Verification of Tax Calculations, Comprehensive Compliance Checks, and Official Reporting to Tax Authorities.",
+                    whyUsHeadline: "Why Partner With Us? Your Advantage, Our Expertise",
+                    whyUsSubHeadline: "We combine global expertise with deep local understanding to deliver unparalleled cybersecurity, IT, and audit services in Nepal.",
+                    whyUsCard1Title: "Integrated Expertise",
+                    whyUsCard1Text: "Unique blend of cybersecurity, IT, and financial audit capabilities under one roof.",
+                    whyUsCard2Title: "Local & Global Standards",
+                    whyUsCard2Text: "Deep understanding of Nepali context combined with international best practices.",
+                    whyUsCard3Title: "Client-Centric Solutions",
+                    whyUsCard3Text: "Tailored strategies that align with your specific business needs and goals.",
+                    teamHeadline: "Our Leadership Team: Driving Your Success",
+                    teamMember1Name: "Alish Uprety",
+                    teamMember1Role: "Lead Cybersecurity Strategist",
+                    teamMember1Bio: "Extensive experience in fortifying digital defenses for large businesses in the USA, bringing global best practices to Nepal.",
+                    teamMember2Name: "Bhawesh Shrestha",
+                    teamMember2Role: "Lead Auditor (CPA/CA)",
+                    teamMember2Bio: "Over 1000 successful audits and extensive involvement in huge projects across diverse sectors in Nepal, ensuring financial integrity and compliance.",
+                    teamMember3Name: "Our Expert Team",
+                    teamMember3Role: "Specialists in IT & Regulatory Compliance",
+                    teamMember3Bio: "A dedicated team ensuring your business adheres to all local and international regulatory frameworks, minimizing legal risks and fostering good governance.",
+                    teamMember4Name: "Akash Sharma",
+                    teamMember4Role: "Lead Principal Developer",
+                    teamMember4Bio: "A seasoned developer with extensive experience at industry giants like Google and T-Mobile, driving innovation in high-impact development sectors.",
+                    threatLandscapeHeadline: "Navigating Nepal's Cyber Threat Landscape",
+                    threatLandscapeSubHeadline: "Explore the evolving digital risks facing Nepali businesses. Understanding these threats is your first step towards robust defense.",
+                    threatInsightsHeadline: "Real-time Threat Insights (Simulated Data)",
+                    threatInsightsSubHeadline: "In a live system, this section would dynamically update with the latest cybersecurity statistics for Nepal's sectors. Below are recent findings highlighting the ongoing challenges:",
+                    insight1Value: "52",
+                    insight1Desc: "Average daily cybercrime cases reported in Nepal (Fiscal Year 2024-25).",
+                    insight2Value: "87.82% Increase",
+                    insight2Desc: "Surge in financial scams and fraud cases (FY 2023-24 to FY 2024-25).",
+                    insight3Value: "~52%",
+                    insight3Desc: "Of cybercrime cases are related to hacking (as of August 2024).",
+                    insight4Value: "Over 80%",
+                    insight4Desc: "Of Nepal's websites are vulnerable to cyber attacks (as of January 2024).",
+                    insight5Value: "67%",
+                    insight5Desc: "Of SMEs in Nepal lack basic cybersecurity practices (2023 poll).",
+                    insight6Value: "Financial Sector",
+                    insight6Desc: "Most frequently attacked sector in Nepal.",
+                    noteLabel: "Note:",
+                    insightNote: "The data above is based on recent reports and statistics from Nepali Cyber Bureau and cybersecurity analyses (as of July 2025). In a production environment, these insights would be fed by real-time data sources.",
+                    liveThreatMapHeadline: "Global Cyber Threat Monitor (Conceptual)",
+                    liveThreatMapDescription: "This section provides a conceptual view of real-time global cyber threats, highlighting the dynamic nature of cyber warfare. While not a live map, it displays recent cybersecurity news and trends from around the world, demonstrating the constant need for vigilance and expert defense.",
+                    mapPlaceholder: "Global Cyber Attack Trends (Conceptual Graph)",
+                    globalThreatError: "Failed to load global threat news. Please try again later.",
+                    globalThreatGraphLabels: ['Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024'],
+                    globalThreatGraphData1Label: 'रैंसमवेयर आक्रमणहरू (मिलियन)',
+                    globalThreatGraphData2Label: 'डाटा उल्लङ्घन (अरब रेकर्ड)',
+                    auditingHeadline: "Auditing in Nepal: Navigating Challenges, Unlocking Opportunities",
+                    auditingSubHeadline: "Our audit services offer more than compliance; they provide critical insights into your financial health and operational integrity across diverse sectors.",
+                    auditFindingsHeadline: "Common Audit Findings in Nepal",
+                    auditFindingsIntro: "Based on our experience, common issues identified during audits in Nepal often include:",
+                    auditFinding1: "Inadequate internal controls, leading to potential fraud or errors.",
+                    auditFinding2: "Non-compliance with local tax laws and regulations.",
+                    auditFinding3: "Lack of proper documentation for financial transactions, especially in construction projects.",
+                    auditFinding4: "Under-reporting or misclassification of income and expenses.",
+                    auditFinding5: "Weak asset management and inventory control systems.",
+                    lowInvolvementHeadline: "Why Low Involvement in Auditing?",
+                    lowInvolvementIntro: "Despite its critical importance, many businesses and individuals in Nepal may not fully engage in professional auditing due to several factors:",
+                    lowInvolvementReason1: "**Lack of Awareness:** Limited understanding of the long-term benefits of regular, comprehensive audits beyond mere tax compliance. ",
+                    lowInvolvementReason2: "**Perceived Cost:** Businesses, especially SMEs, may view auditing as an unnecessary expense rather than an great investment in financial health and risk mitigation. ",
+                    lowInvolvementReason3: "**Limited Capacity:** Shortage of qualified and experienced auditors, particularly for specialized sectors like complex construction projects. ",
+                    lowInvolvementReason4: "**Informal Practices:** Prevalence of informal financial practices in some sectors, making formal auditing challenging. ",
+                    consequencesHeadline: "Consequences of Inadequate Auditing",
+                    consequencesText: "Neglecting proper auditing can lead to severe consequences, including legal penalties, loss of investor and stakeholder trust, undetected fraud, inaccurate financial reporting, and missed opportunities for operational improvements. Our firm helps mitigate these risks by providing thorough and reliable audit services.",
+                    testimonialsHeadline: "Hear From Our Valued Clients: Success Stories",
+                    testimonialsSubHeadline: "We are proud to be a trusted partner for businesses across Nepal.",
+                    testimonial1Text: "\"The cybersecurity assessment was incredibly thorough and opened our eyes to vulnerabilities we never knew existed. Their team provided clear, actionable steps to secure our data. We feel much safer now.\"",
+                    testimonial1Name: "IT Director",
+                    testimonial1Company: "Leading Financial Institution, Kathmandu",
+                    testimonial2Text: "\"Navigating the compliance audit for our construction project was a major challenge. The auditors were professional, knowledgeable, and guided us through every step, ensuring we met all regulatory requirements.\"",
+                    testimonial2Name: "Project Manager",
+                    testimonial2Company: "Major Construction Firm, Pokhara",
+                    quizHeadline: "Are You Cyber-Smart? Test Your Knowledge!",
+                    quizSubHeadline: "Test your basic cybersecurity knowledge and see how well prepared you are against common threats.",
+                    quizNextBtn: "Next Question",
+                    quizResultsHeadline: "Quiz Results",
+                    quizScorePrefix: "Your Score: ",
+                    quizFeedbackExcellent: "Excellent! You're a cyber-smart champion! Your strong understanding of cybersecurity is commendable. Ready to take your security to the next level? Our advanced solutions and expert team are here to help you fortify your digital defenses even further. Let's connect and build an impenetrable shield for your business!",
+                    quizFeedbackGood: "Good job! You have a solid grasp of cybersecurity basics. There's always room to grow in the evolving digital landscape. Want to sharpen your skills and ensure your business is truly resilient? Our tailored awareness training and expert consultations can guide you. Reach out to us for a personalized security roadmap!",
+                    quizFeedbackFair: "Fair. You've got some cybersecurity knowledge, but there are areas where you can definitely strengthen your defenses. The digital world is constantly changing, and staying ahead is key. Let our experts help you bridge those gaps and protect your valuable assets. Contact us for a free security assessment!",
+                    quizFeedbackPoor: "Needs improvement. Don't worry, cybersecurity can be complex, but protecting your business is vital. Your quiz results indicate some significant knowledge gaps that could leave you vulnerable. It's time to act! Our comprehensive security awareness training and expert consultation services are designed to equip you and your team with the essential knowledge and tools to stay safe. Let's talk about building a stronger defense for your business today!",
+                    quizRetakeBtn: "Retake Quiz",
+                    quizContactCTA: "Strengthen Your Security with Our Experts",
+                    quizQ1: "Which of the following is the most common method cybercriminals use to trick people into revealing sensitive information?",
+                    quizQ1A1: "Phishing emails",
+                    quizQ1A2: "Strong passwords",
+                    quizQ1A3: "Antivirus software",
+                    quizQ1A4: "Two-factor authentication",
+                    quizQ2: "What is the primary purpose of a 'firewall' in network security?",
+                    quizQ2A1: "To speed up internet connection",
+                    quizQ2A2: "To block unauthorized access to a network",
+                    quizQ2A3: "To store data securely",
+                    quizQ2A4: "To manage email accounts",
+                    quizQ3: "What does 'Ransomware' do?",
+                    quizQ3A1: "Steals your personal photos",
+                    quizQ3A2: "Encrypts your files and demands payment for their release",
+                    quizQ3A3: "Speeds up your computer's performance",
+                    quizQ3A4: "Deletes all your Browse history",
+                    quizQ4: "Why is it important to regularly update your software and operating system?",
+                    quizQ4A1: "To get new features",
+                    quizQ4A2: "To fix security vulnerabilities and bugs",
+                    quizQ4A3: "To change the user interface",
+                    quizQ4A4: "To increase hard drive space",
+                    quizQ5: "What is 'Two-Factor Authentication (2FA)'?",
+                    quizQ5A1: "Using two different email addresses",
+                    quizQ5A2: "Logging in with a password and a second verification method (e.g., code from phone)",
+                    quizQ5A3: "Sharing your password with two trusted friends",
+                    quizQ5A4: "Having two antivirus programs installed",
+                    quizQ6: "What is phishing?",
+                    quizQ6A1: "A type of fishing.",
+                    quizQ6A2: "An attempt to trick you into revealing sensitive information.",
+                    quizQ6A3: "A type of computer virus.",
+                    quizQ6A4: "A secure way to share files.",
+                    quizQ7: "What should you do if you receive a suspicious email?",
+                    quizQ7A1: "Click on all links immediately.",
+                    quizQ7A2: "Reply asking for more information.",
+                    quizQ7A3: "Delete it or mark it as spam.",
+                    quizQ7A4: "Forward it to all your contacts.",
+                    quizQ8: "What is a strong password combination?",
+                    quizQ8A1: "Your birth date.",
+                    quizQ8A2: "A mix of uppercase, lowercase, numbers, and symbols.",
+                    quizQ8A3: "Your pet's name.",
+                    quizQ8A4: "A common word like \"password\".",
+                    quizQ9: "Why is it important to use different passwords for different accounts?",
+                    quizQ9A1: "It makes them easier to remember.",
+                    quizQ9A2: "If one account is compromised, others remain secure.",
+                    quizQ9A3: "It improves your internet speed.",
+                    quizQ9A4: "It's not important.",
+                    quizQ10: "What is the purpose of antivirus software?",
+                    quizQ10A1: "To make your computer faster.",
+                    quizQ10A2: "To protect against malicious software.",
+                    quizQ10A3: "To manage your files.",
+                    quizQ10A4: "To browse the internet securely.",
+                    quizQ11: "What is a common sign of a phishing attempt?",
+                    quizQ11A1: "Perfect grammar and spelling.",
+                    quizQ11A2: "Request for personal information like passwords.",
+                    quizQ11A3: "A message from a known sender.",
+                    quizQ11A4: "A link to a well-known website.",
+                    quizQ12: "What does VPN stand for?",
+                    quizQ12A1: "Very Private Network.",
+                    quizQ12A2: "Virtual Public Network.",
+                    quizQ12A3: "Virtual Private Network.",
+                    quizQ12A4: "Verified Personal Network.",
+                    quizQ13: "Why should you avoid connecting to unsecured public Wi-Fi networks?",
+                    quizQ13A1: "They are often slow.",
+                    quizQ13A2: "Your data can be easily intercepted by others.",
+                    quizQ13A3: "They might charge you money.",
+                    quizQ13A4: "They limit your browsing time.",
+                    quizQ14: "What is 'social engineering' in cybersecurity?",
+                    quizQ14A1: "Using social media for marketing.",
+                    quizQ14A2: "Manipulating people to gain access to information or systems.",
+                    quizQ14A3: "Designing secure social networks.",
+                    quizQ14A4: "Analyzing social trends.",
+                    quizQ15: "How can you protect yourself from ransomware?",
+                    quizQ15A1: "By clicking on suspicious links.",
+                    quizQ15A2: "By regularly backing up your data.",
+                    quizQ15A3: "By sharing your personal information.",
+                    quizQ15A4: "By never using a computer.",
+                    quizQ16: "What is the best practice for downloading software?",
+                    quizQ16A1: "Download from unofficial websites.",
+                    quizQ16A2: "Download from torrent sites.",
+                    quizQ16A3: "Download from trusted, official sources.",
+                    quizQ16A4: "Disable your antivirus before downloading.",
+                    quizQ17: "What is a data breach?",
+                    quizQ17A1: "A new software update.",
+                    quizQ17A2: "Unauthorized access to or disclosure of sensitive data.",
+                    quizQ17A3: "A successful marketing campaign.",
+                    quizQ17A4: "A network speed test.",
+                    quizQ18: "What is the purpose of a strong password policy in an organization?",
+                    quizQ18A1: "To make passwords harder to remember.",
+                    quizQ18A2: "To reduce the risk of unauthorized access.",
+                    quizQ18A3: "To increase IT support requests.",
+                    quizQ18A4: "To comply with outdated regulations.",
+                    quizQ19: "What is encryption?",
+                    quizQ19A1: "A way to make files smaller.",
+                    quizQ19A2: "Converting data into a code to prevent unauthorized access.",
+                    quizQ19A3: "A method for sending emails faster.",
+                    quizQ19A4: "A type of computer hardware.",
+                    quizQ20: "Why is it important to log out of public computers after use?",
+                    quizQ20A1: "To save battery life.",
+                    quizQ20A2: "To prevent others from accessing your accounts.",
+                    quizQ20A3: "To speed up the computer for the next user.",
+                    quizQ20A4: "It's not necessary.",
+                    faqsHeadline: "Frequently Asked Questions",
+                    faqsSubHeadline: "Find quick answers to common questions about our services and the industry.",
+                    faq1Question: "What is the importance of cybersecurity for my business in Nepal?",
+                    faq1Answer: "Cybersecurity is crucial as Nepal's digital landscape grows. It protects your sensitive data, prevents financial losses from cyberattacks like ransomware and phishing, maintains customer trust, and ensures compliance with evolving data protection regulations. Without it, businesses face significant risks of breaches, operational disruption, and reputational damage.",
+                    faq2Question: "What types of audits do you perform for construction sites?",
+                    faq2Answer: "For construction sites and other sectors, our CPA/CA experts conduct Financial Statement Audits, Compliance Audits (ensuring adherence to local building codes, labor laws, and environmental regulations), and Tax Audits. We ensure financial transparency, regulatory compliance, and identify potential risks specific to the construction industry.",
+                    faq3Question: "How can IT consultation benefit my small business?",
+                    faq3Answer: "IT consultation helps small businesses optimize their technology infrastructure, improve operational efficiency, and make informed IT investments. We can assist with network design, data management strategies, cloud adoption, and system integration, ensuring your technology supports your business goals effectively and securely.",
+                    faq4Question: "Do you provide services for both large enterprises and SMEs?",
+                    faq4Answer: "Yes, our services are scalable and tailored to meet the needs of businesses of all sizes, from small and medium-sized enterprises (SMEs) to large corporations and government organizations. We understand that each entity has unique requirements and vulnerabilities.",
+                    faq5Question: "How often should my business conduct a cybersecurity assessment?",
+                    faq5Answer: "It is recommended to conduct cybersecurity assessments (like VAPT) at least annually, or more frequently if your IT environment undergoes significant changes, new systems are deployed, or after any security incident. Regular assessments ensure continuous protection against evolving threats.",
+                    contactHeadline: "Ready to Secure Your Future? Let's Connect!",
+                    contactSubHeadline: "Reach out for a free, no-obligation consultation. We're here to help you thrive.",
+                    formNameLabel: "Full Name",
+                    formEmailLabel: "Email Address",
+                    formPhoneLabel: "Phone Number",
+                    formCompanyLabel: "Company",
+                    formMessageLabel: "Message",
+                    formSubmitBtn: "Get in Touch",
+                    messageBoxSuccess: "Thank you for your message! Our team will reach out to you shortly. Namaste.",
+                    footerQuickLinks: "Quick Links",
+                    footerConnect: "Connect With Us",
+                    emailPrefix: "Email: ",
+                    footerCopyright: "&copy; 2025 Nepal Cybersecurity, Audit and IT Consultation. All Rights Reserved.",
+                    footerLocation: "Kathmandu, Nepal | Protecting Nepali Businesses",
+                    quizCorrectFeedback: "Correct!", // General correct feedback
+                    quizIncorrectPrefix: "Incorrect. The correct answer was: ", // Prefix for incorrect feedback
+                    quizQ1Explanation: "Phishing emails are a common tactic where attackers impersonate trusted entities to trick recipients into revealing sensitive information like passwords or financial details.",
+                    quizQ2Explanation: "A firewall acts as a barrier, monitoring and controlling incoming and outgoing network traffic based on predetermined security rules, thus blocking unauthorized access.",
+                    quizQ3Explanation: "Ransomware is malicious software that encrypts a victim's files, making them inaccessible, and demands a ransom payment, typically in cryptocurrency, for decryption.",
+                    quizQ4Explanation: "Regular software updates often include security patches that fix newly discovered vulnerabilities, protecting your system from exploitation by attackers.",
+                    quizQ5Explanation: "2FA adds an extra layer of security by requiring a second form of verification beyond just a password, such as a code from your phone or a fingerprint.",
+                    quizQ6Explanation: "Phishing is a cybercrime in which a target or targets are contacted by email, telephone or text message by someone posing as a legitimate institution to entice individuals into providing sensitive data such as personally identifiable information, banking and credit card details, and passwords.",
+                    quizQ7Explanation: "Deleting or marking suspicious emails as spam prevents you from accidentally clicking malicious links or opening infected attachments. Never reply or forward them.",
+                    quizQ8Explanation: "A strong password should be a unique combination of uppercase and lowercase letters, numbers, and symbols, making it difficult for attackers to guess or crack.",
+                    quizQ9Explanation: "Using different passwords for different accounts limits the damage if one account is compromised. If attackers gain access to one password, they won't automatically have access to your other accounts.",
+                    quizQ10Explanation: "Antivirus software is designed to detect, prevent, and remove malicious software, including viruses, worms, and Trojans, protecting your computer from various threats.",
+                    quizQ11Explanation: "Phishing attempts often contain grammatical errors, spelling mistakes, urgent or threatening language, and requests for personal information, which legitimate organizations rarely ask for via email.",
+                    quizQ12Explanation: "VPN stands for Virtual Private Network. It creates a secure, encrypted connection over a less secure network, like the internet, providing privacy and anonymity.",
+                    quizQ13Explanation: "Public Wi-Fi networks are often unsecured, meaning your data can be easily intercepted by malicious actors on the same network. This puts your personal and sensitive information at risk.",
+                    quizQ14Explanation: "Social engineering is the psychological manipulation of people into performing actions or divulging confidential information. It relies on tricking individuals rather than technical hacking.",
+                    quizQ15Explanation: "Regularly backing up your data to an external drive or cloud service ensures that even if your files are encrypted by ransomware, you can restore them without paying the ransom.",
+                    quizQ16Explanation: "Downloading software only from trusted, official sources minimizes the risk of installing malware or compromised applications. Unofficial sites often host pirated or infected software.",
+                    quizQ17Explanation: "A data breach occurs when unauthorized individuals gain access to sensitive, protected, or confidential data. This can lead to identity theft, financial fraud, and reputational damage.",
+                    quizQ18Explanation: "A strong password policy enforces rules for creating complex and unique passwords, significantly reducing the likelihood of unauthorized access to organizational systems and data.",
+                    quizQ19Explanation: "Encryption is the process of converting information or data into a code, especially to prevent unauthorized access. It scrambles data so that only authorized parties can understand it.",
+                    quizQ20Explanation: "Logging out of public computers after use prevents the next user from accessing your accounts, browsing history, or any sensitive information you might have left open.",
+                },
+                ne: {
+                    pageTitle: "नेपाल साइबरसुरक्षा, लेखापरीक्षण र आईटी परामर्श - नेपालको डिजिटल भविष्य सुरक्षित गर्दै",
+                    firmName: "नेपाल साइबरसुरक्षा, लेखापरीक्षण र आईटी परामर्श",
+                    navServices: "हाम्रा सेवाहरू",
+                    navWhyUs: "हामी किन छनौट गर्ने?",
+                    navThreats: "खतरा परिदृश्य",
+                    navAuditing: "लेखापरीक्षण अन्तरदृष्टि",
+                    navTestimonials: "ग्राहक सफलता",
+                    navCyberQuiz: "साइबर क्विज",
+                    navFAQs: "बारम्बार सोधिने प्रश्नहरू",
+                    navContact: "हामीलाई सम्पर्क गर्नुहोस्",
+                    getConsultationBtn: "परामर्श पाउनुहोस्",
+                    heroHeadline: "नेपालको डिजिटल भविष्य सुरक्षित गर्दै",
+                    heroSubHeadline: "हामी नेपाली व्यवसायहरूको अद्वितीय परिदृश्यका लागि अनुकूलित विश्व-स्तरीय साइबरसुरक्षा, आईटी, र लेखापरीक्षण समाधानहरू प्रदान गर्दछौं। विकसित डिजिटल संसारमा तपाईंको ढाल।",
+                    heroCTA: "नि:शुल्क उद्धरण अनुरोध गर्नुहोस्",
+                    aboutHeadline: "नेपाल साइबरसुरक्षा, लेखापरीक्षण र आईटी परामर्श बारे",
+                    aboutSubHeadline: "हामी नेपालको एक अग्रणी परामर्श फर्म हौं, जुन व्यवसायहरूलाई बलियो साइबरसुरक्षा, कुशल आईटी पूर्वाधार, र सावधानीपूर्वक वित्तीय लेखापरीक्षणका साथ सशक्त बनाउन समर्पित छ। हाम्रो एकीकृत दृष्टिकोणले व्यापक सुरक्षा र सञ्चालन उत्कृष्टता सुनिश्चित गर्दछ।",
+                    aboutMissionHeadline: "हाम्रो मिशन र भिजन",
+                    aboutMissionText1: "हाम्रो मिशन नेपालभरका व्यवसायहरूको लागि विश्वसनीय साझेदार बन्नु हो, उनीहरूको डिजिटल सम्पत्तिहरूको सुरक्षा गर्दै र विशेषज्ञ साइबरसुरक्षा, आईटी, र लेखापरीक्षण सेवाहरू मार्फत अनुपालन सुनिश्चित गर्दै। हामी एक डिजिटल रूपमा सुरक्षित र लचिलो नेपालको परिकल्पना गर्दछौं, जहाँ व्यवसायहरू साइबर खतरा वा नियामक गैर-अनुपालनको डर बिना फस्टाउन सक्छन्।",
+                    aboutMissionText2: "हामी गहिरो स्थानीय बजार बुझाइलाई विश्वव्यापी उत्कृष्ट अभ्यासहरूसँग जोड्छौं, नेपाली व्यापार वातावरण भित्रका अद्वितीय चुनौतीहरू र अवसरहरू पूरा गर्ने अनुकूलित समाधानहरू प्रदान गर्दछौं।",
+                    servicesHeadline: "तपाईंको डिजिटल यात्रा, सुरक्षित: हाम्रा सेवाहरू",
+                    servicesSubHeadline: "तपाईंको प्रतिरक्षालाई सुदृढ गर्नदेखि लिएर तपाईंको सञ्चालनहरूलाई अनुकूलित गर्न र वित्तीय अखण्डता सुनिश्चित गर्न, हामी विशेष सेवाहरूको एक अद्वितीय मिश्रण प्रदान गर्दछौं।",
+                    tabCybersecurity: "साइबरसुरक्षा समाधानहरू",
+                    tabITConsultation: "आईटी रणनीति र समर्थन",
+                    tabCPA_CAAudits: "विशेषज्ञ लेखापरीक्षण र आश्वासन",
+                    vaptTab: "VAPT",
+                    vaptHeadline: "सक्रिय सुरक्षा: कमजोरी मूल्याङ्कन र प्रवेश परीक्षण (VAPT)",
+                    vaptDescription: "हामी नैतिक ह्याकरको रूपमा काम गर्छौं, दुर्भावनापूर्ण आक्रमणकारीहरूले गर्नु अघि तपाईंको प्रणालीमा कमजोरीहरू पहिचान गर्छौं र सुरक्षित रूपमा शोषण गर्छौं। हाम्रो VAPT सेवाहरूले वास्तविक-विश्व आक्रमणहरू अनुकरण गर्दछ, तपाईंको सुरक्षा स्थितिको स्पष्ट तस्वीर र यसलाई कसरी बलियो बनाउने भन्ने बारे जानकारी दिन्छ।",
+                    vaptBenefit1: "<strong>तपाईंको लाभ:</strong> सक्रिय रूपमा सुरक्षा त्रुटिहरू हटाउनुहोस्, अनुपालन मापदण्डहरू पूरा गर्नुहोस्, र तपाईंको मूल्यवान डाटा सुरक्षित गर्नुहोस्।",
+                    vaptProcess1: "<strong>हाम्रो दृष्टिकोण:</strong> विस्तृत स्कोपिङ, सूचना सङ्कलन, खतरा मोडेलिङ, नियन्त्रित शोषण, र स्पष्ट, कार्ययोग्य चरणहरूको साथ विस्तृत रिपोर्टिङ।",
+                    incidentResponseTab: "घटना प्रतिक्रिया",
+                    incidentResponseHeadline: "द्रुत प्रतिक्रिया: घटना व्यवस्थापन र फरेन्सिक",
+                    incidentResponseDescription: "जब साइबर घटना हुन्छ, प्रत्येक क्षण महत्त्वपूर्ण हुन्छ। हाम्रो विशेषज्ञ द्रुत प्रतिक्रिया टोलीले तपाईंलाई खतरा समावेश गर्न, आक्रमणकारीलाई हटाउन, र विश्लेषणका लागि महत्त्वपूर्ण प्रमाणहरू सावधानीपूर्वक सुरक्षित राख्दै तपाईंको सञ्चालनहरू पुनर्स्थापना गर्न मद्दत गर्न तयार छ।",
+                    incidentResponseBenefit1: "<strong>तपाईंको लाभ:</strong> वित्तीय र प्रतिष्ठाको क्षति कम गर्नुहोस्, व्यवसाय सञ्चालनहरू छिटो पुनः सुरु गर्नुहोस्, र भविष्यका घटनाहरू रोक्न घटनाहरूबाट सिक्नुहोस्।",
+                    incidentResponseProcess1: "<strong>हाम्रो दृष्टिकोण:पी</strong> द्रुत रोकथाम, गहन उन्मूलन, कुशल रिकभरी, र विस्तृत घटना-पछिको विश्लेषण।",
+                    awarenessTrainingTab: "जागरूकता प्रशिक्षण",
+                    awarenessTrainingHeadline: "तपाईंको टोलीलाई सशक्त बनाउनुहोस्: सुरक्षा जागरूकता प्रशिक्षण",
+                    awarenessTrainingDescription: "तपाईंका कर्मचारीहरू तपाईंको सबैभन्दा बलियो रक्षा हुन्। हामी आकर्षक, व्यावहारिक प्रशिक्षण कार्यक्रमहरू प्रदान गर्दछौं जसले तपाईंको कर्मचारीहरूलाई सतर्क मानव फायरवालमा परिणत गर्दछ, फिसिङ, सामाजिक इन्जिनियरिङ, र अन्य सामान्य साइबर खतराहरूलाई पहिचान गर्न र प्रतिरोध गर्न सुसज्जित गराउँछ।",
+                    awarenessTrainingBenefit1: "<strong>तपाईंको लाभ:</strong> मानव त्रुटि उल्लेखनीय रूपमा कम गर्नुहोस्, बलियो सुरक्षा-पहिलो संस्कृति खेती गर्नुहोस्, र सफल साइबर आक्रमणहरूको जोखिमलाई धेरै कम गर्नुहोस्।",
+                    awarenessTrainingProcess1: "<strong>हाम्रो दृष्टिकोण:</strong> अनुकूलित प्रशिक्षण मोड्युलहरू, यथार्थवादी फिसिङ सिमुलेशनहरू, र मापन योग्य प्रगति ट्र्याकिङ।",
+                    networkDesignTab: "नेटवर्क डिजाइन र कार्यान्वयन",
+                    networkDesignHeadline: "वृद्धिको लागि आधार: नेटवर्क डिजाइन र सेटअप",
+                    networkDesignDescription: "हामी तपाईंको व्यवसाय सञ्चालन र भविष्यको विस्तारको मेरुदण्ड बन्ने बलियो, स्केलेबल, र सुरक्षित नेटवर्क पूर्वाधारहरू इन्जिनियर गर्छौं र परिनियोजन गर्छौं।",
+                    networkDesignBenefit1: "<strong>तपाईंको लाभ:</strong> अनुकूलित प्रदर्शन, सुदृढ सुरक्षा, र भोलिको मागका लागि तयार नेटवर्क।",
+                    networkDesignProcess1: "<strong>हाम्रो दृष्टिकोण:</strong> आवश्यकता मूल्याङ्कन, रणनीतिक डिजाइन, निर्बाध कार्यान्वयन, कठोर परीक्षण, र व्यापक कागजात।",
+                    dataManagementTab: "डाटा व्यवस्थापन",
+                    dataManagementHeadline: "अन्तरदृष्टि अनलक गर्नुहोस्: डाटा व्यवस्थापन र विश्लेषण",
+                    dataManagementDescription: "बलियो डाटा शासन स्थापनादेखि उन्नत विश्लेषण कार्यान्वयनसम्म, हामी तपाईंलाई तपाईंको डाटालाई प्रभावकारी रूपमा व्यवस्थापन गर्न, मूल्यवान अन्तरदृष्टिहरू निकाल्न, र साँच्चै सूचित व्यापार निर्णयहरू लिन सशक्त बनाउँछौं।",
+                    dataManagementBenefit1: "<strong>तपाईंको लाभ:</strong> स्मार्ट निर्णय लिने, उत्कृष्ट डाटा गुणस्तर, र डाटा गोपनीयता नियमहरूसँग सहज अनुपालन।",
+                    dataManagementProcess1: "<strong>हाम्रो दृष्टिकोण:</strong> डाटा रणनीति विकास, गुणस्तर आश्वासन, डाटा वेयरहाउसिङ समाधान, र व्यापार खुफिया रिपोर्टिङ।",
+                    systemIntegrationTab: "प्रणाली एकीकरण",
+                    systemIntegrationHeadline: "निर्बाध सञ्चालन: प्रणाली एकीकरण",
+                    systemIntegrationDescription: "हामी तपाईंको विविध प्रणालीहरू र अनुप्रयोगहरू बीचको अन्तरलाई जोड्छौं, एक एकीकृत सञ्चालन वातावरण सिर्जना गर्दछौं जसले कार्यप्रवाहहरू सुव्यवस्थित गर्दछ र समग्र दक्षतालाई उल्लेखनीय रूपमा बढाउँछ।",
+                    systemIntegrationBenefit1: "<strong>तपाईंको लाभ:</strong> म्यानुअल प्रयास कम, सहज डाटा प्रवाह, र परिष्कृत टोली उत्पादकता।",
+                    systemIntegrationProcess1: "<strong>हाम्रो दृष्टिकोण:</strong> गहन आवश्यकता विश्लेषण, अनुकूल समाधान डिजाइन, विशेषज्ञ विकास, कठोर परीक्षण, र सहज परिनियोजन।",
+                    financialAuditTab: "वित्तीय विवरण लेखापरीक्षण",
+                    financialAuditHeadline: "वित्तीय स्पष्टता: स्वतन्त्र विवरण लेखापरीक्षण",
+                    financialAuditDescription: "हाम्रा अनुभवी CPA र CA हरू तपाईंको वित्तीय विवरणहरूको सावधानीपूर्वक लेखापरीक्षण गर्छन्, पूर्ण शुद्धता, पूर्ण पारदर्शिता, र सबै लेखा मापदण्डहरूसँग कडा पालना सुनिश्चित गर्दै।",
+                    financialAuditBenefit1: "<strong>तपाईंको लाभ:</strong> बढेको विश्वसनीयता, लगानीकर्ताको विश्वास वृद्धि, र वित्तीय विसंगतिहरूको प्रारम्भिक पत्ता लगाउने।",
+                    financialAuditProcess1: "<strong>हाम्रो दृष्टिकोण:</strong> रणनीतिक योजना, व्यापक जोखिम मूल्याङ्कन, गहन प्रमाण सङ्कलन, स्पष्ट रिपोर्टिङ, र सक्रिय फलो-अप।",
+                    complianceAuditTab: "अनुपालन लेखापरीक्षण",
+                    complianceAuditHeadline: "नियामक विश्वास: अनुपालन लेखापरीक्षण",
+                    complianceAuditDescription: "हामी प्रमाणित गर्छौं कि तपाईंको सञ्चालनहरू, विशेष गरी निर्माण जस्ता क्षेत्रहरूका लागि, सबै सान्दर्भिक स्थानीय र अन्तर्राष्ट्रिय नियमहरू र कानूनी आवश्यकताहरूसँग पूर्ण रूपमा पालना गर्छन्, तपाईंको जोखिम जोखिमलाई कम गर्दै।",
+                    complianceAuditBenefit1: "<strong>तपाईंको लाभ:</strong> महँगो जरिवानाबाट बच्न, कानूनी जोखिमहरूमा उल्लेखनीय कमी, र बलियो कर्पोरेट शासन।",
+                    complianceAuditProcess1: "<strong>हाम्रो दृष्टिकोण:</strong> नियामक म्यापिङ, नियन्त्रण प्रभावकारिता परीक्षण, अन्तर विश्लेषण, र कार्ययोग्य उपचार योजना।",
+                    taxAuditTab: "कर लेखापरीक्षण",
+                    taxAuditHeadline: "कर अप्टिमाइजेसन: विशेषज्ञ कर लेखापरीक्षण",
+                    taxAuditDescription: "हाम्रो कर लेखापरीक्षणले तपाईंको कर रिटर्नको शुद्धता र कर कानूनहरूसँग पूर्ण अनुपालनलाई सावधानीपूर्वक प्रमाणित गर्दछ, तपाईंलाई जोखिम कम गर्न र तपाईंको कर दायित्वहरूलाई रणनीतिक रूपमा अनुकूलित गर्न मद्दत गर्दछ।",
+                    taxAuditBenefit1: "<strong>तपाईंको लाभ:</strong> कर पालनाको आश्वासन, सम्भावित कर बचतको पहिचान, र कर विवादहरूको रोकथाम।",
+                    taxAuditProcess1: "<strong>हाम्रो दृष्टिकोण:</strong> वित्तीय रेकर्डहरूको समीक्षा, कर गणनाको प्रमाणीकरण, व्यापक अनुपालन जाँच, र कर अधिकारीहरूलाई आधिकारिक रिपोर्टिङ।",
+                    whyUsHeadline: "हामी किन छनौट गर्ने? तपाईंको फाइदा, हाम्रो विशेषज्ञता",
+                    whyUsSubHeadline: "हामी नेपालमा अतुलनीय साइबरसुरक्षा, आईटी, र लेखापरीक्षण सेवाहरू प्रदान गर्न गहिरो स्थानीय बुझाइका साथ विश्वव्यापी विशेषज्ञता संयोजन गर्दछौं।",
+                    whyUsCard1Title: "एकीकृत विशेषज्ञता",
+                    whyUsCard1Text: "साइबरसुरक्षा, आईटी, र वित्तीय लेखापरीक्षण क्षमताहरूको एक अद्वितीय मिश्रण एकै छानामुनि।",
+                    whyUsCard2Title: "स्थानीय र विश्वव्यापी मापदण्ड",
+                    whyUsCard2Text: "नेपाली सन्दर्भको गहिरो बुझाइलाई अन्तर्राष्ट्रिय उत्कृष्ट अभ्यासहरूसँग जोड्नुहोस्।",
+                    whyUsCard3Title: "ग्राहक-केन्द्रित समाधान",
+                    whyUsCard3Text: "तपाईंको विशिष्ट व्यापार आवश्यकताहरू र लक्ष्यहरूसँग मिल्ने अनुकूलित रणनीतिहरू।",
+                    teamHeadline: "हाम्रो नेतृत्व टोली: तपाईंको सफलतालाई अगाडि बढाउँदै",
+                    teamMember1Name: "अलिश उप्रेती",
+                    teamMember1Role: "प्रमुख साइबरसुरक्षा रणनीतिकार",
+                    teamMember1Bio: "अमेरिकाका ठूला व्यवसायहरूका लागि डिजिटल प्रतिरक्षा सुदृढ गर्न व्यापक अनुभव, नेपालमा विश्वव्यापी उत्कृष्ट अभ्यासहरू ल्याउँदै।",
+                    teamMember2Name: "भावेश श्रेष्ठ",
+                    teamMember2Role: "प्रमुख लेखापरीक्षक (CPA/CA)",
+                    teamMember2Bio: "नेपालका विभिन्न क्षेत्रहरूमा १०००+ सफल लेखापरीक्षणहरू र ठूला परियोजनाहरूमा व्यापक संलग्नता, वित्तीय अखण्डता र अनुपालन सुनिश्चित गर्दै।",
+                    teamMember3Name: "हाम्रो विशेषज्ञ टोली",
+                    teamMember3Role: "आईटी र नियामक अनुपालनमा विशेषज्ञहरू",
+                    teamMember3Bio: "तपाईंको व्यवसायले सबै स्थानीय र अन्तर्राष्ट्रिय नियामक ढाँचाहरूको पालना गर्छ भन्ने सुनिश्चित गर्ने एक समर्पित टोली, कानूनी जोखिमहरूलाई न्यूनीकरण गर्दै र सुशासनलाई बढावा दिँदै।",
+                    teamMember4Name: "आकाश शर्मा",
+                    teamMember4Role: "प्रमुख प्रिन्सिपल डेभलपर",
+                    teamMember4Bio: "गुगल र टी-मोबाइल जस्ता उद्योगका दिग्गज कम्पनीहरूमा व्यापक अनुभव भएका एक अनुभवी डेभलपर, उच्च-प्रभाव विकास क्षेत्रहरूमा नवीनता ल्याउँदै।",
+                    threatLandscapeHeadline: "नेपालको साइबर खतरा परिदृश्य नेभिगेट गर्दै",
+                    threatLandscapeSubHeadline: "नेपाली व्यवसायहरूले सामना गरिरहेका विकसित डिजिटल जोखिमहरू अन्वेषण गर्नुहोस्। यी खतराहरू बुझ्नु तपाईंको बलियो रक्षाको लागि पहिलो कदम हो।",
+                    threatInsightsHeadline: "वास्तविक-समय खतरा अन्तरदृष्टि (सिमुलेटेड डाटा)",
+                    threatInsightsSubHeadline: "एक प्रत्यक्ष प्रणालीमा, यो खण्ड नेपालका क्षेत्रहरूका लागि नवीनतम साइबरसुरक्षा तथ्याङ्कहरूसँग गतिशील रूपमा अद्यावधिक हुनेछ। तल चलिरहेको चुनौतीहरू हाइलाइट गर्ने हालका निष्कर्षहरू छन्:",
+                    insight1Value: "५२",
+                    insight1Desc: "नेपालमा रिपोर्ट गरिएका दैनिक साइबर अपराधका घटनाहरू (आर्थिक वर्ष २०८१-८२)।",
+                    insight2Value: "८७.८२% वृद्धि",
+                    insight2Desc: "वित्तीय घोटाला र ठगीका घटनाहरूमा वृद्धि (आ.व. २०८०-८१ देखि आ.व. २०८१-८२)।",
+                    insight3Value: "~५२%",
+                    insight3Desc: "साइबर अपराधका घटनाहरू ह्याकिङसँग सम्बन्धित छन् (अगस्ट २०८१ अनुसार)।",
+                    insight4Value: "८०% भन्दा बढी",
+                    insight4Desc: "नेपालका वेबसाइटहरू साइबर आक्रमणका लागि कमजोर छन् (जनवरी २०८१ अनुसार)।",
+                    insight5Value: "६७%",
+                    insight5Desc: "नेपालका SME हरूमा आधारभूत साइबरसुरक्षा अभ्यासहरूको कमी छ (२०८० सर्वेक्षण)।",
+                    insight6Value: "वित्तीय क्षेत्र",
+                    insight6Desc: "नेपालमा सबैभन्दा धेरै आक्रमण हुने क्षेत्र।",
+                    noteLabel: "नोट:",
+                    insightNote: "माथिको डाटा नेपाली साइबर ब्यूरो र साइबरसुरक्षा विश्लेषणका हालैका रिपोर्टहरू र तथ्याङ्कहरूमा आधारित छ (जुलाई २०८२ अनुसार)। उत्पादन वातावरणमा, यी अन्तरदृष्टिहरू वास्तविक-समय डाटा स्रोतहरूबाट प्राप्त हुनेछन्।",
+                    liveThreatMapHeadline: "विश्वव्यापी साइबर खतरा मोनिटर (अवधारणात्मक)",
+                    liveThreatMapDescription: "यो खण्डले विश्वव्यापी साइबर खतराहरूको वास्तविक-समय अवधारणात्मक दृश्य प्रदान गर्दछ, साइबर युद्धको गतिशील प्रकृतिलाई हाइलाइट गर्दै। यो प्रत्यक्ष नक्सा नभए पनि, यसले विश्वभरका हालैका साइबरसुरक्षा समाचारहरू र प्रवृत्तिहरू प्रदर्शन गर्दछ, सतर्कता र विशेषज्ञ रक्षाको निरन्तर आवश्यकता प्रदर्शन गर्दछ।",
+                    mapPlaceholder: "विश्वव्यापी साइबर आक्रमण प्रवृत्ति (अवधारणात्मक ग्राफ)",
+                    globalThreatError: "विश्वव्यापी खतरा समाचार लोड गर्न असफल भयो। कृपया पछि फेरि प्रयास गर्नुहोस्।",
+                    globalThreatGraphLabels: ['Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024'],
+                    globalThreatGraphData1Label: 'रैंसमवेयर आक्रमणहरू (मिलियन)',
+                    globalThreatGraphData2Label: 'डाटा उल्लङ्घन (अरब रेकर्ड)',
+                    auditingHeadline: "लेखापरीक्षण परिदृश्य: चुनौती र अवसरहरू",
+                    auditingSubHeadline: "हाम्रो लेखापरीक्षण सेवाहरू अनुपालनभन्दा बाहिर जान्छन्, विभिन्न क्षेत्रहरूमा, निर्माण सहित, वित्तीय स्वास्थ्य र सञ्चालन अखण्डतामा महत्त्वपूर्ण अन्तरदृष्टि प्रदान गर्दछ।",
+                    auditFindingsHeadline: "नेपालमा सामान्य लेखापरीक्षण निष्कर्षहरू",
+                    auditFindingsIntro: "हाम्रो अनुभवको आधारमा, नेपालमा लेखापरीक्षणको क्रममा पहिचान गरिएका सामान्य समस्याहरू प्रायः समावेश छन्:",
+                    auditFinding1: "अपर्याप्त आन्तरिक नियन्त्रणहरू, जसले सम्भावित ठगी वा त्रुटिहरू निम्त्याउँछ।",
+                    auditFinding2: "स्थानीय कर कानून र नियमहरूसँग गैर-अनुपालन।",
+                    auditFinding3: "वित्तीय लेनदेनका लागि उचित कागजातको अभाव, विशेष गरी निर्माण परियोजनाहरूमा।",
+                    auditFinding4: "आय र खर्चको कम रिपोर्टिङ वा गलत वर्गीकरण।",
+                    auditFinding5: "कमजोर सम्पत्ति व्यवस्थापन र सूची नियन्त्रण प्रणालीहरू।",
+                    lowInvolvementHeadline: "लेखापरीक्षणमा कम संलग्नता किन?",
+                    lowInvolvementIntro: "यसको महत्त्वपूर्ण महत्त्वको बावजुद, नेपालमा धेरै व्यवसायहरू र व्यक्तिहरूले धेरै कारकहरूको कारणले व्यावसायिक लेखापरीक्षणमा पूर्ण रूपमा संलग्न नहुन सक्छन्:",
+                    lowInvolvementReason1: "**जागरूकताको कमी:** कर अनुपालनभन्दा बाहिर नियमित, व्यापक लेखापरीक्षणका दीर्घकालीन फाइदाहरूको सीमित बुझाइ।",
+                    lowInvolvementReason2: "**अनुमानित लागत:** व्यवसायहरू, विशेष गरी SME हरू, लेखापरीक्षणलाई वित्तीय स्वास्थ्य र जोखिम न्यूनीकरणमा लगानीको सट्टा अनावश्यक खर्चको रूपमा हेर्न सक्छन्।",
+                    lowInvolvementReason3: "**सीमित क्षमता:** योग्य र अनुभवी लेखापरीक्षकहरूको अभाव, विशेष गरी जटिल निर्माण परियोजनाहरू जस्ता विशेष क्षेत्रहरूका लागि।",
+                    lowInvolvementReason4: "**अनौपचारिक अभ्यासहरू:** केही क्षेत्रहरूमा अनौपचारिक वित्तीय अभ्यासहरूको प्रचलन, जसले औपचारिक लेखापरीक्षणलाई चुनौतीपूर्ण बनाउँछ।",
+                    consequencesHeadline: "अपर्याप्त लेखापरीक्षणका परिणामहरू",
+                    consequencesText: "उचित लेखापरीक्षणलाई बेवास्ता गर्दा कानूनी दण्ड, लगानीकर्ता र सरोकारवालाहरूको विश्वास गुमाउने, पत्ता नलागेको ठगी, गलत वित्तीय रिपोर्टिङ, र सञ्चालन सुधारका अवसरहरू गुमाउने जस्ता गम्भीर परिणामहरू निम्त्याउन सक्छन्। हाम्रो फर्मले गहन र विश्वसनीय लेखापरीक्षण सेवाहरू प्रदान गरेर यी जोखिमहरू कम गर्न मद्दत गर्दछ।",
+                    testimonialsHeadline: "हाम्रा ग्राहकहरू के भन्छन्: सफलताका कथाहरू",
+                    testimonialsSubHeadline: "हामी नेपालभरका व्यवसायहरूको लागि एक विश्वसनीय साझेदार हुनमा गर्व गर्छौं।",
+                    testimonial1Text: "\"साइबरसुरक्षा मूल्याङ्कन अविश्वसनीय रूपमा गहन थियो र हामीले कहिल्यै थाहा नपाएका कमजोरीहरूप्रति हाम्रो आँखा खोलिदियो। उनीहरूको टोलीले हाम्रो डाटा सुरक्षित गर्न स्पष्ट, कार्ययोग्य चरणहरू प्रदान गर्यो। हामी अब धेरै सुरक्षित महसुस गर्छौं।\"",
+                    testimonial1Name: "आईटी निर्देशक",
+                    testimonial1Company: "अग्रणी वित्तीय संस्था, काठमाडौं",
+                    testimonial2Text: "\"हाम्रो निर्माण परियोजनाको लागि अनुपालन लेखापरीक्षण नेभिगेट गर्नु एक ठूलो चुनौती थियो। लेखापरीक्षकहरू पेशेवर, ज्ञानी थिए, र हामीलाई प्रत्येक चरणमा मार्गदर्शन गरे, हामीले सबै नियामक आवश्यकताहरू पूरा गर्यौं भनेर सुनिश्चित गर्दै।\"",
+                    testimonial2Name: "परियोजना प्रबन्धक",
+                    testimonial2Company: "प्रमुख निर्माण फर्म, पोखरा",
+                    quizHeadline: "के तपाईं साइबर-स्मार्ट हुनुहुन्छ? आफ्नो ज्ञान परीक्षण गर्नुहोस्!",
+                    quizSubHeadline: "आफ्नो आधारभूत साइबरसुरक्षा ज्ञान परीक्षण गर्नुहोस् र सामान्य खतराहरू विरुद्ध तपाईं कति राम्रोसँग तयार हुनुहुन्छ हेर्नुहोस्।",
+                    quizNextBtn: "अर्को प्रश्न",
+                    quizResultsHeadline: "क्विज परिणामहरू",
+                    quizScorePrefix: "तपाईंको स्कोर: ",
+                    quizFeedbackExcellent: "उत्कृष्ट! तपाईं साइबर-स्मार्ट च्याम्पियन हुनुहुन्छ! साइबरसुरक्षाको तपाईंको बलियो बुझाइ प्रशंसनीय छ। तपाईंको सुरक्षालाई अर्को स्तरमा लैजान तयार हुनुहुन्छ? हाम्रा उन्नत समाधानहरू र विशेषज्ञ टोलीले तपाईंको डिजिटल प्रतिरक्षालाई अझ सुदृढ गर्न मद्दत गर्न यहाँ छन्। आउनुहोस्, जोडौं र तपाईंको व्यवसायको लागि एक अभेद्य ढाल बनाऔं!",
+                    quizFeedbackGood: "राम्रो काम! तपाईंसँग साइबरसुरक्षाका आधारभूत कुराहरूको राम्रो ज्ञान छ। विकसित डिजिटल परिदृश्यमा सधैं बढ्ने ठाउँ हुन्छ। आफ्नो सीपलाई तिखार्न र तपाईंको व्यवसाय साँच्चै लचिलो छ भनी सुनिश्चित गर्न चाहनुहुन्छ? हाम्रा अनुकूलित जागरूकता प्रशिक्षण र विशेषज्ञ परामर्शहरूले तपाईंलाई मार्गदर्शन गर्न सक्छन्। व्यक्तिगत सुरक्षा रोडम्यापको लागि हामीलाई सम्पर्क गर्नुहोस्!",
+                    quizFeedbackFair: "ठिकै छ। तपाईंसँग केही साइबरसुरक्षा ज्ञान छ, तर त्यहाँ क्षेत्रहरू छन् जहाँ तपाईं निश्चित रूपमा आफ्नो प्रतिरक्षालाई बलियो बनाउन सक्नुहुन्छ। डिजिटल संसार निरन्तर परिवर्तन भइरहेको छ, र अगाडि रहनु महत्त्वपूर्ण छ। हाम्रा विशेषज्ञहरूलाई ती खाली ठाउँहरू भर्न र तपाईंको मूल्यवान सम्पत्तिहरूलाई सुरक्षित राख्न मद्दत गर्न दिनुहोस्। नि:शुल्क सुरक्षा मूल्याङ्कनको लागि हामीलाई सम्पर्क गर्नुहोस्!",
+                    quizFeedbackPoor: "सुधार आवश्यक छ। चिन्ता नगर्नुहोस्, साइबरसुरक्षा जटिल हुन सक्छ, तर तपाईंको व्यवसायको सुरक्षा महत्त्वपूर्ण छ। तपाईंको क्विज परिणामहरूले केही महत्त्वपूर्ण ज्ञानका कमीहरू देखाउँछन् जसले तपाईंलाई कमजोर बनाउन सक्छ। अब कार्य गर्ने समय हो! हाम्रा व्यापक सुरक्षा जागरूकता प्रशिक्षण र विशेषज्ञ परामर्श सेवाहरू तपाईंलाई र तपाईंको टोलीलाई सुरक्षित रहनका लागि आवश्यक ज्ञान र उपकरणहरू प्रदान गर्न डिजाइन गरिएको छ। आज तपाईंको व्यवसायको लागि बलियो रक्षा निर्माण गर्ने बारे कुरा गरौं!",
+                    quizRetakeBtn: "क्विज पुनः लिनुहोस्",
+                    quizContactCTA: "हाम्रा विशेषज्ञहरूसँग आफ्नो सुरक्षा बलियो बनाउनुहोस्",
+                    quizQ1: "साइबर अपराधीहरूले मानिसहरूलाई संवेदनशील जानकारी प्रकट गर्नका लागि प्रयोग गर्ने सबैभन्दा सामान्य तरिका कुन हो?",
+                    quizQ1A1: "फिसिङ इमेलहरू",
+                    quizQ1A2: "बलियो पासवर्डहरू",
+                    quizQ1A3: "एन्टिभाइरस सफ्टवेयर",
+                    quizQ1A4: "दुई-कारक प्रमाणीकरण",
+                    quizQ2: "नेटवर्क सुरक्षामा 'फायरवाल' को प्राथमिक उद्देश्य के हो?",
+                    quizQ2A1: "इन्टरनेट जडानको गति बढाउन",
+                    quizQ2A2: "नेटवर्कमा अनाधिकृत पहुँच रोक्न",
+                    quizQ2A3: "डाटा सुरक्षित रूपमा भण्डारण गर्न",
+                    quizQ2A4: "इमेल खाताहरू व्यवस्थापन गर्न",
+                    quizQ3: "'रैंसमवेयर' ले के गर्छ?",
+                    quizQ3A1: "तपाईंका व्यक्तिगत फोटोहरू चोर्छ",
+                    quizQ3A2: "तपाईंका फाइलहरू इन्क्रिप्ट गर्छ र तिनीहरूको रिलीजको लागि भुक्तानी माग्छ",
+                    quizQ3A3: "तपाईंको कम्प्युटरको प्रदर्शन बढाउँछ",
+                    quizQ3A4: "तपाईंको सबै ब्राउज इतिहास मेटाउँछ",
+                    quizQ4: "तपाईंको सफ्टवेयर र अपरेटिङ सिस्टम नियमित रूपमा अद्यावधिक गर्नु किन महत्त्वपूर्ण छ?",
+                    quizQ4A1: "नयाँ सुविधाहरू प्राप्त गर्न",
+                    quizQ4A2: "सुरक्षा कमजोरीहरू र बगहरू ठीक गर्न",
+                    quizQ4A3: "प्रयोगकर्ता इन्टरफेस परिवर्तन गर्न",
+                    quizQ4A4: "हार्ड ड्राइभको ठाउँ बढाउन",
+                    quizQ5: "दुई-कारक प्रमाणीकरण (2FA) के हो?",
+                    quizQ5A1: "दुई फरक इमेल ठेगानाहरू प्रयोग गर्दै",
+                    quizQ5A2: "पासवर्ड र दोस्रो प्रमाणीकरण विधि (जस्तै, फोनबाट कोड) प्रयोग गरेर लग इन गर्दै",
+                    quizQ5A3: "आफ्नो पासवर्ड दुई विश्वसनीय साथीहरूसँग साझा गर्दै",
+                    quizQ5A4: "दुई एन्टिभाइरस कार्यक्रमहरू स्थापना गर्दै",
+                    quizQ6: "फिसिङ के हो?",
+                    quizQ6A1: "माछा मार्ने एक प्रकार।",
+                    quizQ6A2: "संवेदनशील जानकारी प्रकट गर्नका लागि तपाईंलाई धोका दिने प्रयास।",
+                    quizQ6A3: "कम्प्युटर भाइरसको एक प्रकार।",
+                    quizQ6A4: "फाइलहरू साझेदारी गर्ने सुरक्षित तरिका।",
+                    quizQ7: "यदि तपाईंले शंकास्पद इमेल प्राप्त गर्नुभयो भने के गर्नुपर्छ?",
+                    quizQ7A1: "तत्काल सबै लिङ्कहरूमा क्लिक गर्नुहोस्।",
+                    quizQ7A2: "थप जानकारीको लागि जवाफ दिनुहोस्।",
+                    quizQ7A3: "यसलाई मेटाउनुहोस् वा स्पामको रूपमा चिन्ह लगाउनुहोस्।",
+                    quizQ7A4: "यसलाई आफ्ना सबै सम्पर्कहरूमा फर्वार्ड गर्नुहोस्।",
+                    quizQ8: "बलियो पासवर्ड संयोजन के हो?",
+                    quizQ8A1: "तपाईंको जन्म मिति।",
+                    quizQ8A2: "ठूलो अक्षर, सानो अक्षर, संख्या, र प्रतीकहरूको मिश्रण।",
+                    quizQ8A3: "तपाईंको पाल्तु जनावरको नाम।",
+                    quizQ8A4: "एउटा सामान्य शब्द जस्तै \"password\"।",
+                    quizQ9: "विभिन्न खाताहरूका लागि फरक पासवर्डहरू प्रयोग गर्नु किन महत्त्वपूर्ण छ?",
+                    quizQ9A1: "यसले तिनीहरूलाई सम्झन सजिलो बनाउँछ।",
+                    quizQ9A2: "यदि एउटा खातामा सम्झौता भयो भने, अरू सुरक्षित रहन्छन्।",
+                    quizQ9A3: "यसले तपाईंको इन्टरनेट गति सुधार गर्दछ।",
+                    quizQ9A4: "यो महत्त्वपूर्ण छैन।",
+                    quizQ10: "एन्टिभाइरस सफ्टवेयरको उद्देश्य के हो?",
+                    quizQ10A1: "तपाईंको कम्प्युटरलाई छिटो बनाउन।",
+                    quizQ10A2: "दुर्भावनापूर्ण सफ्टवेयरबाट बचाउन।",
+                    quizQ10A3: "तपाईंको फाइलहरू व्यवस्थापन गर्न।",
+                    quizQ10A4: "इन्टरनेट सुरक्षित रूपमा ब्राउज गर्न।",
+                    quizQ11: "फिसिङ प्रयासको सामान्य संकेत के हो?",
+                    quizQ11A1: "उत्कृष्ट व्याकरण र हिज्जे।",
+                    quizQ11A2: "पासवर्ड जस्ता व्यक्तिगत जानकारीको लागि अनुरोध।",
+                    quizQ11A3: "ज्ञात प्रेषकबाट सन्देश।",
+                    quizQ11A4: "एक प्रसिद्ध वेबसाइटको लिङ्क।",
+                    quizQ12: "VPN को अर्थ के हो?",
+                    quizQ12A1: "अत्यन्त निजी नेटवर्क।",
+                    quizQ12A2: "भर्चुअल सार्वजनिक नेटवर्क।",
+                    quizQ12A3: "भर्चुअल निजी नेटवर्क।",
+                    quizQ12A4: "प्रमाणित व्यक्तिगत नेटवर्क।",
+                    quizQ13: "असुरक्षित सार्वजनिक Wi-Fi नेटवर्कहरूमा जडान गर्न किन जोगिनु पर्छ?",
+                    quizQ13A1: "तिनीहरू प्रायः ढिलो हुन्छन्।",
+                    quizQ13A2: "तपाईंको डाटा अरूले सजिलै रोक्न सक्छन्।",
+                    quizQ13A3: "तिनीहरूले तपाईंलाई पैसा चार्ज गर्न सक्छन्।",
+                    quizQ13A4: "तिनीहरूले तपाईंको ब्राउजिङ समय सीमित गर्छन्।",
+                    quizQ14: "साइबरसुरक्षामा 'सामाजिक इन्जिनियरिङ' के हो?",
+                    quizQ14A1: "मार्केटिङका लागि सामाजिक सञ्जाल प्रयोग गर्दै।",
+                    quizQ14A2: "जानकारी वा प्रणालीहरूमा पहुँच प्राप्त गर्न मानिसहरूलाई हेरफेर गर्दै।",
+                    quizQ14A3: "सुरक्षित सामाजिक सञ्जालहरू डिजाइन गर्दै।",
+                    quizQ14A4: "सामाजिक प्रवृत्तिहरूको विश्लेषण गर्दै।",
+                    quizQ15: "रैंसमवेयरबाट आफूलाई कसरी बचाउन सकिन्छ?",
+                    quizQ15A1: "शंकास्पद लिङ्कहरूमा क्लिक गरेर।",
+                    quizQ15A2: "नियमित रूपमा आफ्नो डाटा ब्याकअप गरेर।",
+                    quizQ15A3: "आफ्नो व्यक्तिगत जानकारी साझा गरेर।",
+                    quizQ15A4: "कम्प्युटर कहिल्यै प्रयोग नगरेर।",
+                    quizQ16: "सफ्टवेयर डाउनलोड गर्नको लागि सबैभन्दा राम्रो अभ्यास के हो?",
+                    quizQ16A1: "अनौपचारिक वेबसाइटहरूबाट डाउनलोड गर्नुहोस्।",
+                    quizQ16A2: "टोरेन्ट साइटहरूबाट डाउनलोड गर्नुहोस्।",
+                    quizQ16A3: "विश्वसनीय, आधिकारिक स्रोतहरूबाट डाउनलोड गर्नुहोस्।",
+                    quizQ16A4: "डाउनलोड गर्नु अघि आफ्नो एन्टिभाइरस असक्षम गर्नुहोस्।",
+                    quizQ17: "डाटा उल्लङ्घन के हो?",
+                    quizQ17A1: "एक नयाँ सफ्टवेयर अपडेट।",
+                    quizQ17A2: "संवेदनशील डाटामा अनाधिकृत पहुँच वा खुलासा।",
+                    quizQ17A3: "एक सफल मार्केटिङ अभियान।",
+                    quizQ17A4: "एक नेटवर्क गति परीक्षण।",
+                    quizQ18: "एक संगठनमा बलियो पासवर्ड नीतिको उद्देश्य के हो?",
+                    quizQ18A1: "पासवर्डहरू सम्झन गाह्रो बनाउन।",
+                    quizQ18A2: "अनाधिकृत पहुँचको जोखिम कम गर्न।",
+                    quizQ18A3: "आईटी समर्थन अनुरोधहरू बढाउन।",
+                    quizQ18A4: "अप्रचलित नियमहरूसँग पालना गर्न।",
+                    quizQ19: "इन्क्रिप्शन के हो?",
+                    quizQ19A1: "फाइलहरूलाई सानो बनाउने तरिका।",
+                    quizQ19A2: "अनाधिकृत पहुँच रोक्न डाटालाई कोडमा रूपान्तरण गर्दै।",
+                    quizQ19A3: "इमेलहरू छिटो पठाउने विधि।",
+                    quizQ19A4: "कम्प्युटर हार्डवेयरको एक प्रकार।",
+                    quizQ20: "सार्वजनिक कम्प्युटरहरू प्रयोग गरेपछि लग आउट गर्नु किन महत्त्वपूर्ण छ?",
+                    quizQ20A1: "ब्याट्री जीवन बचाउन।",
+                    quizQ20A2: "अरूलाई तपाईंको खाताहरूमा पहुँच गर्नबाट रोक्न।",
+                    quizQ20A3: "अर्को प्रयोगकर्ताको लागि कम्प्युटरको गति बढाउन।",
+                    quizQ20A4: "यो आवश्यक छैन।",
+                    faqsHeadline: "बारम्बार सोधिने प्रश्नहरू",
+                    faqsSubHeadline: "हाम्रा सेवाहरू र उद्योग बारे सामान्य प्रश्नहरूको द्रुत उत्तरहरू फेला पार्नुहोस्।",
+                    faq1Question: "नेपालमा मेरो व्यवसायको लागि साइबरसुरक्षाको महत्त्व के हो?",
+                    faq1Answer: "नेपालको डिजिटल परिदृश्य बढ्दै जाँदा साइबरसुरक्षा महत्त्वपूर्ण छ। यसले तपाईंको संवेदनशील डाटालाई सुरक्षा दिन्छ, रैंसमवेयर र फिसिङ जस्ता साइबर आक्रमणहरूबाट वित्तीय क्षति रोक्छ, ग्राहकको विश्वास कायम राख्छ, र विकसित डाटा सुरक्षा नियमहरूसँग अनुपालन सुनिश्चित गर्दछ। यस बिना, व्यवसायहरूले उल्लङ्घन, सञ्चालनमा अवरोध, र प्रतिष्ठामा क्षति जस्ता महत्त्वपूर्ण जोखिमहरूको सामना गर्छन्।",
+                    faq2Question: "तपाईं निर्माण साइटहरूको लागि कस्ता प्रकारका लेखापरीक्षणहरू गर्नुहुन्छ?",
+                    faq2Answer: "निर्माण साइटहरू र अन्य क्षेत्रहरूका लागि, हाम्रा CPA/CA विशेषज्ञहरूले वित्तीय विवरण लेखापरीक्षण, अनुपालन लेखापरीक्षण (स्थानीय भवन कोड, श्रम कानून, र वातावरणीय नियमहरूको पालना सुनिश्चित गर्दै), र कर लेखापरीक्षण गर्छन्। हामी वित्तीय पारदर्शिता, नियामक अनुपालन, र निर्माण उद्योगका लागि विशेष जोखिमहरू पहिचान गर्छौं।",
+                    faq3Question: "आईटी परामर्शले मेरो सानो व्यवसायलाई कसरी फाइदा पुर्याउन सक्छ?",
+                    faq3Answer: "आईटी परामर्शले साना व्यवसायहरूलाई उनीहरूको प्रविधि पूर्वाधारलाई अनुकूलित गर्न, सञ्चालन दक्षता सुधार गर्न, र सूचित आईटी लगानी गर्न मद्दत गर्दछ। हामी नेटवर्क डिजाइन, डाटा व्यवस्थापन रणनीतिहरू, क्लाउड अपनाउने, र प्रणाली एकीकरणमा सहयोग गर्न सक्छौं, तपाईंको प्रविधिले तपाईंको व्यवसायिक लक्ष्यहरूलाई प्रभावकारी र सुरक्षित रूपमा समर्थन गर्छ भन्ने सुनिश्चित गर्दै।",
+                    faq4Question: "के तपाईं ठूला उद्यमहरू र SME हरू दुवैका लागि सेवाहरू प्रदान गर्नुहुन्छ?",
+                    faq4Answer: "हो, हाम्रा सेवाहरू सबै आकारका व्यवसायहरूको आवश्यकताहरू पूरा गर्नका लागि स्केलेबल र अनुकूलित छन्, साना र मध्यम आकारका उद्यमहरू (SMEs) देखि ठूला निगमहरू र सरकारी संस्थाहरू सम्म। हामी बुझ्छौं कि प्रत्येक संस्थाको अद्वितीय आवश्यकताहरू र कमजोरीहरू छन्।",
+                    faq5Question: "मेरो व्यवसायले साइबरसुरक्षा मूल्याङ्कन कति पटक गर्नुपर्छ?",
+                    faq5Answer: "साइबरसुरक्षा मूल्याङ्कन (जस्तै VAPT) कम्तीमा वार्षिक रूपमा, वा तपाईंको आईटी वातावरणमा महत्त्वपूर्ण परिवर्तनहरू भएमा, नयाँ प्रणालीहरू परिनियोजन भएमा, वा कुनै सुरक्षा घटना पछि थप बारम्बार गर्न सिफारिस गरिन्छ। नियमित मूल्याङ्कनले विकसित खतराहरू विरुद्ध निरन्तर सुरक्षा सुनिश्चित गर्दछ।",
+                    contactHeadline: "तपाईंको भविष्य सुरक्षित गर्न तयार हुनुहुन्छ? आउनुहोस्, जोडौं!",
+                    contactSubHeadline: "नि:शुल्क, कुनै दायित्व नभएको परामर्शको लागि सम्पर्क गर्नुहोस्। हामी तपाईंलाई फस्टाउन मद्दत गर्न यहाँ छौं।",
+                    formNameLabel: "पूरा नाम",
+                    formEmailLabel: "इमेल ठेगाना",
+                    formPhoneLabel: "फोन नम्बर",
+                    formCompanyLabel: "कम्पनी",
+                    formMessageLabel: "सन्देश",
+                    formSubmitBtn: "सम्पर्कमा रहनुहोस्",
+                    messageBoxSuccess: "तपाईंको सन्देशको लागि धन्यवाद! हाम्रो टोलीले छिट्टै तपाईंसँग सम्पर्क गर्नेछ। नमस्ते।",
+                    footerQuickLinks: "द्रुत लिङ्कहरू",
+                    footerConnect: "हामीसँग जोडिनुहोस्",
+                    emailPrefix: "इमेल: ",
+                    footerCopyright: "&copy; २०२५ नेपाल साइबरसुरक्षा, लेखापरीक्षण र आईटी परामर्श। सबै अधिकार सुरक्षित।",
+                    footerLocation: "काठमाडौं, नेपाल | नेपाली व्यवसायहरूको सुरक्षा गर्दै",
+                    quizCorrectFeedback: "सही!", // General correct feedback
+                    quizIncorrectPrefix: "गलत। सही उत्तर हो: ", // Prefix for incorrect feedback
+                    quizQ1Explanation: "फिसिङ इमेलहरू एक सामान्य रणनीति हो जहाँ आक्रमणकारीहरूले विश्वसनीय संस्थाहरूको नक्कल गर्छन् र प्राप्तकर्ताहरूलाई पासवर्ड वा वित्तीय विवरणहरू जस्ता संवेदनशील जानकारी प्रकट गर्न धोका दिन्छन्।",
+                    quizQ2Explanation: "फायरवालले बाधाको रूपमा कार्य गर्दछ, पूर्वनिर्धारित सुरक्षा नियमहरूको आधारमा भित्र र बाहिर जाने नेटवर्क ट्राफिकको निगरानी र नियन्त्रण गर्दछ, यसरी अनाधिकृत पहुँच रोक्छ।",
+                    quizQ3Explanation: "रैंसमवेयर एक दुर्भावनापूर्ण सफ्टवेयर हो जसले पीडितको फाइलहरूलाई इन्क्रिप्ट गर्दछ, तिनीहरूलाई पहुँचयोग्य बनाउँछ, र डिक्रिप्शनको लागि फिरौती भुक्तानी, सामान्यतया क्रिप्टोकरन्सीमा, माग्दछ।",
+                    quizQ4Explanation: "नियमित सफ्टवेयर अद्यावधिकहरूमा प्रायः नयाँ पत्ता लागेका कमजोरीहरूलाई ठीक गर्ने सुरक्षा प्याचहरू समावेश हुन्छन्, जसले तपाईंको प्रणालीलाई आक्रमणकारीहरूद्वारा शोषण हुनबाट बचाउँछ।",
+                    quizQ5Explanation: "2FA ले पासवर्डभन्दा बाहिर दोस्रो प्रमाणीकरण विधि (जस्तै, तपाईंको फोनबाट कोड वा फिंगरप्रिन्ट) आवश्यक पारेर सुरक्षाको अतिरिक्त तह थप्छ।",
+                    quizQ6Explanation: "फिसिङ एक साइबर अपराध हो जसमा लक्ष्य वा लक्ष्यहरूलाई इमेल, टेलिफोन वा पाठ सन्देश मार्फत एक वैध संस्थाको रूपमा प्रस्तुत गरेर सम्पर्क गरिन्छ ताकि व्यक्तिहरूलाई व्यक्तिगत रूपमा पहिचान योग्य जानकारी, बैंकिङ र क्रेडिट कार्ड विवरणहरू, र पासवर्डहरू जस्ता संवेदनशील डाटा प्रदान गर्न लोभ्याउन सकियोस्।",
+                    quizQ7Explanation: "शंकास्पद इमेलहरू मेटाउनाले वा स्पामको रूपमा चिन्ह लगाउनाले तपाईंलाई दुर्भावनापूर्ण लिङ्कहरूमा क्लिक गर्न वा संक्रमित संलग्नकहरू खोल्नबाट रोक्छ। तिनीहरूलाई कहिल्यै जवाफ नदिनुहोस् वा फर्वार्ड नगर्नुहोस्।",
+                    quizQ8Explanation: "एक बलियो पासवर्ड ठूलो अक्षर, सानो अक्षर, संख्या, र प्रतीकहरूको एक अद्वितीय संयोजन हुनुपर्छ, जसले आक्रमणकारीहरूलाई अनुमान गर्न वा क्र्याक गर्न गाह्रो बनाउँछ।",
+                    quizQ9Explanation: "विभिन्न खाताहरूका लागि फरक पासवर्डहरू प्रयोग गर्नाले यदि एउटा खातामा सम्झौता भयो भने क्षति सीमित गर्दछ। यदि आक्रमणकारीहरूले एउटा पासवर्डमा पहुँच प्राप्त गरे भने, तिनीहरूको तपाईंको अन्य खाताहरूमा स्वचालित रूपमा पहुँच हुनेछैन।",
+                    quizQ10Explanation: "एन्टिभाइरस सफ्टवेयर भाइरस, वर्म, र ट्रोजनहरू सहित दुर्भावनापूर्ण सफ्टवेयर पत्ता लगाउन, रोक्न, र हटाउन डिजाइन गरिएको हो, जसले तपाईंको कम्प्युटरलाई विभिन्न खतराहरूबाट बचाउँछ।",
+                    quizQ11Explanation: "फिसिङ प्रयासहरूमा प्रायः व्याकरण त्रुटिहरू, हिज्जे गल्तीहरू, जरुरी वा धम्कीपूर्ण भाषा, र व्यक्तिगत जानकारीको लागि अनुरोधहरू समावेश हुन्छन्, जुन वैध संस्थाहरूले इमेल मार्फत विरलै माग्छन्।",
+                    quizQ12Explanation: "VPN को अर्थ भर्चुअल निजी नेटवर्क हो। यसले इन्टरनेट जस्ता कम सुरक्षित नेटवर्कमा सुरक्षित, इन्क्रिप्टेड जडान सिर्जना गर्दछ, गोपनीयता र गुमनामता प्रदान गर्दछ।",
+                    quizQ13Explanation: "सार्वजनिक Wi-Fi नेटवर्कहरू प्रायः असुरक्षित हुन्छन्, जसको अर्थ तपाईंको डाटा सोही नेटवर्कमा दुर्भावनापूर्ण कलाकारहरूद्वारा सजिलै रोक्न सकिन्छ। यसले तपाईंको व्यक्तिगत र संवेदनशील जानकारीलाई जोखिममा पार्छ।",
+                    quizQ14Explanation: "सामाजिक इन्जिनियरिङ भनेको जानकारी वा प्रणालीहरूमा पहुँच प्राप्त गर्न मानिसहरूलाई मनोवैज्ञानिक रूपमा हेरफेर गर्नु हो। यो प्राविधिक ह्याकिङको सट्टा व्यक्तिहरूलाई धोका दिनमा निर्भर गर्दछ।",
+                    quizQ15Explanation: "नियमित रूपमा आफ्नो डाटालाई बाह्य ड्राइभ वा क्लाउड सेवामा ब्याकअप गर्नाले यदि तपाईंको फाइलहरू रैंसमवेयरद्वारा इन्क्रिप्ट भए पनि, तपाईंले फिरौती नतिरी तिनीहरूलाई पुनर्स्थापना गर्न सक्नुहुन्छ।",
+                    quizQ16Explanation: "सफ्टवेयरलाई विश्वसनीय, आधिकारिक स्रोतहरूबाट मात्र डाउनलोड गर्नाले मालवेयर वा सम्झौता गरिएका अनुप्रयोगहरू स्थापना गर्ने जोखिम कम गर्दछ। अनौपचारिक साइटहरूमा प्रायः पाइरेटेड वा संक्रमित सफ्टवेयर होस्ट गरिन्छ।",
+                    quizQ17Explanation: "डाटा उल्लङ्घन तब हुन्छ जब अनाधिकृत व्यक्तिहरूले संवेदनशील, सुरक्षित, वा गोप्य डाटामा पहुँच प्राप्त गर्छन्। यसले पहिचान चोरी, वित्तीय ठगी, र प्रतिष्ठामा क्षति पुर्याउन सक्छ।",
+                    quizQ18Explanation: "एक बलियो पासवर्ड नीतिले जटिल र अद्वितीय पासवर्डहरू सिर्जना गर्न नियमहरू लागू गर्दछ, जसले संगठनात्मक प्रणाली र डाटामा अनाधिकृत पहुँचको सम्भावनालाई उल्लेखनीय रूपमा कम गर्दछ।",
+                    quizQ19Explanation: "इन्क्रिप्शन भनेको जानकारी वा डाटालाई कोडमा रूपान्तरण गर्ने प्रक्रिया हो, विशेष गरी अनाधिकृत पहुँच रोक्नका लागि। यसले डाटालाई यस्तो तरिकाले स्क्र्याम्बल गर्दछ कि अधिकृत पक्षहरूले मात्र यसलाई बुझ्न सक्छन्।",
+                    quizQ20Explanation: "सार्वजनिक कम्प्युटरहरू प्रयोग गरेपछि लग आउट गर्नु महत्त्वपूर्ण छ किनभने यसले अर्को प्रयोगकर्तालाई तपाईंको खाताहरू, ब्राउजिङ इतिहास, वा तपाईंले खुला छोडेका कुनै पनि संवेदनशील जानकारीमा पहुँच गर्नबाट रोक्छ।",
+                }
+            };
+
+            let currentLang = 'en'; // Default language
+
+            // Function to apply translations
+            function applyTranslations() {
+                document.querySelectorAll('[data-lang-key]').forEach(element => {
+                    const key = element.getAttribute('data-lang-key');
+                    if (content[currentLang] && content[currentLang][key]) {
+                        // Special handling for score-display to not overwrite dynamic content
+                        if (element.tagName === 'SPAN' && element.id === 'score-display') {
+                            return; // Skip translation for this element as its content is set by JS
+                        }
+                        // Check if the content contains HTML tags (like <strong>)
+                        if (content[currentLang][key].includes('<') && content[currentLang][key].includes('>')) {
+                            element.innerHTML = content[currentLang][key];
+                        } else {
+                            element.textContent = content[currentLang][key];
+                        }
+                    }
+                });
+            }
+
+            // Language toggle button event listener
+            document.getElementById('lang-toggle').addEventListener('click', function () {
+                currentLang = currentLang === 'en' ? 'ne' : 'en';
+                this.textContent = currentLang === 'en' ? 'नेपाली' : 'English';
+                document.getElementById('mobile-lang-toggle').textContent = currentLang === 'en' ? 'नेपाली' : 'English';
+                applyTranslations();
+                updateChartsLanguage(); // Update chart labels when language changes
+                loadQuestion(); // Re-load the current quiz question to update its language
+            });
+
+            document.getElementById('mobile-lang-toggle').addEventListener('click', function () {
+                currentLang = currentLang === 'en' ? 'ne' : 'en';
+                this.textContent = currentLang === 'en' ? 'नेपाली' : 'English';
+                document.getElementById('lang-toggle').textContent = currentLang === 'en' ? 'नेपाली' : 'English';
+                applyTranslations();
+                updateChartsLanguage(); // Update chart labels when language changes
+                loadQuestion(); // Re-load the current quiz question to update its language
+            });
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Service category tabs functionality
+            const serviceCategoryTabs = document.querySelectorAll('#service-category-tabs .service-category-tab');
+            const serviceCategoryPanes = document.querySelectorAll('.service-category-pane');
+
+            serviceCategoryTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Deactivate all category tabs
+                    serviceCategoryTabs.forEach(t => t.classList.remove('active'));
+                    // Hide all category panes
+                    serviceCategoryPanes.forEach(p => p.classList.add('hidden'));
+
+                    // Activate clicked tab
+                    tab.classList.add('active');
+                    // Show corresponding pane
+                    const targetCategory = tab.dataset.category;
+                    document.getElementById(targetCategory).classList.remove('hidden');
+
+                    // Activate the first detail tab within the newly active category
+                    const firstDetailTab = document.querySelector(`#${targetCategory}-tabs .service-detail-tab`);
+                    const detailPanes = document.querySelectorAll(`#${targetCategory}-detail-content .service-detail-pane`);
+
+                    detailPanes.forEach(p => p.classList.add('hidden')); // Hide all detail panes
+                    if (firstDetailTab) {
+                        firstDetailTab.classList.add('active');
+                        document.getElementById(firstDetailTab.dataset.target).classList.remove('hidden');
+                    }
+                });
+            });
+
+            // Service detail tabs functionality (within each category)
+            document.querySelectorAll('.service-category-pane').forEach(categoryPane => {
+                const detailTabsContainer = categoryPane.querySelector('.flex.flex-wrap');
+                if (detailTabsContainer) {
+                    detailTabsContainer.addEventListener('click', (event) => {
+                        if (event.target.classList.contains('service-detail-tab')) {
+                            const clickedTab = event.target;
+                            const currentCategoryTabs = clickedTab.closest('.flex.flex-wrap').querySelectorAll('.service-detail-tab');
+                            const currentDetailContent = clickedTab.closest('.service-category-pane').querySelector('[id$="-detail-content"]');
+                            const currentDetailPanes = currentDetailContent.querySelectorAll('.service-detail-pane');
+
+                            // Deactivate all detail tabs in this category
+                            currentCategoryTabs.forEach(t => t.classList.remove('active'));
+                            // Hide all detail panes in this category
+                            currentDetailPanes.forEach(p => p.classList.add('hidden'));
+
+                            // Activate clicked detail tab
+                            clickedTab.classList.add('active');
+                            // Show corresponding detail pane
+                            document.getElementById(clickedTab.dataset.target).classList.remove('hidden');
+                        }
+                    });
+                }
+            });
+
+            // FAQ functionality
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const svg = question.querySelector('svg');
+
+                    // Toggle active class on the question
+                    question.classList.toggle('active');
+
+                    // Toggle visibility of the answer
+                    if (answer.style.display === 'block') {
+                        answer.style.display = 'none';
+                    } else {
+                        answer.style.display = 'block';
+                    }
+                });
+            });
+
+            // Contact Form Submission
+            const contactForm = document.getElementById('contactForm');
+            const messageBox = document.getElementById('messageBox');
+
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent default form submission
+
+                // Simulate form submission success
+                console.log('Form submitted!');
+                console.log('Name:', document.getElementById('name').value);
+                console.log('Email:', document.getElementById('email').value);
+                console.log('Phone:', document.getElementById('phone').value); // Log phone number
+                console.log('Company:', document.getElementById('company').value);
+                console.log('Message:', document.getElementById('message').value);
+
+                // Show success message
+                messageBox.textContent = content[currentLang].messageBoxSuccess;
+                messageBox.classList.add('show');
+
+                // Hide message after 3 seconds
+                setTimeout(() => {
+                    messageBox.classList.remove('show');
+                }, 3000);
+
+                // Clear form fields
+                contactForm.reset();
+            });
+
+            // Chart.js for Threat Landscape (Nepal)
+            const ctxThreatChart = document.getElementById('threatChart').getContext('2d');
+            let threatChart; // Declare chart variable to update it later
+
+            function createThreatChart() {
+                if (threatChart) {
+                    threatChart.destroy(); // Destroy existing chart if it exists
+                }
+                threatChart = new Chart(ctxThreatChart, {
+                    type: 'bar',
+                    data: {
+                        labels: [
+                            content[currentLang].insight1Desc.split('(')[0].trim(), // Cybercrime cases
+                            content[currentLang].insight2Desc.split('(')[0].trim(), // Financial scams
+                            content[currentLang].insight3Desc.split('(')[0].trim(), // Hacking cases
+                            content[currentLang].insight4Desc.split('(')[0].trim(), // Vulnerable websites
+                            content[currentLang].insight5Desc.split('(')[0].trim(), // SMEs lack practices
+                            content[currentLang].insight6Desc.split('(')[0].trim() // Most attacked sector
+                        ],
+                        datasets: [{
+                            label: content[currentLang].threatInsightsHeadline,
+                            data: [52, 87.82, 52, 80, 67, 100], // Example data (scaled for visualization, 100 for financial sector as highest)
+                            backgroundColor: [
+                                'rgba(59, 130, 246, 0.7)', // blue-500
+                                'rgba(239, 68, 68, 0.7)', // red-500
+                                'rgba(245, 158, 11, 0.7)', // amber-500
+                                'rgba(16, 185, 129, 0.7)', // emerald-500
+                                'rgba(139, 92, 246, 0.7)', // violet-500
+                                'rgba(236, 72, 153, 0.7)' // pink-500
+                            ],
+                            borderColor: [
+                                'rgba(59, 130, 246, 1)',
+                                'rgba(239, 68, 68, 1)',
+                                'rgba(245, 158, 11, 1)',
+                                'rgba(16, 185, 129, 1)',
+                                'rgba(139, 92, 246, 1)',
+                                'rgba(236, 72, 153, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        indexAxis: 'y', // Make it a horizontal bar chart
+                        plugins: {
+                            legend: {
+                                display: false,
+                            },
+                            title: {
+                                display: true,
+                                text: content[currentLang].threatLandscapeHeadline,
+                                font: {
+                                    size: 18,
+                                    weight: 'bold'
+                                },
+                                color: '#343a40'
+                            }
+                        },
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Percentage / Count',
+                                    color: '#495057'
+                                },
+                                ticks: {
+                                    color: '#495057'
+                                }
+                            },
+                            y: {
+                                ticks: {
+                                    color: '#495057'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Chart.js for Global Cyber Threat Monitor (Conceptual)
+            const ctxGlobalThreatGraph = document.getElementById('globalThreatGraph').getContext('2d');
+            let globalThreatGraph; // Declare chart variable
+
+            function createGlobalThreatGraph() {
+                if (globalThreatGraph) {
+                    globalThreatGraph.destroy(); // Destroy existing chart if it exists
+                }
+                globalThreatGraph = new Chart(ctxGlobalThreatGraph, {
+                    type: 'line',
+                    data: {
+                        labels: content[currentLang].globalThreatGraphLabels,
+                        datasets: [{
+                            label: content[currentLang].globalThreatGraphData1Label,
+                            data: [12, 15, 18, 16], // Example data for phishing attempts
+                            borderColor: 'rgb(255, 99, 132)',
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            tension: 0.3,
+                            fill: true
+                        }, {
+                            label: content[currentLang].globalThreatGraphData2Label,
+                            data: [8, 10, 9, 11], // Example data for malware detections
+                            borderColor: 'rgb(54, 162, 235)',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            tension: 0.3,
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: '#ffffff' // White color for legend labels
+                                }
+                            },
+                            title: {
+                                display: false // Title is handled by mapPlaceholder P tag
+                            }
+                        },
+                        scales: {
+                            x: {
+                                ticks: {
+                                    color: '#ffffff' // White color for x-axis labels
+                                },
+                                grid: {
+                                    color: 'rgba(255, 255, 255, 0.1)' // Lighter grid lines
+                                }
+                            },
+                            y: {
+                                ticks: {
+                                    color: '#ffffff' // White color for y-axis labels
+                                },
+                                grid: {
+                                    color: 'rgba(255, 255, 255, 0.1)' // Lighter grid lines
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            function updateChartsLanguage() {
+                createThreatChart();
+                createGlobalThreatGraph();
+            }
+
+            // Fetch and display global threat news (simulated API call)
+            async function fetchGlobalThreatNews() {
+                const globalThreatNewsDiv = document.getElementById('global-threat-news');
+                const globalThreatError = document.getElementById('global-threat-error');
+                globalThreatNewsDiv.innerHTML = '<p class="text-center text-gray-400">Loading recent cyber news...</p>';
+                globalThreatError.classList.add('hidden');
+
+                try {
+                    // Simulate API call to Gemini API for news headlines
+                    // In a real scenario, this would call a backend service that fetches real news
+                    const prompt = "Provide 5 recent, concise, and impactful global cybersecurity news headlines or trends. Focus on diverse topics like data breaches, new malware, government advisories, or major cyberattacks. Format as a markdown unordered list.";
+                    let chatHistory = [];
+                    chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                    const payload = { contents: chatHistory };
+                    const apiKey = ""; // Canvas will provide this in runtime
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await response.json();
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const markdownText = result.candidates[0].content.parts[0].text;
+                        globalThreatNewsDiv.innerHTML = marked.parse(markdownText);
+                        globalThreatNewsDiv.classList.remove('hidden');
+                    } else {
+                        globalThreatNewsDiv.innerHTML = '';
+                        globalThreatError.classList.remove('hidden');
+                        console.error('Gemini API returned an unexpected structure or no content.');
+                    }
+                } catch (error) {
+                    globalThreatNewsDiv.innerHTML = '';
+                    globalThreatError.classList.add('hidden');
+                    console.error('Error fetching global threat news:', error);
+                }
+            }
+
+            // Cyber Quiz Logic
+            const allQuizQuestions = [
+                {
+                    questionKey: "quizQ1",
+                    optionsKeys: ["quizQ1A1", "quizQ1A2", "quizQ1A3", "quizQ1A4"],
+                    correctAnswerKey: "quizQ1A1",
+                    explanationKey: "quizQ1Explanation"
+                },
+                {
+                    questionKey: "quizQ2",
+                    optionsKeys: ["quizQ2A1", "quizQ2A2", "quizQ2A3", "quizQ2A4"],
+                    correctAnswerKey: "quizQ2A2",
+                    explanationKey: "quizQ2Explanation"
+                },
+                {
+                    questionKey: "quizQ3",
+                    optionsKeys: ["quizQ3A1", "quizQ3A2", "quizQ3A3", "quizQ3A4"],
+                    correctAnswerKey: "quizQ3A2",
+                    explanationKey: "quizQ3Explanation"
+                },
+                {
+                    questionKey: "quizQ4",
+                    optionsKeys: ["quizQ4A1", "quizQ4A2", "quizQ4A3", "quizQ4A4"],
+                    correctAnswerKey: "quizQ4A2",
+                    explanationKey: "quizQ4Explanation"
+                },
+                {
+                    questionKey: "quizQ5",
+                    optionsKeys: ["quizQ5A1", "quizQ5A2", "quizQ5A3", "quizQ5A4"],
+                    correctAnswerKey: "quizQ5A2",
+                    explanationKey: "quizQ5Explanation"
+                },
+                {
+                    questionKey: "quizQ6",
+                    optionsKeys: ["quizQ6A1", "quizQ6A2", "quizQ6A3", "quizQ6A4"],
+                    correctAnswerKey: "quizQ6A2",
+                    explanationKey: "quizQ6Explanation"
+                },
+                {
+                    questionKey: "quizQ7",
+                    optionsKeys: ["quizQ7A1", "quizQ7A2", "quizQ7A3", "quizQ7A4"],
+                    correctAnswerKey: "quizQ7A3",
+                    explanationKey: "quizQ7Explanation"
+                },
+                {
+                    questionKey: "quizQ8",
+                    optionsKeys: ["quizQ8A1", "quizQ8A2", "quizQ8A3", "quizQ8A4"],
+                    correctAnswerKey: "quizQ8A2",
+                    explanationKey: "quizQ8Explanation"
+                },
+                {
+                    questionKey: "quizQ9",
+                    optionsKeys: ["quizQ9A1", "quizQ9A2", "quizQ9A3", "quizQ9A4"],
+                    correctAnswerKey: "quizQ9A2",
+                    explanationKey: "quizQ9Explanation"
+                },
+                {
+                    questionKey: "quizQ10",
+                    optionsKeys: ["quizQ10A1", "quizQ10A2", "quizQ10A3", "quizQ10A4"],
+                    correctAnswerKey: "quizQ10A2",
+                    explanationKey: "quizQ10Explanation"
+                },
+                {
+                    questionKey: "quizQ11",
+                    optionsKeys: ["quizQ11A1", "quizQ11A2", "quizQ11A3", "quizQ11A4"],
+                    correctAnswerKey: "quizQ11A2",
+                    explanationKey: "quizQ11Explanation"
+                },
+                {
+                    questionKey: "quizQ12",
+                    optionsKeys: ["quizQ12A1", "quizQ12A2", "quizQ12A3", "quizQ12A4"],
+                    correctAnswerKey: "quizQ12A3",
+                    explanationKey: "quizQ12Explanation"
+                },
+                {
+                    questionKey: "quizQ13",
+                    optionsKeys: ["quizQ13A1", "quizQ13A2", "quizQ13A3", "quizQ13A4"],
+                    correctAnswerKey: "quizQ13A2",
+                    explanationKey: "quizQ13Explanation"
+                },
+                {
+                    questionKey: "quizQ14",
+                    optionsKeys: ["quizQ14A1", "quizQ14A2", "quizQ14A3", "quizQ14A4"],
+                    correctAnswerKey: "quizQ14A2",
+                    explanationKey: "quizQ14Explanation"
+                },
+                {
+                    questionKey: "quizQ15",
+                    optionsKeys: ["quizQ15A1", "quizQ15A2", "quizQ15A3", "quizQ15A4"],
+                    correctAnswerKey: "quizQ15A2",
+                    explanationKey: "quizQ15Explanation"
+                },
+                {
+                    questionKey: "quizQ16",
+                    optionsKeys: ["quizQ16A1", "quizQ16A2", "quizQ16A3", "quizQ16A4"],
+                    correctAnswerKey: "quizQ16A3",
+                    explanationKey: "quizQ16Explanation"
+                },
+                {
+                    questionKey: "quizQ17",
+                    optionsKeys: ["quizQ17A1", "quizQ17A2", "quizQ17A3", "quizQ17A4"],
+                    correctAnswerKey: "quizQ17A2",
+                    explanationKey: "quizQ17Explanation"
+                },
+                {
+                    questionKey: "quizQ18",
+                    optionsKeys: ["quizQ18A1", "quizQ18A2", "quizQ18A3", "quizQ18A4"],
+                    correctAnswerKey: "quizQ18A2",
+                    explanationKey: "quizQ18Explanation"
+                },
+                {
+                    questionKey: "quizQ19",
+                    optionsKeys: ["quizQ19A1", "quizQ19A2", "quizQ19A3", "quizQ19A4"],
+                    correctAnswerKey: "quizQ19A2",
+                    explanationKey: "quizQ19Explanation"
+                },
+                {
+                    questionKey: "quizQ20",
+                    optionsKeys: ["quizQ20A1", "quizQ20A2", "quizQ20A3", "quizQ20A4"],
+                    correctAnswerKey: "quizQ20A2",
+                    explanationKey: "quizQ20Explanation"
+                }
+            ];
+
+            const QUIZ_QUESTION_COUNT = 5; // Number of questions to show per quiz session
+            let currentQuizQuestions = []; // Stores the 5 questions for the current session
+
+            let currentQuestionIndex = 0;
+            let score = 0;
+            let selectedOption = null;
+            let answerGivenForCurrentQuestion = false; // Flag to prevent multiple answers per question
+
+            const quizContainer = document.getElementById('quiz-container');
+            const quizResults = document.getElementById('quiz-results');
+            const quizQuestionElement = document.getElementById('quiz-question');
+            const quizOptionsElement = document.getElementById('quiz-options');
+            const nextQuestionBtn = document.getElementById('next-question-btn');
+            const scoreDisplay = document.getElementById('score-display');
+            const quizFeedback = document.getElementById('quiz-feedback');
+            const retakeQuizBtn = document.getElementById('retake-quiz-btn');
+            const quizContactCTA = document.getElementById('quiz-contact-cta');
+            const quizInstantFeedback = document.getElementById('quiz-instant-feedback');
+
+            // Function to shuffle an array (Fisher-Yates algorithm)
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+
+            function startNewQuiz() {
+                // Shuffle all questions and pick the first QUIZ_QUESTION_COUNT
+                currentQuizQuestions = shuffleArray([...allQuizQuestions]).slice(0, QUIZ_QUESTION_COUNT);
+                currentQuestionIndex = 0;
+                score = 0;
+                quizResults.classList.add('hidden');
+                quizContainer.classList.remove('hidden');
+                loadQuestion();
+            }
+
+            function loadQuestion() {
+                selectedOption = null; // Reset selected option for new question
+                answerGivenForCurrentQuestion = false; // Reset flag
+                nextQuestionBtn.disabled = true; // Disable next button
+                nextQuestionBtn.classList.add('opacity-50', 'cursor-not-allowed'); // Add disabled styling
+                quizInstantFeedback.classList.add('hidden'); // Hide instant feedback
+
+                const q = currentQuizQuestions[currentQuestionIndex]; // Use question from current session's pool
+                quizQuestionElement.textContent = content[currentLang][q.questionKey];
+                quizOptionsElement.innerHTML = ''; // Clear previous options
+
+                // Shuffle options for the current question
+                const shuffledOptions = shuffleArray([...q.optionsKeys]);
+
+                shuffledOptions.forEach((optionKey, index) => {
+                    const optionDiv = document.createElement('div');
+                    optionDiv.className = 'flex items-center p-4 border border-gray-200 rounded-lg cursor-pointer hover:bg-blue-50 transition-colors duration-200 quiz-option-item';
+                    optionDiv.dataset.optionKey = optionKey; // Store option key for easy lookup
+                    optionDiv.innerHTML = `
+                        <input type="radio" id="option${index}" name="quizOption" value="${optionKey}" class="hidden">
+                        <label for="option${index}" class="flex items-center w-full cursor-pointer">
+                            <span class="w-5 h-5 border-2 border-blue-400 rounded-full flex items-center justify-center mr-3">
+                                <span class="w-3 h-3 bg-blue-600 rounded-full hidden option-indicator"></span>
+                            </span>
+                            <span class="text-gray-700 font-medium">${content[currentLang][optionKey]}</span>
+                        </label>
+                    `;
+                    optionDiv.addEventListener('click', () => {
+                        if (answerGivenForCurrentQuestion) return; // Prevent re-answering
+
+                        // Deselect previous option visually
+                        quizOptionsElement.querySelectorAll('.option-indicator').forEach(indicator => indicator.classList.add('hidden'));
+                        quizOptionsElement.querySelectorAll('.border-blue-500').forEach(border => border.classList.remove('border-blue-500'));
+                        quizOptionsElement.querySelectorAll('.correct').forEach(el => el.classList.remove('correct'));
+                        quizOptionsElement.querySelectorAll('.incorrect').forEach(el => el.classList.remove('incorrect'));
+                        
+                        // Select current option visually
+                        optionDiv.querySelector('.option-indicator').classList.remove('hidden');
+                        optionDiv.classList.add('border-blue-500'); // Highlight selected option
+                        
+                        optionDiv.querySelector('input').checked = true;
+                        selectedOption = optionKey;
+                        
+                        // Provide immediate feedback
+                        evaluateAnswer(optionDiv);
+                    });
+                    quizOptionsElement.appendChild(optionDiv);
+                });
+            }
+
+            function evaluateAnswer(selectedOptionDiv) {
+                answerGivenForCurrentQuestion = true; // Set flag
+                const q = currentQuizQuestions[currentQuestionIndex];
+                const isCorrect = (selectedOption === q.correctAnswerKey);
+                const instantFeedbackText = document.getElementById('quiz-instant-feedback');
+
+                if (isCorrect) {
+                    selectedOptionDiv.classList.add('correct');
+                    score++;
+                    instantFeedbackText.textContent = `${content[currentLang].quizCorrectFeedback} ${content[currentLang][q.explanationKey]}`; // Add explanation for correct answers
+                    instantFeedbackText.style.color = '#28a745'; // Green
+                } else {
+                    selectedOptionDiv.classList.add('incorrect');
+                    instantFeedbackText.textContent = `${content[currentLang].quizIncorrectPrefix} ${content[currentLang][q.correctAnswerKey]}. ${content[currentLang][q.explanationKey]}`; // Add explanation for incorrect answers
+                    instantFeedbackText.style.color = '#dc3545'; // Red
+
+                    // Highlight the correct answer
+                    quizOptionsElement.querySelectorAll('.quiz-option-item').forEach(option => {
+                        if (option.dataset.optionKey === q.correctAnswerKey) {
+                            option.classList.add('correct');
+                        }
+                    });
+                }
+                quizInstantFeedback.classList.remove('hidden');
+
+                // Disable all options after an answer is given
+                quizOptionsElement.querySelectorAll('.quiz-option-item').forEach(option => {
+                    option.style.pointerEvents = 'none'; // Disable clicks
+                    option.style.cursor = 'default';
+                });
+
+                // Enable the next question button
+                nextQuestionBtn.disabled = false;
+                nextQuestionBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+
+            nextQuestionBtn.addEventListener('click', () => {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < currentQuizQuestions.length) {
+                    loadQuestion();
+                } else {
+                    showResults();
+                }
+            });
+
+            retakeQuizBtn.addEventListener('click', () => {
+                startNewQuiz(); // Start a new quiz with new random questions
+            });
+
+            function showResults() {
+                quizContainer.classList.add('hidden');
+                quizResults.classList.remove('hidden');
+                
+                // Creative score display
+                let scoreText = `${score} out of ${currentQuizQuestions.length} correct!`;
+                if (score === currentQuizQuestions.length) {
+                    scoreText += ' 🎉'; // Add a celebratory emoji for perfect score
+                }
+                scoreDisplay.textContent = scoreText; // Update the content of the span
+
+                let feedbackText = "";
+                const percentage = (score / currentQuizQuestions.length) * 100;
+
+                if (percentage === 100) {
+                    feedbackText = content[currentLang].quizFeedbackExcellent;
+                } else if (percentage >= 60) {
+                    feedbackText = content[currentLang].quizFeedbackGood;
+                } else if (percentage >= 40) {
+                    feedbackText = content[currentLang].quizFeedbackFair;
+                } else {
+                    feedbackText = content[currentLang].quizFeedbackPoor;
+                }
+                quizFeedback.innerHTML = feedbackText; // Use innerHTML to allow for bold tags
+                quizContactCTA.textContent = content[currentLang].quizContactCTA;
+            }
+
+            // Initial calls
+            applyTranslations();
+            createThreatChart();
+            createGlobalThreatGraph();
+            fetchGlobalThreatNews();
+            startNewQuiz(); // Start the first quiz when the page loads
+        });
+    </script>
+</body>
+</html>
