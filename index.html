@@ -190,7 +190,6 @@
         }
     </style>
     
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DVZ61Q4W85"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -203,15 +202,12 @@
 </head>
 <body class="antialiased">
 
-    <!-- Header and Navigation -->
-    <!-- The header uses sticky positioning and a higher z-index to stay on top of other content -->
     <header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-xl md:text-2xl font-bold text-gray-800 flex items-center">
                 <img src="assets/logo/logo.png" aly="Company Loho" class="h-10 w-auto">
-                <span data-lang-key="firmName" class="text-blue-600"></span>
+                <span data-lang-key="firmName" class="text-blue-600 sr-only"></span>
             </a>
-            <!-- Desktop menu links -->
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#services" class="nav-link text-gray-600 font-medium" data-lang-key="navServices">Services</a>
                 <a href="#why-us" class="nav-link text-gray-600 font-medium" data-lang-key="navWhyUs">Why Us</a>
@@ -223,16 +219,13 @@
                 <a href="#contact" class="nav-link text-gray-600 font-medium" data-lang-key="navContact">Contact</a>
                 <button id="lang-toggle" class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">नेपाली</button>
             </div>
-            <!-- Desktop CTA button -->
             <a href="#contact" class="hidden md:block cta-button bg-blue-600 text-white font-bold py-2 px-5 rounded-full shadow-lg" data-lang-key="getConsultationBtn">
                 Get Consultation
             </a>
-            <!-- Mobile menu button -->
             <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </nav>
-        <!-- Mobile menu dropdown -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4">
             <a href="#services" class="block py-2 text-gray-600 font-medium" data-lang-key="navServices">Services</a>
             <a href="#why-us" class="block py-2 text-gray-600 font-medium" data-lang-key="navWhyUs">Why Us</a>
@@ -247,7 +240,6 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
         <section id="home" class="hero-bg text-white">
             <div class="container mx-auto px-6 py-24 md:py-32 text-center">
                 <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4" data-lang-key="heroHeadline">Securing Nepal's Digital Future</h1>
@@ -260,7 +252,6 @@
             </div>
         </section>
 
-        <!-- About Us Section -->
         <section id="about" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -286,7 +277,6 @@
             </div>
         </section>
 
-        <!-- Services Section -->
         <section id="services" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -430,7 +420,6 @@
             </div>
         </section>
 
-        <!-- Why Us Section -->
         <section id="why-us" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -484,7 +473,6 @@
             </div>
         </section>
 
-        <!-- Threat Landscape Section -->
         <section id="threat-landscape" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -547,7 +535,6 @@
             </div>
         </section>
 
-        <!-- Auditing Insights Section -->
         <section id="auditing-insights" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -590,7 +577,6 @@
             </div>
         </section>
 
-        <!-- Testimonials Section -->
         <section id="testimonials" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -615,7 +601,6 @@
         </section>
 
 
-        <!-- Cyber Quiz Section -->
         <section id="cyber-quiz" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -646,7 +631,6 @@
             </div>
         </section>
 
-        <!-- FAQs Section -->
         <section id="faqs" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -704,7 +688,6 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="py-20 bg-gray-100">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -714,9 +697,7 @@
                 <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
          
   <form id="contactForm" action="https://formsubmit.co/nepalcyberaudit@gmail.com" method="POST">
-    <!-- Disable CAPTCHA -->
     <input type="hidden" name="_captcha" value="false">
-    <!-- Redirect after submit (optional) -->
     <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
 
     <div class="grid md:grid-cols-2 gap-6 mb-6">
@@ -751,7 +732,6 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-gray-800 text-white pt-12 pb-8">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
@@ -784,7 +764,6 @@
         </div>
     </footer>
 
-    <!-- Message box for form submission feedback -->
     <div id="messageBox" class="message-box">
         </div>
 
@@ -1122,12 +1101,12 @@
                     vaptHeadline: "सक्रिय सुरक्षा: कमजोरी मूल्याङ्कन र प्रवेश परीक्षण (VAPT)",
                     vaptDescription: "हामी नैतिक ह्याकरको रूपमा काम गर्छौं, दुर्भावनापूर्ण आक्रमणकारीहरूले गर्नु अघि तपाईंको प्रणालीमा कमजोरीहरू पहिचान गर्छौं र सुरक्षित रूपमा शोषण गर्छौं। हाम्रो VAPT सेवाहरूले वास्तविक-विश्व आक्रमणहरू अनुकरण गर्दछ, तपाईंको सुरक्षा स्थितिको स्पष्ट तस्वीर र यसलाई कसरी बलियो बनाउने भन्ने बारे जानकारी दिन्छ।",
                     vaptBenefit1: "<strong>तपाईंको लाभ:</strong> सक्रिय रूपमा सुरक्षा त्रुटिहरू हटाउनुहोस्, अनुपालन मापदण्डहरू पूरा गर्नुहोस्, र तपाईंको मूल्यवान डाटा सुरक्षित गर्नुहोस्।",
-                    vaptProcess1: "<strong>हाम्रो दृष्टिकोण:</strong> विस्तृत स्कोपिङ, सूचना सङ्कलन, खतरा मोडेलिङ, नियन्त्रित शोषण, र स्पष्ट, कार्ययोग्य चरणहरूको साथ विस्तृत रिपोर्टिङ।",
+                    vaptProcess1: "<strong>हाम्रो दृष्टिकोण:पी</strong> द्रुत रोकथाम, गहन उन्मूलन, कुशल रिकभरी, र विस्तृत घटना-पछिको विश्लेषण।",
                     incidentResponseTab: "घटना प्रतिक्रिया",
                     incidentResponseHeadline: "द्रुत प्रतिक्रिया: घटना व्यवस्थापन र फरेन्सिक",
                     incidentResponseDescription: "जब साइबर घटना हुन्छ, प्रत्येक क्षण महत्त्वपूर्ण हुन्छ। हाम्रो विशेषज्ञ द्रुत प्रतिक्रिया टोलीले तपाईंलाई खतरा समावेश गर्न, आक्रमणकारीलाई हटाउन, र विश्लेषणका लागि महत्त्वपूर्ण प्रमाणहरू सावधानीपूर्वक सुरक्षित राख्दै तपाईंको सञ्चालनहरू पुनर्स्थापना गर्न मद्दत गर्न तयार छ।",
                     incidentResponseBenefit1: "<strong>तपाईंको लाभ:</strong> वित्तीय र प्रतिष्ठाको क्षति कम गर्नुहोस्, व्यवसाय सञ्चालनहरू छिटो पुनः सुरु गर्नुहोस्, र भविष्यका घटनाहरू रोक्न घटनाहरूबाट सिक्नुहोस्।",
-                    incidentResponseProcess1: "<strong>हाम्रो दृष्टिकोण:पी</strong> द्रुत रोकथाम, गहन उन्मूलन, कुशल रिकभरी, र विस्तृत घटना-पछिको विश्लेषण।",
+                    incidentResponseProcess1: "<strong>हाम्रो दृष्टिकोण:</strong> Swift Containment, Thorough Eradication, Efficient Recovery, and In-depth Post-Incident Analysis.",
                     awarenessTrainingTab: "जागरूकता प्रशिक्षण",
                     awarenessTrainingHeadline: "तपाईंको टोलीलाई सशक्त बनाउनुहोस्: सुरक्षा जागरूकता प्रशिक्षण",
                     awarenessTrainingDescription: "तपाईंका कर्मचारीहरू तपाईंको सबैभन्दा बलियो रक्षा हुन्। हामी आकर्षक, व्यावहारिक प्रशिक्षण कार्यक्रमहरू प्रदान गर्दछौं जसले तपाईंको कर्मचारीहरूलाई सतर्क मानव फायरवालमा परिणत गर्दछ, फिसिङ, सामाजिक इन्जिनियरिङ, र अन्य सामान्य साइबर खतराहरूलाई पहिचान गर्न र प्रतिरोध गर्न सुसज्जित गराउँछ।",
@@ -1393,8 +1372,8 @@
                     quizQ18Explanation: "एक बलियो पासवर्ड नीतिले जटिल र अद्वितीय पासवर्डहरू सिर्जना गर्न नियमहरू लागू गर्दछ, जसले संगठनात्मक प्रणाली र डाटामा अनाधिकृत पहुँचको सम्भावनालाई उल्लेखनीय रूपमा कम गर्दछ।",
                     quizQ19Explanation: "इन्क्रिप्शन भनेको जानकारी वा डाटालाई कोडमा रूपान्तरण गर्ने प्रक्रिया हो, विशेष गरी अनाधिकृत पहुँच रोक्नका लागि। यसले डाटालाई यस्तो तरिकाले स्क्र्याम्बल गर्दछ कि अधिकृत पक्षहरूले मात्र यसलाई बुझ्न सक्छन्।",
                     quizQ20Explanation: "सार्वजनिक कम्प्युटरहरू प्रयोग गरेपछि लग आउट गर्नु महत्त्वपूर्ण छ किनभने यसले अर्को प्रयोगकर्तालाई तपाईंको खाताहरू, ब्राउजिङ इतिहास, वा तपाईंले खुला छोडेका कुनै पनि संवेदनशील जानकारीमा पहुँच गर्नबाट रोक्छ।",
-                }
-            };
+                    }
+                };
 
             let currentLang = 'en'; // Default language
 
@@ -2039,17 +2018,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
