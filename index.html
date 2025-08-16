@@ -183,6 +183,11 @@
             font-weight: 600;
             text-align: center;
         }
+        /* Adds an offset to all anchor links to prevent content from being hidden behind the sticky header */
+        :target {
+            scroll-margin-top: 100px; 
+            /* Adjust this value as needed to match your header's height */
+        }
     </style>
     
 <!-- Google tag (gtag.js) -->
@@ -193,11 +198,6 @@
   gtag('js', new Date());
 
   gtag('config', 'G-DVZ61Q4W85');
-    /* Adds an offset to all anchor links to prevent content from being hidden behind the sticky header */
-        :target {
-            scroll-margin-top: 100px; 
-            /* Adjust this value as needed to match your header's height */
-        }
 </script>
     
 </head>
@@ -2038,6 +2038,7 @@
     </script>
 </body>
 </html>
+
 
 
 
