@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You | Nepal Cyber Audit</title>
+  <title>Thank You | Nepal Cyber Audit and IT Consultation</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     #gameArea {
@@ -28,13 +28,14 @@
   </style>
 </head>
 <body class="bg-gray-50 font-sans">
+
   <!-- Hero Section -->
   <section class="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-center">
     <div class="container mx-auto px-6">
       <h1 class="text-5xl font-bold mb-4">Thank You! 🎉</h1>
       <p class="text-lg max-w-2xl mx-auto">
         Your message has been successfully sent. Our team will reach out to you shortly.  
-        While you wait, why not play a quick game? 👇
+        While you wait, explore our services and play a quick game below!
       </p>
       <a href="index.html" class="mt-6 inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-full shadow-md hover:bg-gray-200 transition">
         Back to Home
@@ -42,61 +43,36 @@
     </div>
   </section>
 
-  <!-- Game Section -->
-  <section class="py-16 bg-white text-center">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-gray-800 mb-6">🎮 Catch the Box Game</h2>
-      <p class="text-gray-600 mb-4">Click the blue box as many times as you can in 30 seconds!</p>
-      <div id="gameArea">
-        <div id="box"></div>
+  <!-- Next Steps Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold text-gray-800 mb-8">What Happens Next?</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-6 border rounded-lg shadow-sm hover:shadow-md transition">
+          <h3 class="text-xl font-semibold text-blue-600 mb-3">📩 Confirmation</h3>
+          <p class="text-gray-600">We’ve received your message and sent a confirmation email. Please check your inbox.</p>
+        </div>
+        <div class="p-6 border rounded-lg shadow-sm hover:shadow-md transition">
+          <h3 class="text-xl font-semibold text-blue-600 mb-3">👨‍💻 Our Response</h3>
+          <p class="text-gray-600">One of our experts will contact you within 24 hours to discuss your request in detail.</p>
+        </div>
+        <div class="p-6 border rounded-lg shadow-sm hover:shadow-md transition">
+          <h3 class="text-xl font-semibold text-blue-600 mb-3">🚀 Get Prepared</h3>
+          <p class="text-gray-600">Review your goals, questions, or challenges so we can make the most of our first call.</p>
+        </div>
       </div>
-      <p class="mt-4 text-lg font-semibold">Score: <span id="score">0</span></p>
-      <p class="mt-2 text-sm text-gray-500">Game ends automatically after 30 seconds.</p>
     </div>
   </section>
 
-  <!-- Script for Game -->
-  <script>
-    const box = document.getElementById("box");
-    const gameArea = document.getElementById("gameArea");
-    const scoreDisplay = document.getElementById("score");
-    let score = 0;
-    let timeLeft = 30;
-    let gameActive = true;
-
-    function moveBox() {
-      if (!gameActive) return;
-      const areaWidth = gameArea.clientWidth - 50;
-      const areaHeight = gameArea.clientHeight - 50;
-      const x = Math.floor(Math.random() * areaWidth);
-      const y = Math.floor(Math.random() * areaHeight);
-      box.style.left = x + "px";
-      box.style.top = y + "px";
-    }
-
-    box.addEventListener("click", () => {
-      if (gameActive) {
-        score++;
-        scoreDisplay.textContent = score;
-        moveBox();
-      }
-    });
-
-    // Start game
-    moveBox();
-    const timer = setInterval(() => {
-      timeLeft--;
-      if (timeLeft <= 0) {
-        clearInterval(timer);
-        gameActive = false;
-        alert("Game Over! 🎉 Your final score: " + score);
-      }
-    }, 1000);
-  </script>
-
-  <!-- Footer -->
-  <footer class="py-6 bg-gray-800 text-gray-400 text-center">
-    <p>&copy; 2025 Nepal Cyber Audit. All rights reserved.</p>
-  </footer>
-</body>
-</html>
+  <!-- About Us / Services -->
+  <section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold text-gray-800 mb-8">Learn More About Us</h2>
+      <p class="text-gray-600 mb-10 max-w-3xl mx-auto">
+        At <span class="font-semibold text-blue-600">Nepal Cyber Audit</span>, we specialize in cybersecurity, digital audits, and compliance consulting.  
+        Our mission is to help businesses stay secure, compliant, and future-ready.
+      </p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold mb-2">🔒 Cybersecurity</h3>
+          <p class="text-gray-600">Protect your
