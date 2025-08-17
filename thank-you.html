@@ -5,6 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thank You | Nepal Cyber Audit</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    #gameArea {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      height: 400px;
+      background: #f9fafb;
+      border: 2px solid #ccc;
+      margin: 20px auto;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    #box {
+      width: 50px;
+      height: 50px;
+      background: #2563eb;
+      position: absolute;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body class="bg-gray-50 font-sans">
   <!-- Hero Section -->
@@ -13,7 +34,7 @@
       <h1 class="text-5xl font-bold mb-4">Thank You! 🎉</h1>
       <p class="text-lg max-w-2xl mx-auto">
         Your message has been successfully sent. Our team will reach out to you shortly.  
-        In the meantime, here are some useful resources and next steps.
+        While you wait, why not play a quick game? 👇
       </p>
       <a href="index.html" class="mt-6 inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-full shadow-md hover:bg-gray-200 transition">
         Back to Home
@@ -21,62 +42,57 @@
     </div>
   </section>
 
-  <!-- Next Steps Section -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold text-gray-800 mb-8">What Happens Next?</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="p-6 border rounded-lg shadow-sm hover:shadow-md transition">
-          <h3 class="text-xl font-semibold text-blue-600 mb-3">📩 Confirmation</h3>
-          <p class="text-gray-600">We’ve received your message and sent a confirmation email. Please check your inbox.</p>
-        </div>
-        <div class="p-6 border rounded-lg shadow-sm hover:shadow-md transition">
-          <h3 class="text-xl font-semibold text-blue-600 mb-3">👨‍💻 Our Response</h3>
-          <p class="text-gray-600">One of our experts will contact you within 24 hours to discuss your request in detail.</p>
-        </div>
-        <div class="p-6 border rounded-lg shadow-sm hover:shadow-md transition">
-          <h3 class="text-xl font-semibold text-blue-600 mb-3">🚀 Get Prepared</h3>
-          <p class="text-gray-600">Review your goals, questions, or challenges so we can make the most of our first call.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Us / Services -->
-  <section class="py-16 bg-gray-100">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold text-gray-800 mb-8">Learn More About Us</h2>
-      <p class="text-gray-600 mb-10 max-w-3xl mx-auto">
-        At <span class="font-semibold text-blue-600">Nepal Cyber Audit</span>, we specialize in cybersecurity, digital audits, and compliance consulting.  
-        Our mission is to help businesses stay secure, compliant, and future-ready.
-      </p>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-          <h3 class="text-xl font-semibold mb-2">🔒 Cybersecurity</h3>
-          <p class="text-gray-600">Protect your business from threats with our tailored security audits and monitoring services.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-          <h3 class="text-xl font-semibold mb-2">📊 Compliance Audits</h3>
-          <p class="text-gray-600">Stay compliant with international standards like ISO, GDPR, and more.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-          <h3 class="text-xl font-semibold mb-2">🚀 Digital Growth</h3>
-          <p class="text-gray-600">Beyond security, we help you leverage digital tools for smarter growth and innovation.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Call to Action -->
-  <section class="py-16 bg-gradient-to-r from-indigo-700 to-blue-600 text-center text-white">
+  <!-- Game Section -->
+  <section class="py-16 bg-white text-center">
     <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold mb-6">Want to Explore More?</h2>
-      <p class="text-lg mb-8">Check out our case studies, client testimonials, and free resources to stay ahead in cybersecurity.</p>
-      <a href="index.html#services" class="bg-white text-blue-600 font-semibold px-8 py-3 rounded-full shadow-md hover:bg-gray-200 transition">
-        Explore Our Services
-      </a>
+      <h2 class="text-3xl font-bold text-gray-800 mb-6">🎮 Catch the Box Game</h2>
+      <p class="text-gray-600 mb-4">Click the blue box as many times as you can in 30 seconds!</p>
+      <div id="gameArea">
+        <div id="box"></div>
+      </div>
+      <p class="mt-4 text-lg font-semibold">Score: <span id="score">0</span></p>
+      <p class="mt-2 text-sm text-gray-500">Game ends automatically after 30 seconds.</p>
     </div>
   </section>
+
+  <!-- Script for Game -->
+  <script>
+    const box = document.getElementById("box");
+    const gameArea = document.getElementById("gameArea");
+    const scoreDisplay = document.getElementById("score");
+    let score = 0;
+    let timeLeft = 30;
+    let gameActive = true;
+
+    function moveBox() {
+      if (!gameActive) return;
+      const areaWidth = gameArea.clientWidth - 50;
+      const areaHeight = gameArea.clientHeight - 50;
+      const x = Math.floor(Math.random() * areaWidth);
+      const y = Math.floor(Math.random() * areaHeight);
+      box.style.left = x + "px";
+      box.style.top = y + "px";
+    }
+
+    box.addEventListener("click", () => {
+      if (gameActive) {
+        score++;
+        scoreDisplay.textContent = score;
+        moveBox();
+      }
+    });
+
+    // Start game
+    moveBox();
+    const timer = setInterval(() => {
+      timeLeft--;
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        gameActive = false;
+        alert("Game Over! 🎉 Your final score: " + score);
+      }
+    }, 1000);
+  </script>
 
   <!-- Footer -->
   <footer class="py-6 bg-gray-800 text-gray-400 text-center">
