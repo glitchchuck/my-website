@@ -672,7 +672,16 @@
                 </div>
                 <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
          
-            <form id="contactForm" action="https://formspree.io/f/xkgzazva" method="POST">
+           <form action="https://formspree.io/f/xkgzazva" method="POST">
+  <!-- Customize subject -->
+  <input type="hidden" name="_subject" value="New Consultation Request">
+
+  <!-- Disable captcha -->
+  <input type="hidden" name="_captcha" value="false">
+
+  <!-- Redirect to thank-you page after submit -->
+  <input type="hidden" name="_next" value="https://your-username.github.io/your-repo-name/thank-you.html">
+
   <div class="grid md:grid-cols-2 gap-6 mb-6">
       <div>
           <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
@@ -680,7 +689,7 @@
       </div>
       <div>
           <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-          <input type="email" id="email" name="_replyto" required class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+          <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg">
       </div>
   </div>
   <div class="mb-6">
@@ -1991,6 +2000,7 @@
     </script>
 </body>
 </html>
+
 
 
 
