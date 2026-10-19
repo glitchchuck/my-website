@@ -9,12 +9,6 @@
     <meta property="og:url" content="https://www.nepalcyberconsultaudit.com/">
     <meta property="og:type" content="website">
 
-    <!-- For Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Nepal Cybersecurity, Audit and IT Consultation">
-    <meta name="twitter:description" content="Cybersecurity, IT & Audit Consultation in Nepal.">
-    <meta name="twitter:image" content="https://www.nepalcyberconsultaudit.com/assets/logo/logo.png">
-
     <title>Nepal Cybersecurity, Audit and IT Consultation</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -39,15 +33,9 @@
                 radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 25%),
                 radial-gradient(circle at 80% 90%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 30%);
         }
-        .nav-link {
-            transition: color 0.3s ease;
-        }
-        .nav-link:hover {
-            color: #007bff;
-        }
-        .cta-button {
-            transition: all 0.3s ease;
-        }
+        .nav-link { transition: color 0.3s ease; }
+        .nav-link:hover { color: #007bff; }
+        .cta-button { transition: all 0.3s ease; }
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
@@ -57,9 +45,7 @@
             background-color: #007bff;
             color: #ffffff;
         }
-        .service-card, .team-card, .testimonial-card {
-            transition: all 0.3s ease;
-        }
+        .service-card, .team-card, .testimonial-card { transition: all 0.3s ease; }
         .service-card:hover, .team-card:hover, .testimonial-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
@@ -74,14 +60,11 @@
             max-height: 50vh;
         }
         @media (max-width: 768px) {
-            .chart-container {
-                height: 350px;
-            }
+            .chart-container { height: 350px; }
         }
         .message-box {
             position: fixed;
-            top: 50%;
-            left: 50%;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
             background-color: #28a745;
             color: white;
@@ -89,64 +72,25 @@
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
+            opacity: 0; visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
             text-align: center;
         }
-        .message-box.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        .faq-item {
-            border-bottom: 1px solid #e2e8f0;
-        }
+        .message-box.show { opacity: 1; visibility: visible; }
+        .faq-item { border-bottom: 1px solid #e2e8f0; }
         .faq-question {
-            cursor: pointer;
-            padding: 1rem 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            color: #343a40;
+            cursor: pointer; padding: 1rem 0;
+            display: flex; justify-content: space-between; align-items: center;
+            font-weight: 600; color: #343a40;
         }
-        .faq-answer {
-            padding-bottom: 1rem;
-            color: #495057;
-            display: none;
-        }
-        .faq-question svg {
-            transition: transform 0.3s ease;
-        }
-        .faq-question.active svg {
-            transform: rotate(180deg);
-        }
-        .quiz-option-item.correct {
-            background-color: #d4edda !important;
-            border-color: #28a745 !important;
-        }
-        .quiz-option-item.incorrect {
-            background-color: #f8d7da !important;
-            border-color: #dc3545 !important;
-        }
-        .quiz-feedback-text {
-            margin-top: 1rem;
-            font-weight: 600;
-            text-align: center;
-        }
-        :target {
-            scroll-margin-top: 100px; 
-        }
+        .faq-answer { padding-bottom: 1rem; color: #495057; display: none; }
+        .faq-question svg { transition: transform 0.3s ease; }
+        .faq-question.active svg { transform: rotate(180deg); }
+        .quiz-option-item.correct { background-color: #d4edda !important; border-color: #28a745 !important; }
+        .quiz-option-item.incorrect { background-color: #f8d7da !important; border-color: #dc3545 !important; }
+        .quiz-feedback-text { margin-top: 1rem; font-weight: 600; text-align: center; }
+        :target { scroll-margin-top: 100px; }
     </style>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "url": "https://www.nepalcyberconsultaudit.com",
-      "logo": "https://www.nepalcyberconsultaudit.com/assets/logo/logo.png"
-    }
-    </script>
 </head>
 <body class="antialiased">
 
@@ -166,14 +110,12 @@
                 <a href="#faqs" class="nav-link text-gray-600 font-medium" data-lang-key="navFAQs">FAQs</a>
                 <button id="lang-toggle" class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">नेपाली</button>
                 <a href="#contact" class="cta-button bg-blue-600 text-white font-bold py-2 px-5 rounded-full shadow-lg inline-block" data-lang-key="getConsultationBtn">Get Consultation</a>
-                <a href="https://forms.gle/tDn4x5fhVFeJr5y97" target="_blank" class="cta-button bg-purple-600 text-white font-bold py-2 px-6 rounded-full shadow-lg inline-block">Join Our Team</a>
             </div>
-           
             <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2">
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2 bg-white">
             <a href="#services" class="block py-2 text-gray-600 font-medium" data-lang-key="navServices">Services</a>
             <a href="#why-us" class="block py-2 text-gray-600 font-medium" data-lang-key="navWhyUs">Why Us</a>
             <a href="#threat-landscape" class="block py-2 text-gray-600 font-medium" data-lang-key="navThreats">Threats</a>
@@ -183,7 +125,6 @@
             <a href="#faqs" class="block py-2 text-gray-600 font-medium" data-lang-key="navFAQs">FAQs</a>
             <button id="mobile-lang-toggle" class="block mt-2 bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm font-medium w-full">नेपाली</button>
             <a href="#contact" class="cta-button bg-blue-600 text-white font-bold py-2 px-5 rounded-full shadow-lg block text-center" data-lang-key="getConsultationBtn">Get Consultation</a>
-            <a href="https://forms.gle/tDn4x5fhVFeJr5y97" target="_blank" class="cta-button bg-purple-600 text-white font-bold py-2 px-6 rounded-full shadow-lg block text-center">Join Our Team</a>
         </div>
     </header>
 
@@ -192,7 +133,7 @@
             <div class="container mx-auto px-6 py-24 md:py-32 text-center">
                 <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4" data-lang-key="heroHeadline">Securing Nepal's Digital Future</h1>
                 <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8" data-lang-key="heroSubHeadline">
-                    We provide world-class cybersecurity, IT, and audit solutions tailored for the unique landscape of Nepali businesses. Your shield in the evolving digital world.
+                    We provide world-class cybersecurity, IT, and audit solutions tailored for the unique landscape of Nepali businesses.
                 </p>
                 <a href="#contact" class="cta-button bg-blue-600 text-white font-bold py-4 px-8 rounded-full text-lg shadow-xl" data-lang-key="heroCTA">
                     Request a Free Quote
@@ -200,227 +141,7 @@
             </div>
         </section>
 
-        <section id="about" class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="aboutHeadline">Nepal Cybersecurity, Audit and IT Consultation</h2>
-                    <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto" data-lang-key="aboutSubHeadline">
-                        We are a leading consultation firm in Nepal, dedicated to empowering businesses with robust cybersecurity, efficient IT infrastructure, and meticulous financial audits.
-                    </p>
-                </div>
-                 <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="aboutMissionHeadline">Our Mission & Vision</h3>
-                        <p class="text-gray-600 mb-4" data-lang-key="aboutMissionText1">
-                            Our mission is to be the trusted partner for businesses across Nepal, safeguarding their digital assets and ensuring compliance through expert cybersecurity, IT, and audit services.
-                        </p>
-                        <p class="text-gray-600" data-lang-key="aboutMissionText2">
-                            We combine deep local market understanding with global best practices, offering tailored solutions that meet unique business challenges.
-                        </p>
-                    </div>
-                    <div>
-                        <video autoplay loop muted playsinline class="rounded-lg shadow-lg mx-auto w-full">
-                            <source src="assets/videos/Fourth.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="services" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="servicesHeadline">Your Digital Journey, Secured: Our Services</h2>
-                    <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto" data-lang-key="servicesSubHeadline">
-                        From fortifying your defenses to optimizing your operations and ensuring financial integrity, we offer specialized services.
-                    </p>
-                </div>
-                
-                <div class="flex flex-wrap justify-center gap-2 mb-8" id="service-category-tabs">
-                    <button data-category="cybersecurity" class="service-category-tab active font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300">
-                        <i class="fas fa-shield-alt mr-2"></i> <span data-lang-key="tabCybersecurity">Cybersecurity Solutions</span>
-                    </button>
-                    <button data-category="it-consultation" class="service-category-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300">
-                        <i class="fas fa-cogs mr-2"></i> <span data-lang-key="tabITConsultation">IT Strategy & Support</span>
-                    </button>
-                    <button data-category="cpa-ca-audits" class="service-category-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300">
-                        <i class="fas fa-file-invoice-dollar mr-2"></i> <span data-lang-key="tabCPA_CAAudits">Expert Audit & Assurance</span>
-                    </button>
-                </div>
-
-                <div id="service-category-content">
-                    <div id="cybersecurity" class="service-category-pane">
-                        <div class="flex flex-wrap justify-center gap-2 mb-8" id="cybersecurity-tabs">
-                            <button data-target="vapt" class="service-detail-tab active font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="vaptTab">VAPT</button>
-                            <button data-target="incident-response" class="service-detail-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="incidentResponseTab">Incident Response</button>
-                            <button data-target="awareness-training" class="service-detail-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="awarenessTrainingTab">Awareness Training</button>
-                        </div>
-                        <div id="cybersecurity-detail-content">
-                            <div id="vapt" class="bg-gray-50 rounded-lg p-8 md:p-12 service-detail-pane">
-                                <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="vaptHeadline">Proactive Security: Vulnerability & Penetration Testing (VAPT)</h3>
-                                <p class="text-gray-600 mb-4" data-lang-key="vaptDescription">We act as ethical hackers, identifying and safely exploiting weaknesses in your systems before malicious attackers can.</p>
-                                <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                    <li data-lang-key="vaptBenefit1"><strong>Your Gains:</strong> Proactively eliminate security gaps, meet compliance standards, and safeguard your valuable data.</li>
-                                    <li data-lang-key="vaptProcess1"><strong>Our Approach:</strong> Detailed scoping, threat modeling, controlled exploitation, and comprehensive reporting.</li>
-                                </ul>
-                            </div>
-                            <div id="incident-response" class="service-detail-pane hidden">
-                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
-                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="incidentResponseHeadline">Rapid Response: Incident Management & Forensics</h3>
-                                    <p class="text-gray-600 mb-4" data-lang-key="incidentResponseDescription">When a cyber incident strikes, every moment is critical. Our expert rapid response team helps contain threats quickly.</p>
-                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                        <li data-lang-key="incidentResponseBenefit1"><strong>Your Gains:</strong> Minimize financial and reputational damage, swiftly resume business operations.</li>
-                                        <li data-lang-key="incidentResponseProcess1"><strong>Our Approach:</strong> Swift Containment, Thorough Eradication, Efficient Recovery.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div id="awareness-training" class="service-detail-pane hidden">
-                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
-                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="awarenessTrainingHeadline">Empower Your Team: Security Awareness Training</h3>
-                                    <p class="text-gray-600 mb-4" data-lang-key="awarenessTrainingDescription">Your employees are your strongest defense. We provide engaging training programs to transform staff into a human firewall.</p>
-                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                        <li data-lang-key="awarenessTrainingBenefit1"><strong>Your Gains:</strong> Significantly reduce human error and lower cyberattack risks.</li>
-                                        <li data-lang-key="awarenessTrainingProcess1"><strong>Our Approach:</strong> Tailored training modules and realistic phishing simulations.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="it-consultation" class="service-category-pane hidden">
-                        <div class="flex flex-wrap justify-center gap-2 mb-8" id="it-consultation-tabs">
-                            <button data-target="network-design" class="service-detail-tab active font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="networkDesignTab">Network Design & Implementation</button>
-                            <button data-target="data-management" class="service-detail-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="dataManagementTab">Data Management</button>
-                            <button data-target="system-integration" class="service-detail-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="systemIntegrationTab">System Integration</button>
-                        </div>
-                        <div id="it-consultation-detail-content">
-                            <div id="network-design" class="service-detail-pane">
-                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
-                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="networkDesignHeadline">Foundation for Growth: Network Design & Setup</h3>
-                                    <p class="text-gray-600 mb-4" data-lang-key="networkDesignDescription">We engineer and deploy resilient, scalable, and secure network infrastructures.</p>
-                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                        <li data-lang-key="networkDesignBenefit1"><strong>Your Gains:</strong> Optimized performance, fortified security, and a network ready for tomorrow.</li>
-                                        <li data-lang-key="networkDesignProcess1"><strong>Our Approach:</strong> Needs Assessment, Strategic Design, Seamless Implementation.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div id="data-management" class="service-detail-pane hidden">
-                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
-                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="dataManagementHeadline">Unlock Insights: Data Management & Analytics</h3>
-                                    <p class="text-gray-600 mb-4" data-lang-key="dataManagementDescription">Manage your data effectively, extract insights, and make informed business decisions.</p>
-                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                        <li data-lang-key="dataManagementBenefit1"><strong>Your Gains:</strong> Smarter decision-making, superior data quality, and compliance.</li>
-                                        <li data-lang-key="dataManagementProcess1"><strong>Our Approach:</strong> Data Strategy Development, Quality Assurance, Warehousing Solutions.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div id="system-integration" class="service-detail-pane hidden">
-                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
-                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="systemIntegrationHeadline">Seamless Operations: System Integration</h3>
-                                    <p class="text-gray-600 mb-4" data-lang-key="systemIntegrationDescription">We bridge gaps between diverse systems, creating a unified operational environment.</p>
-                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                        <li data-lang-key="systemIntegrationBenefit1"><strong>Your Gains:</strong> Reduced manual effort, smooth data flow, and enhanced productivity.</li>
-                                        <li data-lang-key="systemIntegrationProcess1"><strong>Our Approach:</strong> Requirements Analysis, Custom Design, Expert Development.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="cpa-ca-audits" class="service-category-pane hidden">
-                        <div class="flex flex-wrap justify-center gap-2 mb-8" id="cpa-ca-audits-tabs">
-                            <button data-target="financial-audit" class="service-detail-tab active font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="financialAuditTab">Financial Statement Audit</button>
-                            <button data-target="compliance-audit" class="service-detail-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="complianceAuditTab">Compliance Audit</button>
-                            <button data-target="tax-audit" class="service-detail-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="taxAuditTab">Tax Audit</button>
-                        </div>
-                        <div id="cpa-ca-audits-detail-content">
-                            <div id="financial-audit" class="service-detail-pane">
-                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
-                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="financialAuditHeadline">Financial Clarity: Independent Statement Audits</h3>
-                                    <p class="text-gray-600 mb-4" data-lang-key="financialAuditDescription">Seasoned CPAs and CAs conduct meticulous audits ensuring absolute accuracy and transparency.</p>
-                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                        <li data-lang-key="financialAuditBenefit1"><strong>Your Gains:</strong> Boosted credibility, increased investor confidence.</li>
-                                        <li data-lang-key="financialAuditProcess1"><strong>Our Approach:</strong> Strategic Planning, Comprehensive Risk Assessment, Clear Reporting.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div id="compliance-audit" class="service-detail-pane hidden">
-                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
-                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="complianceAuditHeadline">Regulatory Confidence: Compliance Audits</h3>
-                                    <p class="text-gray-600 mb-4" data-lang-key="complianceAuditDescription">Verify that operations fully comply with relevant local and international regulations.</p>
-                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                        <li data-lang-key="complianceAuditBenefit1"><strong>Your Gains:</strong> Avoidance of costly penalties and strong corporate governance.</li>
-                                        <li data-lang-key="complianceAuditProcess1"><strong>Our Approach:</strong> Regulatory Mapping, Control Testing, Gap Analysis.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div id="tax-audit" class="service-detail-pane hidden">
-                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
-                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="taxAuditHeadline">Tax Optimization: Expert Tax Audits</h3>
-                                    <p class="text-gray-600 mb-4" data-lang-key="taxAuditDescription">Meticulously verify tax return accuracy and ensure full compliance with tax laws.</p>
-                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                        <li data-lang-key="taxAuditBenefit1"><strong>Your Gains:</strong> Tax adherence assurance and identification of savings.</li>
-                                        <li data-lang-key="taxAuditProcess1"><strong>Our Approach:</strong> Review of Records, Verification of Calculations, Official Reporting.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="why-us" class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="whyUsHeadline">Why Partner With Us? Your Advantage, Our Expertise</h2>
-                    <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto" data-lang-key="whyUsSubHeadline">We combine global expertise with deep local understanding to deliver unparalleled services in Nepal.</p>
-                </div>
-                <div class="grid md:grid-cols-3 gap-8 text-center mb-16">
-                    <div class="service-card bg-white p-8 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-bold mb-2" data-lang-key="whyUsCard1Title">Integrated Expertise</h3>
-                        <p class="text-gray-600" data-lang-key="whyUsCard1Text">Unique blend of cybersecurity, IT, and financial audit capabilities under one roof.</p>
-                    </div>
-                    <div class="service-card bg-white p-8 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-bold mb-2" data-lang-key="whyUsCard2Title">Local & Global Standards</h3>
-                        <p class="text-gray-600" data-lang-key="whyUsCard2Text">Deep understanding of Nepali context combined with international best practices.</p>
-                    </div>
-                    <div class="service-card bg-white p-8 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-bold mb-2" data-lang-key="whyUsCard3Title">Client-Centric Solutions</h3>
-                        <p class="text-gray-600" data-lang-key="whyUsCard3Text">Tailored strategies that align with your specific business needs and goals.</p>
-                    </div>
-                </div>
-
-                <div class="text-center mb-12">
-                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800" data-lang-key="teamHeadline">Our Leadership Team: Driving Your Success</h3>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-                    <div class="team-card bg-white p-6 rounded-lg shadow-sm text-center">
-                        <img src="assets/Images/Cyber.png" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover" alt="Cybersecurity Strategist">
-                        <p class="text-blue-600 font-bold" data-lang-key="teamMember1Role">Cybersecurity Strategist</p>
-                        <p class="text-gray-500 text-sm mt-2" data-lang-key="teamMember1Bio">Extensive experience in fortifying digital defenses for large businesses in the USA.</p>
-                    </div>
-                    <div class="team-card bg-white p-6 rounded-lg shadow-sm text-center">
-                        <img src="assets/Images/Audit.png" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover" alt="Auditor">
-                        <p class="text-blue-600 font-bold" data-lang-key="teamMember2Role">Auditor (CPA/CA)</p>
-                        <p class="text-gray-500 text-sm mt-2" data-lang-key="teamMember2Bio">Over 1000 successful audits and extensive involvement in huge projects across Nepal.</p>
-                    </div>
-                    <div class="team-card bg-white p-6 rounded-lg shadow-sm text-center">
-                        <img src="assets/Images/Developer.png" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover" alt="Principal Developer">
-                        <p class="text-blue-600 font-bold" data-lang-key="teamMember4Role">Principal Developer</p>
-                        <p class="text-gray-500 text-sm mt-2" data-lang-key="teamMember4Bio">A seasoned developer with experience at industry giants like Google and T-Mobile.</p>
-                    </div>
-                    <div class="team-card bg-white p-6 rounded-lg shadow-sm text-center">
-                        <img src="assets/Images/Other.png" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover" alt="Compliance Specialist">
-                        <p class="text-blue-600 font-bold" data-lang-key="teamMember3Role">Specialists in IT & Regulatory Compliance</p>
-                        <p class="text-gray-500 text-sm mt-2" data-lang-key="teamMember3Bio">A dedicated team ensuring adherence to all local and international regulatory frameworks.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Threat Landscape & Open Source Context for Nepal -->
+        <!-- Threat Landscape & Real-time OSINT Section -->
         <section id="threat-landscape" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -436,28 +157,28 @@
                     <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-6" data-lang-key="threatInsightsSubHeadline">Key benchmarks sourced from regional disclosures and incident reports:</p>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left max-w-4xl mx-auto">
                         <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
-                            <p class="text-blue-700 font-bold text-xl mb-2">~56 Cases/Day</p>
-                            <p class="text-gray-700">Average daily cybercrime complaints registered with the Nepal Police Cyber Bureau.</p>
+                            <p class="text-blue-700 font-bold text-xl mb-2" data-lang-key="metric1Title">~56 Cases/Day</p>
+                            <p class="text-gray-700" data-lang-key="metric1Desc">Average daily cybercrime complaints registered with the Nepal Police Cyber Bureau.</p>
                         </div>
                         <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
-                            <p class="text-blue-700 font-bold text-xl mb-2">G-Cloud & Portals</p>
-                            <p class="text-gray-700">Frequent targets highlighting ongoing public sector API and cloud vulnerabilities.</p>
+                            <p class="text-blue-700 font-bold text-xl mb-2" data-lang-key="metric2Title">G-Cloud & Portals</p>
+                            <p class="text-gray-700" data-lang-key="metric2Desc">Frequent targets highlighting ongoing public sector API and cloud vulnerabilities.</p>
                         </div>
                         <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
-                            <p class="text-blue-700 font-bold text-xl mb-2">Social Media Takeovers</p>
-                            <p class="text-gray-700">Massive surge in unauthorized Facebook, Instagram, and WhatsApp account compromises.</p>
+                            <p class="text-blue-700 font-bold text-xl mb-2" data-lang-key="metric3Title">Social Media Takeovers</p>
+                            <p class="text-gray-700" data-lang-key="metric3Desc">Massive surge in unauthorized Facebook, Instagram, and WhatsApp account compromises.</p>
                         </div>
                         <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
-                            <p class="text-blue-700 font-bold text-xl mb-2">Over 80%</p>
-                            <p class="text-gray-700">Estimated proportion of regional web assets lacking baseline security configurations.</p>
+                            <p class="text-blue-700 font-bold text-xl mb-2" data-lang-key="metric4Title">Over 80%</p>
+                            <p class="text-gray-700" data-lang-key="metric4Desc">Estimated proportion of regional web assets lacking baseline security configurations.</p>
                         </div>
                         <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
-                            <p class="text-blue-700 font-bold text-xl mb-2">Financial Sector</p>
-                            <p class="text-gray-700">Primary target for digital wallet scams, phishing, and online fraud attempts.</p>
+                            <p class="text-blue-700 font-bold text-xl mb-2" data-lang-key="metric5Title">Financial Sector</p>
+                            <p class="text-gray-700" data-lang-key="metric5Desc">Primary target for digital wallet scams, phishing, and online fraud attempts.</p>
                         </div>
                         <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
-                            <p class="text-blue-700 font-bold text-xl mb-2">SME Exposure</p>
-                            <p class="text-gray-700">High vulnerability due to limited internal cybersecurity staff and legacy systems.</p>
+                            <p class="text-blue-700 font-bold text-xl mb-2" data-lang-key="metric6Title">SME Exposure</p>
+                            <p class="text-gray-700" data-lang-key="metric6Desc">High vulnerability due to limited internal cybersecurity staff and legacy systems.</p>
                         </div>
                     </div>
                 </div>
@@ -473,56 +194,7 @@
             </div>
         </section>
 
-        <section id="auditing-insights" class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="auditingHeadline">Auditing in Nepal: Navigating Challenges, Unlocking Opportunities</h2>
-                    <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto" data-lang-key="auditingSubHeadline">Critical insights into your financial health and operational integrity.</p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="auditFindingsHeadline">Common Audit Findings in Nepal</h3>
-                        <ul class="list-disc list-inside text-gray-600 space-y-2">
-                            <li data-lang-key="auditFinding1">Inadequate internal controls leading to fraud or errors.</li>
-                            <li data-lang-key="auditFinding2">Non-compliance with local tax laws and regulations.</li>
-                            <li data-lang-key="auditFinding3">Lack of proper documentation for financial transactions.</li>
-                            <li data-lang-key="auditFinding4">Under-reporting or misclassification of income and expenses.</li>
-                            <li data-lang-key="auditFinding5">Weak asset management and inventory control systems.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="lowInvolvementHeadline">Why Low Involvement in Auditing?</h3>
-                        <ul class="list-disc list-inside text-gray-600 space-y-2">
-                            <li data-lang-key="lowInvolvementReason1">Lack of Awareness: Limited understanding of long-term benefits.</li>
-                            <li data-lang-key="lowInvolvementReason2">Perceived Cost: Viewing auditing as an expense rather than an investment.</li>
-                            <li data-lang-key="lowInvolvementReason3">Limited Capacity: Shortage of qualified and experienced auditors.</li>
-                            <li data-lang-key="lowInvolvementReason4">Informal Practices: Prevalence of informal financial practices.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="testimonials" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="testimonialsHeadline">Hear From Our Valued Clients: Success Stories</h2>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div class="testimonial-card bg-gray-50 p-8 rounded-lg shadow-sm">
-                        <p class="text-gray-600 italic mb-4" data-lang-key="testimonial1Text">"The cybersecurity assessment was incredibly thorough and opened our eyes to vulnerabilities we never knew existed."</p>
-                        <p class="font-bold text-gray-800" data-lang-key="testimonial1Name">IT Director</p>
-                        <p class="text-gray-500" data-lang-key="testimonial1Company">Leading Financial Institution, Kathmandu</p>
-                    </div>
-                    <div class="testimonial-card bg-gray-50 p-8 rounded-lg shadow-sm">
-                        <p class="text-gray-600 italic mb-4" data-lang-key="testimonial2Text">"Navigating the compliance audit for our construction project was a major challenge. The auditors guided us through every step."</p>
-                        <p class="font-bold text-gray-800" data-lang-key="testimonial2Name">Project Manager</p>
-                        <p class="text-gray-500" data-lang-key="testimonial2Company">Major Construction Firm, Pokhara</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <!-- Cyber Quiz Section -->
         <section id="cyber-quiz" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -541,39 +213,13 @@
                             <span data-lang-key="quizScorePrefix">Your Score:</span> <span id="score-display" class="font-extrabold text-blue-600"></span>
                         </p>
                         <p id="quiz-feedback" class="text-lg text-gray-600 mb-6"></p>
-                        <div class="flex flex-col md:flex-row items-center justify-center gap-4">
-                            <a href="#contact" class="cta-button bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg" data-lang-key="getConsultationBtn">Get Consultation</a>    
-                            <button id="retake-quiz-btn" class="cta-button bg-gray-500 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg w-full md:w-auto" data-lang-key="quizRetakeBtn">Retake Quiz</button>
-                        </div>
+                        <button id="retake-quiz-btn" class="cta-button bg-gray-500 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg w-full md:w-auto" data-lang-key="quizRetakeBtn">Retake Quiz</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="faqs" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="faqsHeadline">Frequently Asked Questions</h2>
-                </div>
-                <div class="max-w-3xl mx-auto space-y-4">
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span data-lang-key="faq1Question">What is the importance of cybersecurity for my business in Nepal?</span>
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer" data-lang-key="faq1Answer">Cybersecurity protects sensitive data, prevents financial losses from cyberattacks, and ensures compliance with regulations.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span data-lang-key="faq2Question">What types of audits do you perform for construction sites?</span>
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <div class="faq-answer" data-lang-key="faq2Answer">We conduct Financial Statement Audits, Compliance Audits, and Tax Audits tailored for construction and other major sectors.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <!-- Contact Section -->
         <section id="contact" class="py-20 bg-gray-100">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -581,8 +227,6 @@
                 </div>
                 <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
                     <form action="https://formspree.io/f/xkgzazva" method="POST" id="contactForm">
-                        <input type="hidden" name="_subject" value="New Consultation Request">
-                        <input type="hidden" name="_captcha" value="false">
                         <div class="grid md:grid-cols-2 gap-6 mb-6">
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-700 mb-1" data-lang-key="formNameLabel">Full Name</label>
@@ -632,12 +276,26 @@
                     navFAQs: "FAQs",
                     getConsultationBtn: "Get Consultation",
                     heroHeadline: "Securing Nepal's Digital Future",
-                    heroSubHeadline: "We provide world-class cybersecurity, IT, and audit solutions tailored for Nepali businesses.",
+                    heroSubHeadline: "We provide world-class cybersecurity, IT, and audit solutions tailored for the unique landscape of Nepali businesses.",
                     heroCTA: "Request a Free Quote",
+                    threatLandscapeHeadline: "Navigating Nepal's Cyber Threat Landscape",
+                    threatLandscapeSubHeadline: "Explore evolving digital risks and verified intelligence shaping Nepali business security.",
+                    threatInsightsHeadline: "Local OSINT & Incident Intelligence (Nepal Context)",
+                    threatInsightsSubHeadline: "Key benchmarks sourced from regional disclosures and incident reports:",
+                    liveThreatMapHeadline: "Live Open-Source Security Advisories",
+                    mapPlaceholder: "Active Global/Regional Advisory Stream",
+                    globalThreatError: "Failed to load live threat feed.",
+                    quizHeadline: "Are You Cyber-Smart? Test Your Knowledge!",
                     quizNextBtn: "Next Question",
                     quizResultsHeadline: "Quiz Results",
                     quizScorePrefix: "Your Score: ",
                     quizRetakeBtn: "Retake Quiz",
+                    contactHeadline: "Ready to Secure Your Future? Let's Connect!",
+                    formNameLabel: "Full Name",
+                    formEmailLabel: "Email Address",
+                    formPhoneLabel: "Phone Number",
+                    formMessageLabel: "Message",
+                    formSubmitBtn: "Get in Touch",
                     messageBoxSuccess: "Thank you for your message! Our team will reach out shortly."
                 },
                 ne: {
@@ -651,12 +309,26 @@
                     navFAQs: "बारम्बार सोधिने प्रश्नहरू",
                     getConsultationBtn: "परामर्श पाउनुहोस्",
                     heroHeadline: "नेपालको डिजिटल भविष्य सुरक्षित गर्दै",
-                    heroSubHeadline: "हामी नेपाली व्यवसायहरूका लागि अनुकूलित विश्व-स्तरीय साइबरसुरक्षा, आईटी, र लेखापरीक्षण समाधानहरू प्रदान गर्दछौं।",
+                    heroSubHeadline: "हामी नेपाली व्यवसायहरूको अद्वितीय परिदृश्यका लागि अनुकूलित विश्व-स्तरीय साइबरसुरक्षा, आईटी, र लेखापरीक्षण समाधानहरू प्रदान गर्दछौं।",
                     heroCTA: "नि:शुल्क उद्धरण अनुरोध गर्नुहोस्",
+                    threatLandscapeHeadline: "नेपालको साइबर खतरा परिदृश्य नेभिगेट गर्दै",
+                    threatLandscapeSubHeadline: "नेपाली व्यवसायहरूको सुरक्षालाई आकार दिने विकसित डिजिटल जोखिमहरू र प्रमाणित गुप्तचरहरू अन्वेषण गर्नुहोस्।",
+                    threatInsightsHeadline: "स्थानीय OSINT र घटना गुप्तचर (नेपाल सन्दर्भ)",
+                    threatInsightsSubHeadline: "क्षेत्रीय खुलासाहरू र घटना रिपोर्टहरूबाट प्राप्त मुख्य बेन्चमार्कहरू:",
+                    liveThreatMapHeadline: "प्रत्यक्ष ओपन-सोर्स सुरक्षा सल्लाहकारहरू",
+                    mapPlaceholder: "सक्रिय वैश्विक/क्षेत्रीय सल्लाहकार स्ट्रिम",
+                    globalThreatError: "प्रत्यक्ष खतरा फिड लोड गर्न असफल भयो।",
+                    quizHeadline: "के तपाईं साइबर-स्मार्ट हुनुहुन्छ? आफ्नो ज्ञान परीक्षण गर्नुहोस्!",
                     quizNextBtn: "अर्को प्रश्न",
                     quizResultsHeadline: "क्विज परिणामहरू",
                     quizScorePrefix: "तपाईंको स्कोर: ",
                     quizRetakeBtn: "क्विज पुनः लिनुहोस्",
+                    contactHeadline: "तपाईंको भविष्य सुरक्षित गर्न तयार हुनुहुन्छ? आउनुहोस्, जोडौं!",
+                    formNameLabel: "पूरा नाम",
+                    formEmailLabel: "इमेल ठेगाना",
+                    formPhoneLabel: "फोन नम्बर",
+                    formMessageLabel: "सन्देश",
+                    formSubmitBtn: "सम्पर्कमा रहनुहोस्",
                     messageBoxSuccess: "तपाईंको सन्देशको लागि धन्यवाद! हाम्रो टोलीले छिट्टै सम्पर्क गर्नेछ।"
                 }
             };
@@ -675,28 +347,23 @@
             document.getElementById('lang-toggle').addEventListener('click', () => {
                 currentLang = currentLang === 'en' ? 'ne' : 'en';
                 document.getElementById('lang-toggle').textContent = currentLang === 'en' ? 'नेपाली' : 'English';
-                document.getElementById('mobile-lang-toggle').textContent = currentLang === 'en' ? 'नेपाली' : 'English';
+                if (document.getElementById('mobile-lang-toggle')) {
+                    document.getElementById('mobile-lang-toggle').textContent = currentLang === 'en' ? 'नेपाली' : 'English';
+                }
                 applyTranslations();
             });
 
-            document.getElementById('mobile-lang-toggle').addEventListener('click', () => {
-                currentLang = currentLang === 'en' ? 'ne' : 'en';
-                document.getElementById('lang-toggle').textContent = currentLang === 'en' ? 'नेपाली' : 'English';
-                document.getElementById('mobile-lang-toggle').textContent = currentLang === 'en' ? 'नेपाली' : 'English';
-                applyTranslations();
-            });
+            if (document.getElementById('mobile-lang-toggle')) {
+                document.getElementById('mobile-lang-toggle').addEventListener('click', () => {
+                    currentLang = currentLang === 'en' ? 'ne' : 'en';
+                    document.getElementById('lang-toggle').textContent = currentLang === 'en' ? 'नेपाली' : 'English';
+                    document.getElementById('mobile-lang-toggle').textContent = currentLang === 'en' ? 'नेपाली' : 'English';
+                    applyTranslations();
+                });
+            }
 
             document.getElementById('mobile-menu-button').addEventListener('click', () => {
                 document.getElementById('mobile-menu').classList.toggle('hidden');
-            });
-
-            // FAQ toggle
-            document.querySelectorAll('.faq-question').forEach(q => {
-                q.addEventListener('click', () => {
-                    q.classList.toggle('active');
-                    const ans = q.nextElementSibling;
-                    ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
-                });
             });
 
             // Contact Form
@@ -709,7 +376,7 @@
                 e.target.reset();
             });
 
-            // Threat Chart initialization
+            // Chart initialization safely
             const ctxThreat = document.getElementById('threatChart').getContext('2d');
             new Chart(ctxThreat, {
                 type: 'bar',
@@ -724,7 +391,7 @@
                 options: { responsive: true, maintainAspectRatio: false }
             });
 
-            // Live OSINT RSS Feeds fetcher
+            // Live OSINT Feeds fetcher
             async function fetchLiveThreatFeeds() {
                 const container = document.getElementById('global-threat-news');
                 const errElem = document.getElementById('global-threat-error');
