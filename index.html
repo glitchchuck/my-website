@@ -1,411 +1,775 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kamal Binayak Concrete</title>
-  <link rel="icon" href="Assets/Logo/logo.png" type="image/png" />
-  <style>
-    html { scroll-behavior:smooth; }
-    :root { --brand:#f97316; --ink:#222; --bg:#f9fafb; --slate:#111827; --muted:#9ca3af; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:Arial, sans-serif; color:var(--ink); background:var(--bg); }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Nepal Cybersecurity, Audit and IT Consultation">
+    <meta property="og:description" content="Cybersecurity, IT & Audit Consultation in Nepal.">
+    <meta property="og:image" content="https://www.nepalcyberconsultaudit.com/assets/logo/logo.png">
+    <meta property="og:url" content="https://www.nepalcyberconsultaudit.com/">
+    <meta property="og:type" content="website">
 
-    /* Header */
-    header { position:sticky; top:0; z-index:1000; background:rgba(17,24,39,.9); color:#fff;
-             backdrop-filter:saturate(120%) blur(6px); border-bottom:1px solid rgba(255,255,255,.06); }
-    .nav { max-width:1200px; margin:auto; padding:10px 16px; display:flex; align-items:center; justify-content:space-between; }
-    .brand { display:flex; align-items:center; gap:10px; }
-    .brand img { height:36px; }
-    .brand .brand-title { margin:0; font-weight:700; font-size:1rem; letter-spacing:.2px; color:#fff; white-space:nowrap; }
-    .links { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
-    .links a { color:#cbd5e1; padding:6px 10px; border-radius:8px; font-size:.95rem; transition:.25s; }
-    .links a:hover { color:#fff; background:rgba(255,255,255,.06); }
-    .links a.active { background:var(--brand); color:#0b1220; font-weight:700; }
-    .lang-toggle { background:var(--brand); color:#0b1220; border:none; padding:6px 10px; border-radius:8px; cursor:pointer; font-weight:700; }
+    <!-- For Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nepal Cybersecurity, Audit and IT Consultation">
+    <meta name="twitter:description" content="Cybersecurity, IT & Audit Consultation in Nepal.">
+    <meta name="twitter:image" content="https://www.nepalcyberconsultaudit.com/assets/logo/logo.png">
 
-    /* Hero */
-    .hero { position:relative; min-height:72vh; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden; background:#000; }
-    .hero video.bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
-    .hero::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.75)); z-index:0; }
-    .hero .content { position:relative; z-index:1; padding:40px 16px; animation:fadeUp .9s ease-out both; }
-    .hero .logo { height:120px; filter: drop-shadow(0 4px 10px rgba(0,0,0,.35)); animation:float 5s ease-in-out infinite; }
-    .hero h1 { color:#fff; font-size:2.6rem; margin:14px 0 8px; letter-spacing:.2px; }
-    .hero p.lead { color:#e5e7eb; font-size:1.15rem; max-width:900px; margin:0 auto 18px; }
-    .cta { display:flex; justify-content:center; gap:12px; margin-top:8px; flex-wrap:wrap; }
-    .btn { display:inline-block; background:var(--brand); color:#0b1220; padding:10px 16px; border-radius:10px; font-weight:700; transition:.25s; }
-    .btn:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(249,115,22,.35); }
-    .btn.outline { background:transparent; border:1px solid #fff; color:#fff; }
+    <title>Nepal Cybersecurity, Audit and IT Consultation</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.12/marked.min.js"></script> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="assets/logo/logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/logo/logo.png">
 
-    /* Sections */
-    section.section { max-width:1200px; margin:46px auto; padding:0 16px; }
-    section.section h2 { margin:0 0 12px; color:var(--slate); }
-    section.section .intro { color:#555; margin-bottom:10px; }
-    .photo-row { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:12px 0 22px; }
-    .photo-row img { width:100%; height:280px; object-fit:cover; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,.08); transition:transform .25s; }
-    .photo-row img:hover { transform:scale(1.01); }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
-    .card { background:#fff; border-radius:12px; padding:18px; box-shadow:0 2px 10px rgba(0,0,0,.08); transition:transform .2s; }
-    .card:hover { transform:translateY(-2px); }
-    .card h3 { margin:0 0 6px; }
-    .muted { color:#555; }
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .hero-bg {
+            background-color: #1a2a45;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 25%),
+                radial-gradient(circle at 80% 90%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 30%);
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #007bff;
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+        }
+        .service-category-tab.active, .service-detail-tab.active {
+            border-color: #007bff;
+            background-color: #007bff;
+            color: #ffffff;
+        }
+        .service-card, .team-card, .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover, .team-card:hover, .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #28a745;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            text-align: center;
+        }
+        .message-box.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .faq-item {
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .faq-question {
+            cursor: pointer;
+            padding: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #343a40;
+        }
+        .faq-answer {
+            padding-bottom: 1rem;
+            color: #495057;
+            display: none;
+        }
+        .faq-question svg {
+            transition: transform 0.3s ease;
+        }
+        .faq-question.active svg {
+            transform: rotate(180deg);
+        }
+        .quiz-option-item.correct {
+            background-color: #d4edda !important;
+            border-color: #28a745 !important;
+        }
+        .quiz-option-item.incorrect {
+            background-color: #f8d7da !important;
+            border-color: #dc3545 !important;
+        }
+        .quiz-feedback-text {
+            margin-top: 1rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        :target {
+            scroll-margin-top: 100px; 
+        }
+    </style>
 
-    /* Footer (Pro) */
-    footer { background:#0b1220; color:#cbd5e1; margin-top:40px; }
-    .footer-top { padding:28px 0; border-bottom:1px solid rgba(255,255,255,.06); }
-    .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:18px; }
-    .footer-brand { display:flex; gap:12px; align-items:center; }
-    .footer-brand img { height:40px; }
-    .footer-brand h3 { margin:0; color:#fff; font-size:1.05rem; }
-    .footer-col h4 { margin:0 0 10px; color:#fff; font-size:.95rem; }
-    .footer-col a { display:block; color:#cbd5e1; padding:4px 0; font-size:.92rem; }
-    .footer-col a:hover { color:#fff; }
-    .socials { display:flex; gap:10px; margin-top:6px; }
-    .socials a { display:inline-block; padding:6px 10px; background:#111827; border-radius:8px; color:#cbd5e1; font-size:.9rem; }
-    .socials a:hover { background:#f97316; color:#0b1220; }
-    .footer-bottom { padding:10px 0; font-size:.9rem; color:#9aa5b1; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
-    .legal a { color:#9aa5b1; margin-left:12px; }
-    .legal a:hover { color:#fff; }
-    .accent { color:#f97316; }
-
-    /* Floating contact bar (mobile) */
-    .contact-bar { position:fixed; bottom:16px; left:50%; transform:translateX(-50%);
-      background:rgba(17,24,39,.95); color:#fff; border:1px solid rgba(255,255,255,.08);
-      padding:8px 12px; border-radius:999px; display:flex; gap:12px; z-index:1001; }
-    .contact-bar a { color:#fff; background:var(--brand); padding:8px 12px; border-radius:999px; font-weight:700; }
-    @media (min-width: 900px) { .contact-bar { display:none; } }
-
-    /* Mute toggle */
-    .mute-toggle { position:absolute; top:16px; right:16px; z-index:5;
-      background:rgba(17,24,39,.85); color:#fff; border:none; padding:8px 12px; border-radius:999px; cursor:pointer; font-size:.9rem;
-      display:flex; align-items:center; gap:6px; box-shadow:0 2px 8px rgba(0,0,0,.25); }
-    .mute-toggle:hover { background:#f97316; }
-
-    /* Back-to-top */
-    #toTop { position:fixed; right:16px; bottom:16px; z-index:999; display:none; }
-    #toTop button { background:var(--brand); color:#0b1220; border:none; padding:10px 12px; border-radius:12px; font-weight:700; cursor:pointer; box-shadow:0 8px 18px rgba(249,115,22,.35); }
-
-    /* Animations */
-    @keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
-    @keyframes float { 0% { transform:translateY(0); } 50% { transform:translateY(-6px); } 100% { transform:translateY(0); } }
-
-    /* Responsive hero text sizes */
-    @media (max-width:640px) { .hero .logo{height:100px;} .hero h1{font-size:2.1rem;} }
-    @media (min-width:1024px) { .hero h1{font-size:2.9rem;} .hero .logo{height:140px;} }
-  </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "url": "https://www.nepalcyberconsultaudit.com",
+      "logo": "https://www.nepalcyberconsultaudit.com/assets/logo/logo.png"
+    }
+    </script>
 </head>
-<body>
+<body class="antialiased">
 
-  <!-- Header -->
-  <header>
-    <div class="nav">
-      <div class="brand">
-        <!-- Company name first, then clickable logo -->
-        <h1 class="brand-title" data-i18n="company">Kamal Binayak Concrete and Multipurpose Pvt. Ltd.</h1>
-        <a href="#home" class="brand-logo" aria-label="Go to Home">
-          <img src="Assets/Logo/logo.png" alt="Logo">
-        </a>
-      </div>
-      <div class="links">
-        <!-- Single page anchors -->
-        <a href="#home" class="active" data-i18n="nav_home">Home</a>
-        <a href="#services" data-i18n="nav_services">Services</a>
-        <a href="#products" data-i18n="nav_products">Products</a>
-        <a href="#projects" data-i18n="nav_projects">Projects</a>
-        <a href="#about" data-i18n="nav_about">About</a>
-        <a href="#contact" data-i18n="nav_contact">Contact</a>
-        <button class="lang-toggle" id="langBtn">नेपाली</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero (Home) -->
-  <section id="home" class="hero">
-    <video id="heroVideo" class="bg" autoplay muted loop playsinline>
-      <source src="Assets/Videos/Video.mp4" type="video/mp4">
-    </video>
-    <button class="mute-toggle" id="muteBtn">🔊 Unmute</button>
-
-    <div class="content">
-      <img class="logo" src="Assets/Logo/logo.png" alt="Company Logo">
-      <h1 data-i18n="hero_title">Building Nepal’s Infrastructure with Strength & Precision</h1>
-      <p class="lead" data-i18n="hero_sub">RCC Hume Pipes, Curbstones, Pavers and full-service civil construction across Nepal.</p>
-      <div class="cta">
-        <a href="#services" class="btn" data-i18n="cta_services">Our Services</a>
-        <a href="#contact" class="btn outline" data-i18n="cta_contact">Contact Us</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Home content (improved) -->
-  <section class="section">
-    <h2 data-i18n="home.h2">Trusted Concrete & Civil Construction in Nepal</h2>
-    <p class="intro" data-i18n="home.intro">
-      From Bhaktapur, we deliver RCC Hume pipes, curbstones, paving blocks, and full turnkey construction projects.
-      Our mission is to strengthen Nepal’s infrastructure with quality, safety, and precision.
-    </p>
-
-    <div class="photo-row">
-      <img src="Assets/Images/index_photo1.jpg" alt="Factory & Hume Pipes" loading="lazy">
-      <img src="Assets/Images/index_photo2.jpg" alt="Curbstones & Pavers" loading="lazy">
-    </div>
-
-    <div class="grid">
-      <div class="card"><h3 data-i18n="home.p1_title">RCC Hume Pipes</h3><p class="muted" data-i18n="home.p1_text">NP2–NP4, 150mm–2400mm, built to standard.</p></div>
-      <div class="card"><h3 data-i18n="home.p2_title">Curbstones</h3><p class="muted" data-i18n="home.p2_text">Uniform, durable, perfect for road edges & drains.</p></div>
-      <div class="card"><h3 data-i18n="home.p3_title">Paving Blocks</h3><p class="muted" data-i18n="home.p3_text">Interlocking blocks for heavy-duty surfaces.</p></div>
-      <div class="card"><h3 data-i18n="home.p4_title">Turnkey Projects</h3><p class="muted" data-i18n="home.p4_text">Design to delivery, handled by experienced teams.</p></div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section id="services" class="section">
-    <h2 data-i18n="services">Our Services</h2>
-    <p class="intro">High-quality, standards-compliant civil construction with on-time delivery.</p>
-    <div class="photo-row">
-      <img src="Assets/Images/services_photo1.jpg" alt="Services 1" loading="lazy">
-      <img src="Assets/Images/services_photo2.jpg" alt="Services 2" loading="lazy">
-    </div>
-    <div class="grid">
-      <div class="card"><h3>Design & Planning</h3><p class="muted">Site survey, engineering, and BOQ.</p></div>
-      <div class="card"><h3>Procurement</h3><p class="muted">Reliable sourcing for materials & machinery.</p></div>
-      <div class="card"><h3>Execution</h3><p class="muted">Experienced on-site teams with safety first.</p></div>
-      <div class="card"><h3>Maintenance</h3><p class="muted">Post-handover support and AMC options.</p></div>
-    </div>
-  </section>
-
-  <!-- Products -->
-  <section id="products" class="section">
-    <h2 data-i18n="products">Our Products</h2>
-    <p class="intro">RCC Hume Pipes (NP2/NP3/NP4), Curbstones, Paving Blocks—made to spec, delivered fast.</p>
-    <div class="photo-row">
-      <img src="Assets/Images/products_photo1.jpg" alt="Products 1" loading="lazy">
-      <img src="Assets/Images/products_photo2.jpg" alt="Products 2" loading="lazy">
-    </div>
-    <div class="grid">
-      <div class="card"><h3>RCC Hume Pipes</h3><p class="muted">150mm–2400mm, certified quality.</p></div>
-      <div class="card"><h3>Curbstones</h3><p class="muted">Standard and custom profiles.</p></div>
-      <div class="card"><h3>Paving Blocks</h3><p class="muted">Interlocking, heavy-duty options.</p></div>
-      <div class="card"><h3>Precast Solutions</h3><p class="muted">Custom precast for drainage & roads.</p></div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="section">
-    <h2 data-i18n="projects">Our Projects</h2>
-    <p class="intro">Public works and private developments delivered with safety and precision.</p>
-    <div class="photo-row">
-      <img src="Assets/Images/projects_photo1.jpg" alt="Projects 1" loading="lazy">
-      <img src="Assets/Images/projects_photo2.jpg" alt="Projects 2" loading="lazy">
-    </div>
-    <div class="grid">
-      <div class="card"><h3>Kathmandu Drainage</h3><p class="muted">Urban stormwater upgrade.</p></div>
-      <div class="card"><h3>Bhaktapur Supply</h3><p class="muted">Factory RCC pipes for industry.</p></div>
-      <div class="card"><h3>Lalitpur Streetscape</h3><p class="muted">Curbstones & pavers for public realm.</p></div>
-      <div class="card"><h3>Highway Culverts</h3><p class="muted">NP3/NP4 installation at scale.</p></div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="section">
-    <h2 data-i18n="about">About Us</h2>
-    <p class="intro">Nepal-based construction and precast manufacturer focused on quality, safety, and on-time delivery.</p>
-    <div class="photo-row">
-      <img src="Assets/Images/about_photo1.jpg" alt="About 1" loading="lazy">
-      <img src="Assets/Images/about_photo2.jpg" alt="About 2" loading="lazy">
-    </div>
-    <div class="grid">
-      <div class="card"><h3>Factory</h3><p class="muted">Modern equipment, strict QA/QC.</p></div>
-      <div class="card"><h3>Team</h3><p class="muted">Skilled engineers and site crews.</p></div>
-      <div class="card"><h3>Standards</h3><p class="muted">NS/ISI compliance, safety-first.</p></div>
-      <div class="card"><h3>Coverage</h3><p class="muted">Projects across the Kathmandu valley.</p></div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="section">
-    <h2 data-i18n="contact">Contact</h2>
-    <p class="intro">We’d love to help with your next project. Get in touch:</p>
-    <div class="photo-row">
-      <img src="Assets/Images/contact_photo1.jpg" alt="Contact 1" loading="lazy">
-      <img src="Assets/Images/contact_photo2.jpg" alt="Contact 2" loading="lazy">
-    </div>
-    <div class="grid">
-      <div class="card">
-        <h3>Reach Us</h3>
-        <p class="muted">📍 Bhaktapur, Nepal</p>
-        <p class="muted">📞 +977-98XXXXXXXX</p>
-        <p class="muted">✉️ info@kamalbinayak.com</p>
-      </div>
-      <div class="card">
-        <h3>Quick Message</h3>
-        <form onsubmit="event.preventDefault(); alert('Thanks! We will contact you soon.');">
-          <div style="display:grid; gap:8px;">
-            <input type="text" placeholder="Your Name" required style="padding:10px;border-radius:6px;border:1px solid #ddd;">
-            <input type="email" placeholder="Your Email" required style="padding:10px;border-radius:6px;border:1px solid #ddd;">
-            <textarea placeholder="Your Message" rows="4" required style="padding:10px;border-radius:6px;border:1px solid #ddd;"></textarea>
-            <button class="btn" type="submit">Send</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-top">
-      <div class="nav footer-grid">
-        <div class="footer-col">
-          <div class="footer-brand">
-            <img src="Assets/Logo/logo.png" alt="Logo">
-            <div>
-              <h3>Kamal Binayak Concrete</h3>
-              <small>Bhaktapur, Nepal</small>
+    <header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl md:text-2xl font-bold text-gray-800 flex items-center">
+                <img src="assets/logo/logo.png" alt="Company Logo" class="h-12 w-auto">
+                <span data-lang-key="firmName" class="text-blue-600 sr-only">Nepal Cybersecurity, Audit and IT Consultation</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#services" class="nav-link text-gray-600 font-medium" data-lang-key="navServices">Services</a>
+                <a href="#why-us" class="nav-link text-gray-600 font-medium" data-lang-key="navWhyUs">Why Us</a>
+                <a href="#threat-landscape" class="nav-link text-gray-600 font-medium" data-lang-key="navThreats">Threats</a>
+                <a href="#auditing-insights" class="nav-link text-gray-600 font-medium" data-lang-key="navAuditing">Auditing Insights</a>
+                <a href="#testimonials" class="nav-link text-gray-600 font-medium" data-lang-key="navTestimonials">Testimonials</a>
+                <a href="#cyber-quiz" class="nav-link text-gray-600 font-medium" data-lang-key="navCyberQuiz">Cyber Quiz</a>
+                <a href="#faqs" class="nav-link text-gray-600 font-medium" data-lang-key="navFAQs">FAQs</a>
+                <button id="lang-toggle" class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">नेपाली</button>
+                <a href="#contact" class="cta-button bg-blue-600 text-white font-bold py-2 px-5 rounded-full shadow-lg inline-block" data-lang-key="getConsultationBtn">Get Consultation</a>
+                <a href="https://forms.gle/tDn4x5fhVFeJr5y97" target="_blank" class="cta-button bg-purple-600 text-white font-bold py-2 px-6 rounded-full shadow-lg inline-block">Join Our Team</a>
             </div>
-          </div>
-          <p style="margin:10px 0 0; color:#9aa5b1;">Precast & civil works—RCC Hume Pipes, curbstones, pavers, and turnkey construction.</p>
-          <div class="socials">
-            <a href="#" aria-label="Facebook">Fb</a>
-            <a href="#" aria-label="Instagram">Ig</a>
-            <a href="#" aria-label="YouTube">Yt</a>
-          </div>
+           
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2">
+            <a href="#services" class="block py-2 text-gray-600 font-medium" data-lang-key="navServices">Services</a>
+            <a href="#why-us" class="block py-2 text-gray-600 font-medium" data-lang-key="navWhyUs">Why Us</a>
+            <a href="#threat-landscape" class="block py-2 text-gray-600 font-medium" data-lang-key="navThreats">Threats</a>
+            <a href="#auditing-insights" class="block py-2 text-gray-600 font-medium" data-lang-key="navAuditing">Auditing Insights</a>
+            <a href="#testimonials" class="block py-2 text-gray-600 font-medium" data-lang-key="navTestimonials">Testimonials</a>
+            <a href="#cyber-quiz" class="block py-2 text-gray-600 font-medium" data-lang-key="navCyberQuiz">Cyber Quiz</a>
+            <a href="#faqs" class="block py-2 text-gray-600 font-medium" data-lang-key="navFAQs">FAQs</a>
+            <button id="mobile-lang-toggle" class="block mt-2 bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm font-medium w-full">नेपाली</button>
+            <a href="#contact" class="cta-button bg-blue-600 text-white font-bold py-2 px-5 rounded-full shadow-lg block text-center" data-lang-key="getConsultationBtn">Get Consultation</a>
+            <a href="https://forms.gle/tDn4x5fhVFeJr5y97" target="_blank" class="cta-button bg-purple-600 text-white font-bold py-2 px-6 rounded-full shadow-lg block text-center">Join Our Team</a>
         </div>
-        <div class="footer-col">
-          <h4>Quick Links</h4>
-          <a href="#home">Home</a>
-          <a href="#services">Services</a>
-          <a href="#products">Products</a>
-          <a href="#projects">Projects</a>
+    </header>
+
+    <main>
+        <section id="home" class="hero-bg text-white">
+            <div class="container mx-auto px-6 py-24 md:py-32 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4" data-lang-key="heroHeadline">Securing Nepal's Digital Future</h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8" data-lang-key="heroSubHeadline">
+                    We provide world-class cybersecurity, IT, and audit solutions tailored for the unique landscape of Nepali businesses. Your shield in the evolving digital world.
+                </p>
+                <a href="#contact" class="cta-button bg-blue-600 text-white font-bold py-4 px-8 rounded-full text-lg shadow-xl" data-lang-key="heroCTA">
+                    Request a Free Quote
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="aboutHeadline">Nepal Cybersecurity, Audit and IT Consultation</h2>
+                    <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto" data-lang-key="aboutSubHeadline">
+                        We are a leading consultation firm in Nepal, dedicated to empowering businesses with robust cybersecurity, efficient IT infrastructure, and meticulous financial audits.
+                    </p>
+                </div>
+                 <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="aboutMissionHeadline">Our Mission & Vision</h3>
+                        <p class="text-gray-600 mb-4" data-lang-key="aboutMissionText1">
+                            Our mission is to be the trusted partner for businesses across Nepal, safeguarding their digital assets and ensuring compliance through expert cybersecurity, IT, and audit services.
+                        </p>
+                        <p class="text-gray-600" data-lang-key="aboutMissionText2">
+                            We combine deep local market understanding with global best practices, offering tailored solutions that meet unique business challenges.
+                        </p>
+                    </div>
+                    <div>
+                        <video autoplay loop muted playsinline class="rounded-lg shadow-lg mx-auto w-full">
+                            <source src="assets/videos/Fourth.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="servicesHeadline">Your Digital Journey, Secured: Our Services</h2>
+                    <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto" data-lang-key="servicesSubHeadline">
+                        From fortifying your defenses to optimizing your operations and ensuring financial integrity, we offer specialized services.
+                    </p>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-2 mb-8" id="service-category-tabs">
+                    <button data-category="cybersecurity" class="service-category-tab active font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300">
+                        <i class="fas fa-shield-alt mr-2"></i> <span data-lang-key="tabCybersecurity">Cybersecurity Solutions</span>
+                    </button>
+                    <button data-category="it-consultation" class="service-category-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300">
+                        <i class="fas fa-cogs mr-2"></i> <span data-lang-key="tabITConsultation">IT Strategy & Support</span>
+                    </button>
+                    <button data-category="cpa-ca-audits" class="service-category-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300">
+                        <i class="fas fa-file-invoice-dollar mr-2"></i> <span data-lang-key="tabCPA_CAAudits">Expert Audit & Assurance</span>
+                    </button>
+                </div>
+
+                <div id="service-category-content">
+                    <div id="cybersecurity" class="service-category-pane">
+                        <div class="flex flex-wrap justify-center gap-2 mb-8" id="cybersecurity-tabs">
+                            <button data-target="vapt" class="service-detail-tab active font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="vaptTab">VAPT</button>
+                            <button data-target="incident-response" class="service-detail-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="incidentResponseTab">Incident Response</button>
+                            <button data-target="awareness-training" class="service-detail-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="awarenessTrainingTab">Awareness Training</button>
+                        </div>
+                        <div id="cybersecurity-detail-content">
+                            <div id="vapt" class="bg-gray-50 rounded-lg p-8 md:p-12 service-detail-pane">
+                                <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="vaptHeadline">Proactive Security: Vulnerability & Penetration Testing (VAPT)</h3>
+                                <p class="text-gray-600 mb-4" data-lang-key="vaptDescription">We act as ethical hackers, identifying and safely exploiting weaknesses in your systems before malicious attackers can.</p>
+                                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                    <li data-lang-key="vaptBenefit1"><strong>Your Gains:</strong> Proactively eliminate security gaps, meet compliance standards, and safeguard your valuable data.</li>
+                                    <li data-lang-key="vaptProcess1"><strong>Our Approach:</strong> Detailed scoping, threat modeling, controlled exploitation, and comprehensive reporting.</li>
+                                </ul>
+                            </div>
+                            <div id="incident-response" class="service-detail-pane hidden">
+                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="incidentResponseHeadline">Rapid Response: Incident Management & Forensics</h3>
+                                    <p class="text-gray-600 mb-4" data-lang-key="incidentResponseDescription">When a cyber incident strikes, every moment is critical. Our expert rapid response team helps contain threats quickly.</p>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                        <li data-lang-key="incidentResponseBenefit1"><strong>Your Gains:</strong> Minimize financial and reputational damage, swiftly resume business operations.</li>
+                                        <li data-lang-key="incidentResponseProcess1"><strong>Our Approach:</strong> Swift Containment, Thorough Eradication, Efficient Recovery.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="awareness-training" class="service-detail-pane hidden">
+                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="awarenessTrainingHeadline">Empower Your Team: Security Awareness Training</h3>
+                                    <p class="text-gray-600 mb-4" data-lang-key="awarenessTrainingDescription">Your employees are your strongest defense. We provide engaging training programs to transform staff into a human firewall.</p>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                        <li data-lang-key="awarenessTrainingBenefit1"><strong>Your Gains:</strong> Significantly reduce human error and lower cyberattack risks.</li>
+                                        <li data-lang-key="awarenessTrainingProcess1"><strong>Our Approach:</strong> Tailored training modules and realistic phishing simulations.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="it-consultation" class="service-category-pane hidden">
+                        <div class="flex flex-wrap justify-center gap-2 mb-8" id="it-consultation-tabs">
+                            <button data-target="network-design" class="service-detail-tab active font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="networkDesignTab">Network Design & Implementation</button>
+                            <button data-target="data-management" class="service-detail-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="dataManagementTab">Data Management</button>
+                            <button data-target="system-integration" class="service-detail-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="systemIntegrationTab">System Integration</button>
+                        </div>
+                        <div id="it-consultation-detail-content">
+                            <div id="network-design" class="service-detail-pane">
+                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="networkDesignHeadline">Foundation for Growth: Network Design & Setup</h3>
+                                    <p class="text-gray-600 mb-4" data-lang-key="networkDesignDescription">We engineer and deploy resilient, scalable, and secure network infrastructures.</p>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                        <li data-lang-key="networkDesignBenefit1"><strong>Your Gains:</strong> Optimized performance, fortified security, and a network ready for tomorrow.</li>
+                                        <li data-lang-key="networkDesignProcess1"><strong>Our Approach:</strong> Needs Assessment, Strategic Design, Seamless Implementation.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="data-management" class="service-detail-pane hidden">
+                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="dataManagementHeadline">Unlock Insights: Data Management & Analytics</h3>
+                                    <p class="text-gray-600 mb-4" data-lang-key="dataManagementDescription">Manage your data effectively, extract insights, and make informed business decisions.</p>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                        <li data-lang-key="dataManagementBenefit1"><strong>Your Gains:</strong> Smarter decision-making, superior data quality, and compliance.</li>
+                                        <li data-lang-key="dataManagementProcess1"><strong>Our Approach:</strong> Data Strategy Development, Quality Assurance, Warehousing Solutions.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="system-integration" class="service-detail-pane hidden">
+                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="systemIntegrationHeadline">Seamless Operations: System Integration</h3>
+                                    <p class="text-gray-600 mb-4" data-lang-key="systemIntegrationDescription">We bridge gaps between diverse systems, creating a unified operational environment.</p>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                        <li data-lang-key="systemIntegrationBenefit1"><strong>Your Gains:</strong> Reduced manual effort, smooth data flow, and enhanced productivity.</li>
+                                        <li data-lang-key="systemIntegrationProcess1"><strong>Our Approach:</strong> Requirements Analysis, Custom Design, Expert Development.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="cpa-ca-audits" class="service-category-pane hidden">
+                        <div class="flex flex-wrap justify-center gap-2 mb-8" id="cpa-ca-audits-tabs">
+                            <button data-target="financial-audit" class="service-detail-tab active font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="financialAuditTab">Financial Statement Audit</button>
+                            <button data-target="compliance-audit" class="service-detail-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="complianceAuditTab">Compliance Audit</button>
+                            <button data-target="tax-audit" class="service-detail-tab font-medium py-2 px-4 rounded-full border-2 border-transparent transition-all duration-300" data-lang-key="taxAuditTab">Tax Audit</button>
+                        </div>
+                        <div id="cpa-ca-audits-detail-content">
+                            <div id="financial-audit" class="service-detail-pane">
+                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="financialAuditHeadline">Financial Clarity: Independent Statement Audits</h3>
+                                    <p class="text-gray-600 mb-4" data-lang-key="financialAuditDescription">Seasoned CPAs and CAs conduct meticulous audits ensuring absolute accuracy and transparency.</p>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                        <li data-lang-key="financialAuditBenefit1"><strong>Your Gains:</strong> Boosted credibility, increased investor confidence.</li>
+                                        <li data-lang-key="financialAuditProcess1"><strong>Our Approach:</strong> Strategic Planning, Comprehensive Risk Assessment, Clear Reporting.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="compliance-audit" class="service-detail-pane hidden">
+                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="complianceAuditHeadline">Regulatory Confidence: Compliance Audits</h3>
+                                    <p class="text-gray-600 mb-4" data-lang-key="complianceAuditDescription">Verify that operations fully comply with relevant local and international regulations.</p>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                        <li data-lang-key="complianceAuditBenefit1"><strong>Your Gains:</strong> Avoidance of costly penalties and strong corporate governance.</li>
+                                        <li data-lang-key="complianceAuditProcess1"><strong>Our Approach:</strong> Regulatory Mapping, Control Testing, Gap Analysis.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="tax-audit" class="service-detail-pane hidden">
+                                <div class="bg-gray-50 rounded-lg p-8 md:p-12">
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="taxAuditHeadline">Tax Optimization: Expert Tax Audits</h3>
+                                    <p class="text-gray-600 mb-4" data-lang-key="taxAuditDescription">Meticulously verify tax return accuracy and ensure full compliance with tax laws.</p>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                        <li data-lang-key="taxAuditBenefit1"><strong>Your Gains:</strong> Tax adherence assurance and identification of savings.</li>
+                                        <li data-lang-key="taxAuditProcess1"><strong>Our Approach:</strong> Review of Records, Verification of Calculations, Official Reporting.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="whyUsHeadline">Why Partner With Us? Your Advantage, Our Expertise</h2>
+                    <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto" data-lang-key="whyUsSubHeadline">We combine global expertise with deep local understanding to deliver unparalleled services in Nepal.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 text-center mb-16">
+                    <div class="service-card bg-white p-8 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold mb-2" data-lang-key="whyUsCard1Title">Integrated Expertise</h3>
+                        <p class="text-gray-600" data-lang-key="whyUsCard1Text">Unique blend of cybersecurity, IT, and financial audit capabilities under one roof.</p>
+                    </div>
+                    <div class="service-card bg-white p-8 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold mb-2" data-lang-key="whyUsCard2Title">Local & Global Standards</h3>
+                        <p class="text-gray-600" data-lang-key="whyUsCard2Text">Deep understanding of Nepali context combined with international best practices.</p>
+                    </div>
+                    <div class="service-card bg-white p-8 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold mb-2" data-lang-key="whyUsCard3Title">Client-Centric Solutions</h3>
+                        <p class="text-gray-600" data-lang-key="whyUsCard3Text">Tailored strategies that align with your specific business needs and goals.</p>
+                    </div>
+                </div>
+
+                <div class="text-center mb-12">
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800" data-lang-key="teamHeadline">Our Leadership Team: Driving Your Success</h3>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                    <div class="team-card bg-white p-6 rounded-lg shadow-sm text-center">
+                        <img src="assets/Images/Cyber.png" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover" alt="Cybersecurity Strategist">
+                        <p class="text-blue-600 font-bold" data-lang-key="teamMember1Role">Cybersecurity Strategist</p>
+                        <p class="text-gray-500 text-sm mt-2" data-lang-key="teamMember1Bio">Extensive experience in fortifying digital defenses for large businesses in the USA.</p>
+                    </div>
+                    <div class="team-card bg-white p-6 rounded-lg shadow-sm text-center">
+                        <img src="assets/Images/Audit.png" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover" alt="Auditor">
+                        <p class="text-blue-600 font-bold" data-lang-key="teamMember2Role">Auditor (CPA/CA)</p>
+                        <p class="text-gray-500 text-sm mt-2" data-lang-key="teamMember2Bio">Over 1000 successful audits and extensive involvement in huge projects across Nepal.</p>
+                    </div>
+                    <div class="team-card bg-white p-6 rounded-lg shadow-sm text-center">
+                        <img src="assets/Images/Developer.png" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover" alt="Principal Developer">
+                        <p class="text-blue-600 font-bold" data-lang-key="teamMember4Role">Principal Developer</p>
+                        <p class="text-gray-500 text-sm mt-2" data-lang-key="teamMember4Bio">A seasoned developer with experience at industry giants like Google and T-Mobile.</p>
+                    </div>
+                    <div class="team-card bg-white p-6 rounded-lg shadow-sm text-center">
+                        <img src="assets/Images/Other.png" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover" alt="Compliance Specialist">
+                        <p class="text-blue-600 font-bold" data-lang-key="teamMember3Role">Specialists in IT & Regulatory Compliance</p>
+                        <p class="text-gray-500 text-sm mt-2" data-lang-key="teamMember3Bio">A dedicated team ensuring adherence to all local and international regulatory frameworks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="threat-landscape" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="threatLandscapeHeadline">Navigating Nepal's Cyber Threat Landscape</h2>
+                    <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto" data-lang-key="threatLandscapeSubHeadline">Explore evolving digital risks facing Nepali businesses.</p>
+                </div>
+                <div class="chart-container bg-gray-50 p-4 rounded-lg shadow-inner">
+                    <canvas id="threatChart"></canvas>
+                </div>
+
+                <div class="mt-16 text-center">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="threatInsightsHeadline">Real-time Threat Insights (Simulated Data)</h3>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-6" data-lang-key="threatInsightsSubHeadline">Recent findings highlighting ongoing challenges:</p>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left max-w-4xl mx-auto">
+                        <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
+                            <p class="text-blue-700 font-bold text-xl mb-2" data-lang-key="insight1Value">52</p>
+                            <p class="text-gray-700" data-lang-key="insight1Desc">Average daily cybercrime cases reported in Nepal (Fiscal Year 2024-25).</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
+                            <p class="text-blue-700 font-bold text-xl mb-2" data-lang-key="insight2Value">87.82% Increase</p>
+                            <p class="text-gray-700" data-lang-key="insight2Desc">Surge in financial scams and fraud cases.</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
+                            <p class="text-blue-700 font-bold text-xl mb-2" data-lang-key="insight3Value">~52%</p>
+                            <p class="text-gray-700" data-lang-key="insight3Desc">Of cybercrime cases are related to hacking.</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
+                            <p class="text-blue-700 font-bold text-xl mb-2" data-lang-key="insight4Value">Over 80%</p>
+                            <p class="text-gray-700" data-lang-key="insight4Desc">Of Nepal's websites are vulnerable to cyber attacks.</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
+                            <p class="text-blue-700 font-bold text-xl mb-2" data-lang-key="insight5Value">67%</p>
+                            <p class="text-gray-700" data-lang-key="insight5Desc">Of SMEs in Nepal lack basic cybersecurity practices.</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
+                            <p class="text-blue-700 font-bold text-xl mb-2" data-lang-key="insight6Value">Financial Sector</p>
+                            <p class="text-gray-700" data-lang-key="insight6Desc">Most frequently attacked sector in Nepal.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16 text-center">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="liveThreatMapHeadline">Global Cyber Threat Monitor (Conceptual)</h3>
+                    <div class="bg-gray-800 h-96 w-full max-w-xl mx-auto mt-8 rounded-lg flex flex-col items-center justify-center text-gray-300 text-center p-4 shadow-md">
+                        <p class="text-white mb-4 font-bold" data-lang-key="mapPlaceholder">Global Cyber Attack Trends (Conceptual Graph)</p>
+                        <div class="w-full h-48"><canvas id="globalThreatGraph"></canvas></div>
+                        <div id="global-threat-news" class="text-sm text-gray-300 overflow-y-auto w-full h-full text-left mt-4"></div>
+                        <p id="global-threat-error" class="text-red-300 hidden" data-lang-key="globalThreatError">Failed to load global threat news.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="auditing-insights" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="auditingHeadline">Auditing in Nepal: Navigating Challenges, Unlocking Opportunities</h2>
+                    <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto" data-lang-key="auditingSubHeadline">Critical insights into your financial health and operational integrity.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="auditFindingsHeadline">Common Audit Findings in Nepal</h3>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li data-lang-key="auditFinding1">Inadequate internal controls leading to fraud or errors.</li>
+                            <li data-lang-key="auditFinding2">Non-compliance with local tax laws and regulations.</li>
+                            <li data-lang-key="auditFinding3">Lack of proper documentation for financial transactions.</li>
+                            <li data-lang-key="auditFinding4">Under-reporting or misclassification of income and expenses.</li>
+                            <li data-lang-key="auditFinding5">Weak asset management and inventory control systems.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="lowInvolvementHeadline">Why Low Involvement in Auditing?</h3>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li data-lang-key="lowInvolvementReason1">Lack of Awareness: Limited understanding of long-term benefits.</li>
+                            <li data-lang-key="lowInvolvementReason2">Perceived Cost: Viewing auditing as an expense rather than an investment.</li>
+                            <li data-lang-key="lowInvolvementReason3">Limited Capacity: Shortage of qualified and experienced auditors.</li>
+                            <li data-lang-key="lowInvolvementReason4">Informal Practices: Prevalence of informal financial practices.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="testimonialsHeadline">Hear From Our Valued Clients: Success Stories</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="testimonial-card bg-gray-50 p-8 rounded-lg shadow-sm">
+                        <p class="text-gray-600 italic mb-4" data-lang-key="testimonial1Text">"The cybersecurity assessment was incredibly thorough and opened our eyes to vulnerabilities we never knew existed."</p>
+                        <p class="font-bold text-gray-800" data-lang-key="testimonial1Name">IT Director</p>
+                        <p class="text-gray-500" data-lang-key="testimonial1Company">Leading Financial Institution, Kathmandu</p>
+                    </div>
+                    <div class="testimonial-card bg-gray-50 p-8 rounded-lg shadow-sm">
+                        <p class="text-gray-600 italic mb-4" data-lang-key="testimonial2Text">"Navigating the compliance audit for our construction project was a major challenge. The auditors guided us through every step."</p>
+                        <p class="font-bold text-gray-800" data-lang-key="testimonial2Name">Project Manager</p>
+                        <p class="text-gray-500" data-lang-key="testimonial2Company">Major Construction Firm, Pokhara</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cyber-quiz" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="quizHeadline">Are You Cyber-Smart? Test Your Knowledge!</h2>
+                </div>
+                <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
+                    <div id="quiz-container">
+                        <h3 id="quiz-question" class="text-xl font-bold text-gray-800 mb-6"></h3>
+                        <div id="quiz-options" class="space-y-4"></div>
+                        <p id="quiz-instant-feedback" class="quiz-feedback-text hidden"></p>
+                        <button id="next-question-btn" class="mt-8 cta-button bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg w-full opacity-50 cursor-not-allowed" disabled data-lang-key="quizNextBtn">Next Question</button>
+                    </div>
+                    <div id="quiz-results" class="hidden text-center">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4" data-lang-key="quizResultsHeadline">Quiz Results</h3>
+                        <p class="text-xl font-bold mb-4">
+                            <span data-lang-key="quizScorePrefix">Your Score:</span> <span id="score-display" class="font-extrabold text-blue-600"></span>
+                        </p>
+                        <p id="quiz-feedback" class="text-lg text-gray-600 mb-6"></p>
+                        <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                            <a href="#contact" class="cta-button bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg" data-lang-key="getConsultationBtn">Get Consultation</a>    
+                            <button id="retake-quiz-btn" class="cta-button bg-gray-500 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg w-full md:w-auto" data-lang-key="quizRetakeBtn">Retake Quiz</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faqs" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="faqsHeadline">Frequently Asked Questions</h2>
+                </div>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span data-lang-key="faq1Question">What is the importance of cybersecurity for my business in Nepal?</span>
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer" data-lang-key="faq1Answer">Cybersecurity protects sensitive data, prevents financial losses from cyberattacks, and ensures compliance with regulations.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span data-lang-key="faq2Question">What types of audits do you perform for construction sites?</span>
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-answer" data-lang-key="faq2Answer">We conduct Financial Statement Audits, Compliance Audits, and Tax Audits tailored for construction and other major sectors.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-gray-100">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-lang-key="contactHeadline">Ready to Secure Your Future? Let's Connect!</h2>
+                </div>
+                <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
+                    <form action="https://formspree.io/f/xkgzazva" method="POST" id="contactForm">
+                        <input type="hidden" name="_subject" value="New Consultation Request">
+                        <input type="hidden" name="_captcha" value="false">
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1" data-lang-key="formNameLabel">Full Name</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1" data-lang-key="formEmailLabel">Email Address</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1" data-lang-key="formPhoneLabel">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1" data-lang-key="formMessageLabel">Message</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="cta-button bg-blue-600 text-white font-bold py-3 px-10 rounded-full text-lg shadow-lg w-full md:w-auto" data-lang-key="formSubmitBtn">Get in Touch</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white pt-12 pb-8">
+        <div class="container mx-auto px-6 text-center md:text-left">
+            <p>&copy; 2026 Nepal Cybersecurity, Audit and IT Consultation. All Rights Reserved.</p>
         </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-          <a href="#">Careers</a>
-          <a href="#">Downloads</a>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <a href="tel:+9779800000000">📞 +977 9800000000</a>
-          <a href="mailto:info@kamalbinayak.com">✉️ info@kamalbinayak.com</a>
-          <a href="#">📍 Bhaktapur, Nepal</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="nav" style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;">
-        <div>© <span id="yr"></span> <span class="accent">Kamal Binayak Concrete and Multipurpose Pvt. Ltd.</span> All rights reserved.</div>
-        <div class="legal">
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">Sitemap</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
-  <!-- Mobile quick-contact + Back to Top -->
-  <div class="contact-bar">
-    <a href="tel:+9779800000000">Call</a>
-    <a href="mailto:info@kamalbinayak.com">Email</a>
-    <a href="https://wa.me/9779800000000" target="_blank" rel="noopener">WhatsApp</a>
-  </div>
-  <div id="toTop"><button type="button" aria-label="Back to top">↑ Top</button></div>
+    <div id="messageBox" class="message-box"></div>
 
-  <!-- Scripts (inline) -->
-  <script>
-    // i18n dictionary
-    const dict = {
-      en: {
-        company: "Kamal Binayak Concrete and Multipurpose Pvt. Ltd.",
-        nav_home: "Home", nav_services: "Services", nav_products: "Products", nav_projects: "Projects", nav_about:"About", nav_contact:"Contact",
-        hero_title: "Building Nepal’s Infrastructure with Strength & Precision",
-        hero_sub: "RCC Hume Pipes, Curbstones, Pavers and full-service civil construction across Nepal.",
-        services: "Our Services", products: "Our Products", projects: "Our Projects", about: "About Us", contact: "Contact",
-        cta_services: "Our Services", cta_contact: "Contact Us",
-        home: {
-          h2: "Trusted Concrete & Civil Construction in Nepal",
-          intro: "From Bhaktapur, we deliver RCC Hume pipes, curbstones, paving blocks, and full turnkey construction projects. Our mission is to strengthen Nepal’s infrastructure with quality, safety, and precision.",
-          p1_title: "RCC Hume Pipes", p1_text: "NP2–NP4, 150mm–2400mm, built to standard.",
-          p2_title: "Curbstones", p2_text: "Uniform, durable, perfect for road edges & drains.",
-          p3_title: "Paving Blocks", p3_text: "Interlocking blocks for heavy-duty surfaces.",
-          p4_title: "Turnkey Projects", p4_text: "Design to delivery, handled by experienced teams."
-        }
-      },
-      ne: {
-        company: "कमल बिनायक कङ्क्रिट एण्ड मल्टिपर्पोज प्रा. लि.",
-        nav_home: "गृहपृष्ठ", nav_services:"सेवाहरू", nav_products:"उत्पादन", nav_projects:"परियोजना", nav_about:"हाम्रो बारे", nav_contact:"सम्पर्क",
-        hero_title: "शक्ति र शुद्धतासहित नेपालको पूर्वाधार निर्माण",
-        hero_sub: "RCC ह्‍युम पाइप, कर्बस्टोन, पेभर तथा पूर्ण सेवा निर्माण।",
-        services: "हाम्रा सेवाहरू", products: "हाम्रा उत्पादन", projects: "हाम्रा परियोजनाहरू", about: "हाम्रो बारे", contact: "सम्पर्क",
-        cta_services: "हाम्रा सेवाहरू", cta_contact: "सम्पर्क गर्नुहोस्",
-        home: {
-          h2: "नेपालमा भरपर्दो कङ्क्रिट र निर्माण सेवा",
-          intro: "भक्तपुरबाट, हामी RCC ह्युम पाइप, कर्बस्टोन, पेभर ब्लक, र टर्नकी निर्माण परियोजना प्रदान गर्छौं। हाम्रो लक्ष्य गुणस्तर, सुरक्षा र शुद्धतासहित नेपालको पूर्वाधारलाई बलियो बनाउनु हो।",
-          p1_title: "RCC ह्युम पाइप", p1_text: "NP2–NP4, १५०mm–२४००mm, मापदण्डअनुसार निर्मित।",
-          p2_title: "कर्बस्टोन", p2_text: "सडक र ढलका लागि समान र टिकाउ।",
-          p3_title: "पेभर ब्लक", p3_text: "भारी सतहका लागि इन्टरलकिङ ब्लक।",
-          p4_title: "टर्नकी परियोजना", p4_text: "डिजाइनदेखि ह्यान्डओभरसम्म, अनुभवी टोलीद्वारा।"
-        }
-      }
-    };
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const content = {
+                en: {
+                    firmName: "Nepal Cybersecurity, Audit and IT Consultation",
+                    navServices: "Our Services",
+                    navWhyUs: "Why Choose Us?",
+                    navThreats: "Threat Landscape",
+                    navAuditing: "Auditing Insights",
+                    navTestimonials: "Client Success",
+                    navCyberQuiz: "Cyber Quiz",
+                    navFAQs: "FAQs",
+                    getConsultationBtn: "Get Consultation",
+                    heroHeadline: "Securing Nepal's Digital Future",
+                    heroSubHeadline: "We provide world-class cybersecurity, IT, and audit solutions tailored for Nepali businesses.",
+                    heroCTA: "Request a Free Quote",
+                    quizNextBtn: "Next Question",
+                    quizResultsHeadline: "Quiz Results",
+                    quizScorePrefix: "Your Score: ",
+                    quizRetakeBtn: "Retake Quiz",
+                    messageBoxSuccess: "Thank you for your message! Our team will reach out shortly."
+                },
+                ne: {
+                    firmName: "नेपाल साइबरसुरक्षा, लेखापरीक्षण र आईटी परामर्श",
+                    navServices: "हाम्रा सेवाहरू",
+                    navWhyUs: "हामी किन छनौट गर्ने?",
+                    navThreats: "खतरा परिदृश्य",
+                    navAuditing: "लेखापरीक्षण अन्तरदृष्टि",
+                    navTestimonials: "ग्राहक सफलता",
+                    navCyberQuiz: "साइबर क्विज",
+                    navFAQs: "बारम्बार सोधिने प्रश्नहरू",
+                    getConsultationBtn: "परामर्श पाउनुहोस्",
+                    heroHeadline: "नेपालको डिजिटल भविष्य सुरक्षित गर्दै",
+                    heroSubHeadline: "हामी नेपाली व्यवसायहरूका लागि अनुकूलित विश्व-स्तरीय साइबरसुरक्षा, आईटी, र लेखापरीक्षण समाधानहरू प्रदान गर्दछौं।",
+                    heroCTA: "नि:शुल्क उद्धरण अनुरोध गर्नुहोस्",
+                    quizNextBtn: "अर्को प्रश्न",
+                    quizResultsHeadline: "क्विज परिणामहरू",
+                    quizScorePrefix: "तपाईंको स्कोर: ",
+                    quizRetakeBtn: "क्विज पुनः लिनुहोस्",
+                    messageBoxSuccess: "तपाईंको सन्देशको लागि धन्यवाद! हाम्रो टोलीले छिट्टै सम्पर्क गर्नेछ।"
+                }
+            };
 
-    // Language state
-    let lang = localStorage.getItem('lang') || 'en';
-    function t(path){
-      // support nested keys like "home.h2"
-      const parts = path.split('.');
-      let obj = dict[lang];
-      for(const p of parts){ if(!obj || !(p in obj)) return path; obj = obj[p]; }
-      return obj;
-    }
-    function applyLang(){
-      document.querySelectorAll('[data-i18n]').forEach(el=>{
-        const k = el.getAttribute('data-i18n');
-        const v = t(k);
-        if(v) el.textContent = v;
-      });
-      const lb = document.getElementById('langBtn');
-      if(lb) lb.textContent = (lang==='en') ? 'नेपाली' : 'English';
-      localStorage.setItem('lang', lang);
-    }
-    document.getElementById('langBtn').addEventListener('click', ()=>{
-      lang = (lang==='en') ? 'ne' : 'en';
-      applyLang();
-    });
+            let currentLang = 'en';
 
-    // Active link highlight for anchors
-    const links = document.querySelectorAll('.links a[href^="#"]');
-    function markActive(){
-      let current = '#home';
-      document.querySelectorAll('section[id]').forEach(sec=>{
-        const rect = sec.getBoundingClientRect();
-        if(rect.top <= 100 && rect.bottom >= 100) current = '#'+sec.id;
-      });
-      links.forEach(a=>a.classList.toggle('active', a.getAttribute('href') === current));
-    }
-    window.addEventListener('scroll', markActive);
+            function applyTranslations() {
+                document.querySelectorAll('[data-lang-key]').forEach(element => {
+                    const key = element.getAttribute('data-lang-key');
+                    if (content[currentLang]?.[key]) {
+                        element.textContent = content[currentLang][key];
+                    }
+                });
+            }
 
-    // Back to top
-    const toTop = document.getElementById('toTop');
-    window.addEventListener('scroll', ()=>{ toTop.style.display = (window.scrollY>300)?'block':'none'; });
-    toTop.querySelector('button').addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
+            document.getElementById('lang-toggle').addEventListener('click', () => {
+                currentLang = currentLang === 'en' ? 'ne' : 'en';
+                document.getElementById('lang-toggle').textContent = currentLang === 'en' ? 'नेपाली' : 'English';
+                document.getElementById('mobile-lang-toggle').textContent = currentLang === 'en' ? 'नेपाली' : 'English';
+                applyTranslations();
+            });
 
-    // Hero video mute/unmute
-    const video = document.getElementById('heroVideo');
-    const muteBtn = document.getElementById('muteBtn');
-    function refreshMute(){ muteBtn.textContent = (video.muted ? "🔊 Unmute" : "🔇 Mute"); }
-    refreshMute();
-    muteBtn.addEventListener('click', ()=>{
-      video.muted = !video.muted;
-      if(!video.muted){ video.play().catch(()=>{}); }
-      refreshMute();
-    });
+            document.getElementById('mobile-lang-toggle').addEventListener('click', () => {
+                currentLang = currentLang === 'en' ? 'ne' : 'en';
+                document.getElementById('lang-toggle').textContent = currentLang === 'en' ? 'नेपाली' : 'English';
+                document.getElementById('mobile-lang-toggle').textContent = currentLang === 'en' ? 'नेपाली' : 'English';
+                applyTranslations();
+            });
 
-    // Footer year + initializations
-    document.getElementById('yr')?.textContent = new Date().getFullYear();
-    applyLang();
-    markActive();
-  </script>
+            document.getElementById('mobile-menu-button').addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.toggle('hidden');
+            });
+
+            // FAQ toggle
+            document.querySelectorAll('.faq-question').forEach(q => {
+                q.addEventListener('click', () => {
+                    q.classList.toggle('active');
+                    const ans = q.nextElementSibling;
+                    ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+
+            // Contact Form
+            document.getElementById('contactForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const box = document.getElementById('messageBox');
+                box.textContent = content[currentLang].messageBoxSuccess;
+                box.classList.add('show');
+                setTimeout(() => box.classList.remove('show'), 3000);
+                e.target.reset();
+            });
+
+            // Quiz Logic
+            const questions = [
+                { q: "Which of the following is a common phishing indicator?", opts: ["Generic greetings", "Strong passwords", "Antivirus software", "2FA"], correct: 0, exp: "Phishing emails often use generic greetings." },
+                { q: "What is the primary purpose of a firewall?", opts: ["Speed up internet", "Block unauthorized access", "Store data", "Manage emails"], correct: 1, exp: "Firewalls control network traffic and block unauthorized access." }
+            ];
+
+            let currQ = 0, score = 0, answered = false;
+            function loadQuiz() {
+                answered = false;
+                document.getElementById('next-question-btn').disabled = true;
+                document.getElementById('next-question-btn').classList.add('opacity-50', 'cursor-not-allowed');
+                document.getElementById('quiz-instant-feedback').classList.add('hidden');
+
+                const q = questions[currQ];
+                document.getElementById('quiz-question').textContent = q.q;
+                const opts = document.getElementById('quiz-options');
+                opts.innerHTML = '';
+
+                q.opts.forEach((opt, idx) => {
+                    const div = document.createElement('div');
+                    div.className = 'p-4 border rounded-lg cursor-pointer hover:bg-blue-50';
+                    div.textContent = opt;
+                    div.addEventListener('click', () => {
+                        if (answered) return;
+                        answered = true;
+                        if (idx === q.correct) {
+                            div.classList.add('correct');
+                            score++;
+                        } else {
+                            div.classList.add('incorrect');
+                        }
+                        const fb = document.getElementById('quiz-instant-feedback');
+                        fb.textContent = q.exp;
+                        fb.classList.remove('hidden');
+                        document.getElementById('next-question-btn').disabled = false;
+                        document.getElementById('next-question-btn').classList.remove('opacity-50', 'cursor-not-allowed');
+                    });
+                    opts.appendChild(div);
+                });
+            }
+
+            document.getElementById('next-question-btn').addEventListener('click', () => {
+                currQ++;
+                if (currQ < questions.length) {
+                    loadQuiz();
+                } else {
+                    document.getElementById('quiz-container').classList.add('hidden');
+                    document.getElementById('quiz-results').classList.remove('hidden');
+                    document.getElementById('score-display').textContent = `${score} / ${questions.length}`;
+                }
+            });
+
+            document.getElementById('retake-quiz-btn').addEventListener('click', () => {
+                currQ = 0; score = 0;
+                document.getElementById('quiz-results').classList.add('hidden');
+                document.getElementById('quiz-container').classList.remove('hidden');
+                loadQuiz();
+            });
+
+            loadQuiz();
+        });
+    </script>
 </body>
 </html>
