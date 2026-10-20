@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Your Company Name">
-<meta property="og:description" content="Cybersecurity, IT & Audit Consultation in Nepal.">
-<meta property="og:image" content="https://www.nepalcyberconsultaudit.com//assets/logo/logo.png">
-<meta property="og:url" content="https://https://www.nepalcyberconsultaudit.com/">
-<meta property="og:type" content="website">
+    <meta property="og:description" content="Cybersecurity, IT & Audit Consultation in Nepal.">
+    <meta property="og:image" content="https://www.nepalcyberconsultaudit.com/assets/logo/logo.png">
+    <meta property="og:url" content="https://www.nepalcyberconsultaudit.com/">
+    <meta property="og:type" content="website">
 
-<!-- For Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nepal Cybersecurity, Audit and IT Consultation">
-<meta name="twitter:description" content="Cybersecurity, IT & Audit Consultation in Nepal.">
-<meta name="twitter:image" content="https://yourdomain.com/assets/logo/logo.png">
+    <!-- For Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nepal Cybersecurity, Audit and IT Consultation">
+    <meta name="twitter:description" content="Cybersecurity, IT & Audit Consultation in Nepal.">
+    <meta name="twitter:image" content="https://www.nepalcyberconsultaudit.com/assets/logo/logo.png">
 
-    <title data-lang-key="pageTitle"></title>
+    <title data-lang-key="pageTitle">Nepal Cybersecurity, Audit and IT Consultation</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -27,33 +27,34 @@
     <link rel="icon" href="assets/logo/logo.png" type="image/png">
     <link rel="apple-touch-icon" href="assets/logo/logo.png">
 
-
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "url": "https://www.nepalcyberconsultaudit.com",
+      "logo": "https://www.nepalcyberconsultaudit.com/assets/logo/logo.png"
+    }
+    </script>
 
     <style>
-        /* General body styling for consistent typography and color scheme */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f8f9fa;
             color: #343a40;
         }
-
-        /* Hero section background with a subtle gradient pattern */
         .hero-bg {
             background-color: #1a2a45;
             background-image:
                 radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 25%),
                 radial-gradient(circle at 80% 90%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 30%);
         }
-
-        /* Nav link hover transition for a smooth effect */
         .nav-link {
             transition: color 0.3s ease;
         }
         .nav-link:hover {
             color: #007bff;
         }
-
-        /* Call-to-action button hover effects */
         .cta-button {
             transition: all 0.3s ease;
         }
@@ -61,15 +62,11 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
         }
-
-        /* Active state for service and detail tabs */
         .service-category-tab.active, .service-detail-tab.active {
             border-color: #007bff;
             background-color: #007bff;
             color: #ffffff;
         }
-
-        /* Card hover animations for a dynamic feel */
         .service-card, .team-card, .testimonial-card {
             transition: all 0.3s ease;
         }
@@ -77,8 +74,6 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
         }
-
-        /* Responsive chart container to handle different screen sizes */
         .chart-container {
             position: relative;
             width: 100%;
@@ -93,14 +88,12 @@
                 height: 350px;
             }
         }
-
-        /* Custom message box for non-intrusive notifications */
         .message-box {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: #28a745; /* Green for success */
+            background-color: #28a745;
             color: white;
             padding: 15px 30px;
             border-radius: 8px;
@@ -115,8 +108,6 @@
             opacity: 1;
             visibility: visible;
         }
-
-        /* FAQ accordion styling */
         .faq-item {
             border-bottom: 1px solid #e2e8f0;
         }
@@ -140,74 +131,41 @@
         .faq-question.active svg {
             transform: rotate(180deg);
         }
-
-        
-        
-        }
-        @keyframes pulse {
-            0% {
-                transform: scale(0.8);
-                opacity: 0.7;
-            }
-            50% {
-                transform: scale(1.2);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(0.8);
-                opacity: 0.7;
-            }
-        }
-
-        /* Quiz specific styles for immediate feedback */
         .quiz-option-item {
             position: relative;
         }
         .quiz-option-item.correct {
-            background-color: #d4edda; /* Light green */
-            border-color: #28a745; /* Green border */
+            background-color: #d4edda;
+            border-color: #28a745;
         }
         .quiz-option-item.incorrect {
-            background-color: #f8d7da; /* Light red */
-            border-color: #dc3545; /* Red border */
+            background-color: #f8d7da;
+            border-color: #dc3545;
         }
         .quiz-feedback-text {
             margin-top: 1rem;
             font-weight: 600;
             text-align: center;
         }
-        /* Adds an offset to all anchor links to prevent content from being hidden behind the sticky header */
         :target {
             scroll-margin-top: 100px; 
-            /* Adjust this value as needed to match your header's height */
         }
-        <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "url": "https://yourdomain.com",
-  "logo": "https://yourdomain.com/assets/logo/logo.png"
-}
-</script>
-
     </style>
     
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DVZ61Q4W85"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-DVZ61Q4W85');
-</script>
-    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DVZ61Q4W85"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DVZ61Q4W85');
+    </script>
 </head>
 <body class="antialiased">
 
     <header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-xl md:text-2xl font-bold text-gray-800 flex items-center">
-                <img src="assets/logo/logo.png" aly="Company LoGo" class="h-12 w-auto">
+                <img src="assets/logo/logo.png" alt="Company Logo" class="h-12 w-auto">
                 <span data-lang-key="firmName" class="text-blue-600 sr-only"></span>
             </a>
             <div class="hidden md:flex items-center space-x-8">
@@ -219,12 +177,9 @@
                 <a href="#cyber-quiz" class="nav-link text-gray-600 font-medium" data-lang-key="navCyberQuiz">Cyber Quiz</a>
                 <a href="#faqs" class="nav-link text-gray-600 font-medium" data-lang-key="navFAQs">FAQs</a>
                 <button id="lang-toggle" class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">नेपाली</button>
-            <a href="#contact" class="cta-button bg-blue-600 text-white font-bold py-2 px-5 rounded-full shadow-lg inline-block" data-lang-key="getConsultationBtn">
-    Get Consultation
-</a>
-            <a href="https://forms.gle/tDn4x5fhVFeJr5y97" target="_blank" class="cta-button bg-purple-600 text-white font-bold py-2 px-6 rounded-full shadow-lg inline-block">
-            Join Our Team
-            </a></div>
+                <a href="#contact" class="cta-button bg-blue-600 text-white font-bold py-2 px-5 rounded-full shadow-lg inline-block" data-lang-key="getConsultationBtn">Get Consultation</a>
+                <a href="https://forms.gle/tDn4x5fhVFeJr5y97" target="_blank" class="cta-button bg-purple-600 text-white font-bold py-2 px-6 rounded-full shadow-lg inline-block">Join Our Team</a>
+            </div>
            
             <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
@@ -239,14 +194,8 @@
             <a href="#cyber-quiz" class="block py-2 text-gray-600 font-medium" data-lang-key="navCyberQuiz">Cyber Quiz</a>
             <a href="#faqs" class="block py-2 text-gray-600 font-medium" data-lang-key="navFAQs">FAQs</a>
             <button id="mobile-lang-toggle" class="block mt-2 bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm font-medium w-full">नेपाली</button>
-                       <a href="#contact" class="cta-button bg-blue-600 text-white font-bold py-2 px-5 rounded-full shadow-lg inline-block" data-lang-key="getConsultationBtn">
-    Get Consultation
-</a>
-             <a href="https://forms.gle/tDn4x5fhVFeJr5y97" target="_blank" class="cta-button bg-purple-600 text-white font-bold py-2 px-6 rounded-full shadow-lg inline-block">
-            Join Our Team
-            </a>
-            
-            
+            <a href="#contact" class="cta-button bg-blue-600 text-white font-bold py-2 px-5 rounded-full shadow-lg inline-block mt-2" data-lang-key="getConsultationBtn">Get Consultation</a>
+            <a href="https://forms.gle/tDn4x5fhVFeJr5y97" target="_blank" class="cta-button bg-purple-600 text-white font-bold py-2 px-6 rounded-full shadow-lg inline-block mt-2">Join Our Team</a>
         </div>
     </header>
 
@@ -282,8 +231,8 @@
                         </p>
                     </div>
                     <div>
-                        <video autoplay loop muted playsinline class="about-video">
-                        <source src="assets/videos/Fourth.mp4" alt="Consultation Team" class="rounded-lg shadow-lg mx-auto w-full" type="video/mp4">
+                        <video autoplay loop muted playsinline class="about-video rounded-lg shadow-lg mx-auto w-full">
+                            <source src="assets/videos/Fourth.mp4" type="video/mp4">
                         </video>
                     </div>
                 </div>
@@ -533,11 +482,12 @@
                     <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-lang-key="liveThreatMapDescription">
                         This section provides a conceptual view of real-time global cyber threats, highlighting the dynamic nature of cyber warfare. While not a live map, it displays recent cybersecurity news and trends from around the world, demonstrating the constant need for vigilance and expert defense.
                     </p>
-                    <div class="bg-gray-200 h-96 w-full max-w-xl mx-auto mt-8 rounded-lg flex flex-col items-center justify-center text-gray-500 text-center italic live-map-conceptual p-4">
+                    <div class="bg-gray-800 h-96 w-full max-w-xl mx-auto mt-8 rounded-lg flex flex-col items-center justify-center text-gray-500 text-center italic live-map-conceptual p-4">
                         <p class="text-white mb-4 font-bold" data-lang-key="mapPlaceholder">Global Cyber Attack Trends (Conceptual Graph)</p>
-                        <canvas id="globalThreatGraph" class="w-full h-48"></canvas>
-                        <div id="global-threat-news" class="text-sm text-gray-300 overflow-y-auto w-full h-full text-left mt-4">
-                            </div>
+                        <div class="w-full h-48 relative">
+                            <canvas id="globalThreatGraph" class="w-full h-full"></canvas>
+                        </div>
+                        <div id="global-threat-news" class="text-sm text-gray-300 overflow-y-auto w-full h-full text-left mt-4 hidden"></div>
                         <p id="global-threat-error" class="text-red-300 hidden" data-lang-key="globalThreatError">Failed to load global threat news. Please try again later.</p>
                     </div>
                 </div>
@@ -609,7 +559,6 @@
             </div>
         </section>
 
-
         <section id="cyber-quiz" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -620,8 +569,7 @@
                 <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
                     <div id="quiz-container">
                         <h3 id="quiz-question" class="text-xl font-bold text-gray-800 mb-6"></h3>
-                        <div id="quiz-options" class="space-y-4">
-                            </div>
+                        <div id="quiz-options" class="space-y-4"></div>
                         <p id="quiz-instant-feedback" class="quiz-feedback-text hidden"></p>
                         <button id="next-question-btn" class="mt-8 cta-button bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg w-full opacity-50 cursor-not-allowed" disabled data-lang-key="quizNextBtn">Next Question</button>
                     </div>
@@ -632,10 +580,8 @@
                         </p>
                         <p id="quiz-feedback" class="text-lg text-gray-600 mb-6"></p>
                         <div class="flex flex-col md:flex-row items-center justify-center gap-4">
-                        <a href="#contact" class="hidden md:block cta-button bg-blue-600 text-white font-bold py-2 px-5 rounded-full shadow-lg" data-lang-key="getConsultationBtn">
-                           Get Consultation
-                             </a>    
-                         <button id="retake-quiz-btn" class="cta-button bg-gray-400 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg w-full md:w-auto" data-lang-key="quizRetakeBtn">Retake Quiz</button>
+                            <a href="#contact" class="hidden md:block cta-button bg-blue-600 text-white font-bold py-2 px-5 rounded-full shadow-lg" data-lang-key="getConsultationBtn">Get Consultation</a>    
+                            <button id="retake-quiz-btn" class="cta-button bg-gray-400 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg w-full md:w-auto" data-lang-key="quizRetakeBtn">Retake Quiz</button>
                         </div>
                     </div>
                 </div>
@@ -651,8 +597,8 @@
 
                 <div class="max-w-3xl mx-auto">
                     <div class="faq-item">
-                        <div class="faq-question" data-lang-key="faq1Question">
-                            What is the importance of cybersecurity for my business in Nepal?
+                        <div class="faq-question">
+                            <span data-lang-key="faq1Question">What is the importance of cybersecurity for my business in Nepal?</span>
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </div>
                         <div class="faq-answer" data-lang-key="faq1Answer">
@@ -660,8 +606,8 @@
                         </div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" data-lang-key="faq2Question">
-                            What types of audits do you perform for construction sites?
+                        <div class="faq-question">
+                            <span data-lang-key="faq2Question">What types of audits do you perform for construction sites?</span>
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </div>
                         <div class="faq-answer" data-lang-key="faq2Answer">
@@ -669,8 +615,8 @@
                         </div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" data-lang-key="faq3Question">
-                            How can IT consultation benefit my small business?
+                        <div class="faq-question">
+                            <span data-lang-key="faq3Question">How can IT consultation benefit my small business?</span>
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </div>
                         <div class="faq-answer" data-lang-key="faq3Answer">
@@ -678,8 +624,8 @@
                         </div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" data-lang-key="faq4Question">
-                            Do you provide services for both large enterprises and SMEs?
+                        <div class="faq-question">
+                            <span data-lang-key="faq4Question">Do you provide services for both large enterprises and SMEs?</span>
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </div>
                         <div class="faq-answer" data-lang-key="faq4Answer">
@@ -687,8 +633,8 @@
                         </div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" data-lang-key="faq5Question">
-                            How often should my business conduct a cybersecurity assessment?
+                        <div class="faq-question">
+                            <span data-lang-key="faq5Question">How often should my business conduct a cybersecurity assessment?</span>
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </div>
                         <div class="faq-answer" data-lang-key="faq5Answer">
@@ -706,42 +652,39 @@
                     <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto" data-lang-key="contactSubHeadline">Reach out for a free, no-obligation consultation. We're here to help you thrive.</p>
                 </div>
                 <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
-                     <form action="https://formspree.io/f/xkgzazva" method="POST">
-              
-  <!-- Email subject -->
-  <input type="hidden" name="_subject" value="New Consultation Request">
-  <!-- Disable captcha -->
-  <input type="hidden" name="_captcha" value="false">
+                     <form id="contactForm" action="https://formspree.io/f/xkgzazva" method="POST">
+                        <input type="hidden" name="_subject" value="New Consultation Request">
+                        <input type="hidden" name="_captcha" value="false">
 
-  <div class="grid md:grid-cols-2 gap-6 mb-6">
-      <div>
-          <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-          <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-      </div>
-      <div>
-          <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-          <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-      </div>
-  </div>
-  <div class="mb-6">
-      <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-      <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-  </div>
-  <div class="mb-6">
-      <label for="company" class="block text-sm font-medium text-gray-700 mb-1">Company</label>
-      <input type="text" id="company" name="company" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-  </div>
-  <div class="mb-6">
-      <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-      <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg"></textarea>
-  </div>
-  <div class="text-center">
-      <button type="submit" class="cta-button bg-blue-600 text-white font-bold py-3 px-10 rounded-full text-lg shadow-lg w-full md:w-auto">
-          Get in Touch
-      </button>
-  </div>
-</form>
-         </div>
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                        </div>
+                        <div class="mb-6">
+                            <label for="company" class="block text-sm font-medium text-gray-700 mb-1">Company</label>
+                            <input type="text" id="company" name="company" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="cta-button bg-blue-600 text-white font-bold py-3 px-10 rounded-full text-lg shadow-lg w-full md:w-auto">
+                                Get in Touch
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
@@ -751,22 +694,22 @@
             <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
                 <div>
                    <h4 class="text-lg font-bold mb-4" data-lang-key="firmName">Nepal Cybersecurity, Audit and IT Consultation</h4>
-                    <p class="text-gray-400 text-sm" data-lang-key="footerLocation"></p>
+                    <p class="text-gray-400 text-sm" data-lang-key="footerLocation">Kathmandu, Nepal | Protecting Nepali Businesses</p>
                 </div>
                 <div>
                     <h4 class="text-lg font-bold mb-4" data-lang-key="footerQuickLinks">Quick Links</h4>
-                   <ul class="space-y-2">
-                   <li><a href="#services"...>Services</a></li>
-                   <li><a href="#about"...>Why Us</a></li>
-                   <li><a href="#faqs"...>FAQs</a></li>
-                   <li><a href="#contact"...>Contact</a></li>
-
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="hover:text-gray-300">Services</a></li>
+                        <li><a href="#why-us" class="hover:text-gray-300">Why Us</a></li>
+                        <li><a href="#faqs" class="hover:text-gray-300">FAQs</a></li>
+                        <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
+                    </ul>
                 </div>
                 <div>
                     <h4 class="text-lg font-bold mb-4" data-lang-key="footerConnect">Connect With Us</h4>
                     <div class="flex justify-center md:justify-start space-x-4">
                         <a href="https://www.linkedin.com/company/nepalcyberconsultation" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin fa-lg"></i></a>
-                        <a href="https://www.instagram.com/nepalcyberaudit/" class="text-gray-400 hover:text-white"><i class="fab  fa-instagram fa-lg"></i></a>
+                        <a href="https://www.instagram.com/nepalcyberaudit/" class="text-gray-400 hover:text-white"><i class="fab fa-instagram fa-lg"></i></a>
                     </div>
                      <p class="text-gray-400 text-sm mt-4">
                       <span data-lang-key="emailPrefix">Email: </span>
@@ -774,17 +717,12 @@
                         NepalCybersecurityaudit@gmail.com
                       </a>
                     </p>
-
-                    <!-- Join Our Team Button -->
-
-        <div class="mt-4">
+                    <div class="mt-4">
                       <a href="https://forms.gle/tDn4x5fhVFeJr5y97" target="_blank"
                          class="cta-button bg-purple-600 text-white font-bold py-2 px-6 rounded-full shadow-lg inline-block">
                          Careers@NCAIC
                       </a>
                     </div>
-
-                   
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500 text-sm">
@@ -792,14 +730,11 @@
             </div>
         </div>
     </footer>
-                    
 
-    <div id="messageBox" class="message-box">
-        </div>
+    <div id="messageBox" class="message-box"></div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Language content object
             const content = {
                 en: {
                     pageTitle: "Nepal Cybersecurity, Audit and IT Consultation - Securing Nepal's Digital Future",
@@ -882,7 +817,6 @@
                     teamHeadline: "Our Leadership Team: Driving Your Success",
                     teamMember1Role: "Cybersecurity Strategist",
                     teamMember1Bio: "Extensive experience in fortifying digital defenses for large businesses in the USA, bringing global best practices to Nepal.",
-                    teamMember2Name: "Bhawesh Shrestha",
                     teamMember2Role: "Auditor (CPA/CA)",
                     teamMember2Bio: "Over 1000 successful audits and extensive involvement in huge projects across diverse sectors in Nepal, ensuring financial integrity and compliance.",
                     teamMember3Role: "Specialists in IT & Regulatory Compliance",
@@ -912,8 +846,8 @@
                     mapPlaceholder: "Global Cyber Attack Trends (Conceptual Graph)",
                     globalThreatError: "Failed to load global threat news. Please try again later.",
                     globalThreatGraphLabels: ['Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024'],
-                    globalThreatGraphData1Label: 'रैंसमवेयर आक्रमणहरू (मिलियन)',
-                    globalThreatGraphData2Label: 'डाटा उल्लङ्घन (अरब रेकर्ड)',
+                    globalThreatGraphData1Label: 'Ransomware Attacks (M)',
+                    globalThreatGraphData2Label: 'Data Breaches (B Records)',
                     auditingHeadline: "Auditing in Nepal: Navigating Challenges, Unlocking Opportunities",
                     auditingSubHeadline: "Our audit services offer more than compliance; they provide critical insights into your financial health and operational integrity across diverse sectors.",
                     auditFindingsHeadline: "Common Audit Findings in Nepal",
@@ -925,10 +859,10 @@
                     auditFinding5: "Weak asset management and inventory control systems.",
                     lowInvolvementHeadline: "Why Low Involvement in Auditing?",
                     lowInvolvementIntro: "Despite its critical importance, many businesses and individuals in Nepal may not fully engage in professional auditing due to several factors:",
-                    lowInvolvementReason1: "Lack of Awareness: Limited understanding of the long-term benefits of regular, comprehensive audits beyond mere tax compliance. ",
-                    lowInvolvementReason2: "Perceived Cost: Businesses, especially SMEs, may view auditing as an unnecessary expense rather than an great investment in financial health and risk mitigation. ",
-                    lowInvolvementReason3: "Limited Capacity: Shortage of qualified and experienced auditors, particularly for specialized sectors like complex construction projects. ",
-                    lowInvolvementReason4: "Informal Practices: Prevalence of informal financial practices in some sectors, making formal auditing challenging. ",
+                    lowInvolvementReason1: "Lack of Awareness: Limited understanding of the long-term benefits of regular, comprehensive audits beyond mere tax compliance.",
+                    lowInvolvementReason2: "Perceived Cost: Businesses, especially SMEs, may view auditing as an unnecessary expense rather than a great investment in financial health and risk mitigation.",
+                    lowInvolvementReason3: "Limited Capacity: Shortage of qualified and experienced auditors, particularly for specialized sectors like complex construction projects.",
+                    lowInvolvementReason4: "Informal Practices: Prevalence of informal financial practices in some sectors, making formal auditing challenging.",
                     consequencesHeadline: "Consequences of Inadequate Auditing",
                     consequencesText: "Neglecting proper auditing can lead to severe consequences, including legal penalties, loss of investor and stakeholder trust, undetected fraud, inaccurate financial reporting, and missed opportunities for operational improvements. Our firm helps mitigate these risks by providing thorough and reliable audit services.",
                     testimonialsHeadline: "Hear From Our Valued Clients: Success Stories",
@@ -944,10 +878,10 @@
                     quizNextBtn: "Next Question",
                     quizResultsHeadline: "Quiz Results",
                     quizScorePrefix: "Your Score: ",
-                    quizFeedbackExcellent: "Excellent! You're a cyber-smart champion! Your strong understanding of cybersecurity is commendable. Ready to take your security to the next level? Our advanced solutions and expert team are here to help you fortify your digital defenses even further. Let's connect and build an impenetrable shield for your business!",
-                    quizFeedbackGood: "Good job! You have a solid grasp of cybersecurity basics. There's always room to grow in the evolving digital landscape. Want to sharpen your skills and ensure your business is truly resilient? Our tailored awareness training and expert consultations can guide you. Reach out to us for a personalized security roadmap!",
-                    quizFeedbackFair: "Fair. You've got some cybersecurity knowledge, but there are areas where you can definitely strengthen your defenses. The digital world is constantly changing, and staying ahead is key. Let our experts help you bridge those gaps and protect your valuable assets. Contact us for a free security assessment!",
-                    quizFeedbackPoor: "Needs improvement. Don't worry, cybersecurity can be complex, but protecting your business is vital. Your quiz results indicate some significant knowledge gaps that could leave you vulnerable. It's time to act! Our comprehensive security awareness training and expert consultation services are designed to equip you and your team with the essential knowledge and tools to stay safe. Let's talk about building a stronger defense for your business today!",
+                    quizFeedbackExcellent: "Excellent! You're a cyber-smart champion! Your strong understanding of cybersecurity is commendable.",
+                    quizFeedbackGood: "Good job! You have a solid grasp of cybersecurity basics.",
+                    quizFeedbackFair: "Fair. You've got some cybersecurity knowledge, but there are areas where you can definitely strengthen your defenses.",
+                    quizFeedbackPoor: "Needs improvement. Don't worry, cybersecurity can be complex, but protecting your business is vital.",
                     quizRetakeBtn: "Retake Quiz",
                     quizContactCTA: "Strengthen Your Security with Our Experts",
                     quizQ1: "Which of the following is the most common method cybercriminals use to trick people into revealing sensitive information?",
@@ -964,7 +898,7 @@
                     quizQ3A1: "Steals your personal photos",
                     quizQ3A2: "Encrypts your files and demands payment for their release",
                     quizQ3A3: "Speeds up your computer's performance",
-                    quizQ3A4: "Deletes all your Browse history",
+                    quizQ3A4: "Deletes all your browsing history",
                     quizQ4: "Why is it important to regularly update your software and operating system?",
                     quizQ4A1: "To get new features",
                     quizQ4A2: "To fix security vulnerabilities and bugs",
@@ -1064,20 +998,14 @@
                     faq5Answer: "It is recommended to conduct cybersecurity assessments (like VAPT) at least annually, or more frequently if your IT environment undergoes significant changes, new systems are deployed, or after any security incident. Regular assessments ensure continuous protection against evolving threats.",
                     contactHeadline: "Ready to Secure Your Future? Let's Connect!",
                     contactSubHeadline: "Reach out for a free, no-obligation consultation. We're here to help you thrive.",
-                    formNameLabel: "Full Name",
-                    formEmailLabel: "Email Address",
-                    formPhoneLabel: "Phone Number",
-                    formCompanyLabel: "Company",
-                    formMessageLabel: "Message",
-                    formSubmitBtn: "Get in Touch",
                     messageBoxSuccess: "Thank you for your message! Our team will reach out to you shortly. Namaste.",
                     footerQuickLinks: "Quick Links",
                     footerConnect: "Connect With Us",
                     emailPrefix: "Email: ",
                     footerCopyright: "&copy; 2025 Nepal Cybersecurity, Audit and IT Consultation. All Rights Reserved.",
                     footerLocation: "Kathmandu, Nepal | Protecting Nepali Businesses",
-                    quizCorrectFeedback: "Correct!", // General correct feedback
-                    quizIncorrectPrefix: "Incorrect. The correct answer was: ", // Prefix for incorrect feedback
+                    quizCorrectFeedback: "Correct!",
+                    quizIncorrectPrefix: "Incorrect. The correct answer was: ",
                     quizQ1Explanation: "Phishing emails are a common tactic where attackers impersonate trusted entities to trick recipients into revealing sensitive information like passwords or financial details.",
                     quizQ2Explanation: "A firewall acts as a barrier, monitoring and controlling incoming and outgoing network traffic based on predetermined security rules, thus blocking unauthorized access.",
                     quizQ3Explanation: "Ransomware is malicious software that encrypts a victim's files, making them inaccessible, and demands a ransom payment, typically in cryptocurrency, for decryption.",
@@ -1097,7 +1025,7 @@
                     quizQ17Explanation: "A data breach occurs when unauthorized individuals gain access to sensitive, protected, or confidential data. This can lead to identity theft, financial fraud, and reputational damage.",
                     quizQ18Explanation: "A strong password policy enforces rules for creating complex and unique passwords, significantly reducing the likelihood of unauthorized access to organizational systems and data.",
                     quizQ19Explanation: "Encryption is the process of converting information or data into a code, especially to prevent unauthorized access. It scrambles data so that only authorized parties can understand it.",
-                    quizQ20Explanation: "Logging out of public computers after use prevents the next user from accessing your accounts, browsing history, or any sensitive information you might have left open.",
+                    quizQ20Explanation: "Logging out of public computers after use prevents the next user from accessing your accounts, browsing history, or any sensitive information you might have left open."
                 },
                 ne: {
                     pageTitle: "नेपाल साइबरसुरक्षा, लेखापरीक्षण र आईटी परामर्श - नेपालको डिजिटल भविष्य सुरक्षित गर्दै",
@@ -1127,7 +1055,7 @@
                     vaptHeadline: "सक्रिय सुरक्षा: कमजोरी मूल्याङ्कन र प्रवेश परीक्षण (VAPT)",
                     vaptDescription: "हामी नैतिक ह्याकरको रूपमा काम गर्छौं, दुर्भावनापूर्ण आक्रमणकारीहरूले गर्नु अघि तपाईंको प्रणालीमा कमजोरीहरू पहिचान गर्छौं र सुरक्षित रूपमा शोषण गर्छौं। हाम्रो VAPT सेवाहरूले वास्तविक-विश्व आक्रमणहरू अनुकरण गर्दछ, तपाईंको सुरक्षा स्थितिको स्पष्ट तस्वीर र यसलाई कसरी बलियो बनाउने भन्ने बारे जानकारी दिन्छ।",
                     vaptBenefit1: "<strong>तपाईंको लाभ:</strong> सक्रिय रूपमा सुरक्षा त्रुटिहरू हटाउनुहोस्, अनुपालन मापदण्डहरू पूरा गर्नुहोस्, र तपाईंको मूल्यवान डाटा सुरक्षित गर्नुहोस्।",
-                    vaptProcess1: "<strong>हाम्रो दृष्टिकोण:पी</strong> द्रुत रोकथाम, गहन उन्मूलन, कुशल रिकभरी, र विस्तृत घटना-पछिको विश्लेषण।",
+                    vaptProcess1: "<strong>हाम्रो दृष्टिकोण:</strong> द्रुत रोकथाम, गहन उन्मूलन, कुशल रिकभरी, र विस्तृत घटना-पछिको विश्लेषण।",
                     incidentResponseTab: "घटना प्रतिक्रिया",
                     incidentResponseHeadline: "द्रुत प्रतिक्रिया: घटना व्यवस्थापन र फरेन्सिक",
                     incidentResponseDescription: "जब साइबर घटना हुन्छ, प्रत्येक क्षण महत्त्वपूर्ण हुन्छ। हाम्रो विशेषज्ञ द्रुत प्रतिक्रिया टोलीले तपाईंलाई खतरा समावेश गर्न, आक्रमणकारीलाई हटाउन, र विश्लेषणका लागि महत्त्वपूर्ण प्रमाणहरू सावधानीपूर्वक सुरक्षित राख्दै तपाईंको सञ्चालनहरू पुनर्स्थापना गर्न मद्दत गर्न तयार छ।",
@@ -1165,254 +1093,239 @@
                     complianceAuditProcess1: "<strong>हाम्रो दृष्टिकोण:</strong> नियामक म्यापिङ, नियन्त्रण प्रभावकारिता परीक्षण, अन्तर विश्लेषण, र कार्ययोग्य उपचार योजना।",
                     taxAuditTab: "कर लेखापरीक्षण",
                     taxAuditHeadline: "कर अप्टिमाइजेसन: विशेषज्ञ कर लेखापरीक्षण",
-                    taxAuditDescription: "हाम्रो कर लेखापरीक्षणले तपाईंको कर रिटर्नको शुद्धता र कर कानूनहरूसँग पूर्ण अनुपालनलाई सावधानीपूर्वक प्रमाणित गर्दछ, तपाईंलाई जोखिम कम गर्न र तपाईंको कर दायित्वहरूलाई रणनीतिक रूपमा अनुकूलित गर्न मद्दत गर्दछ।",
-                    taxAuditBenefit1: "<strong>तपाईंको लाभ:</strong> कर पालनाको आश्वासन, सम्भावित कर बचतको पहिचान, र कर विवादहरूको रोकथाम।",
-                    taxAuditProcess1: "<strong>हाम्रो दृष्टिकोण:</strong> वित्तीय रेकर्डहरूको समीक्षा, कर गणनाको प्रमाणीकरण, व्यापक अनुपालन जाँच, र कर अधिकारीहरूलाई आधिकारिक रिपोर्टिङ।",
-                    whyUsHeadline: "हामी किन छनौट गर्ने? तपाईंको फाइदा, हाम्रो विशेषज्ञता",
-                    whyUsSubHeadline: "हामी नेपालमा अतुलनीय साइबरसुरक्षा, आईटी, र लेखापरीक्षण सेवाहरू प्रदान गर्न गहिरो स्थानीय बुझाइका साथ विश्वव्यापी विशेषज्ञता संयोजन गर्दछौं।",
+                    taxAuditDescription: "हामीले हाम्रो कर लेखापरीक्षणमार्फत कर रिटर्नको शुद्धता र कर कानूनहरूको पालना प्रमाणित गर्छौं।",
+                    taxAuditBenefit1: "<strong>तपाईंको लाभ:</strong> कर पालनाको आश्वासन र कर बचत।",
+                    taxAuditProcess1: "<strong>हाम्रो दृष्टिकोण:</strong> रेकर्ड समीक्षा र कर गणना प्रमाणीकरण।",
+                    whyUsHeadline: "हामी किन छनौट गर्ने?",
+                    whyUsSubHeadline: "हामीसँग विश्वस्तरीय विशेषज्ञता छ।",
                     whyUsCard1Title: "एकीकृत विशेषज्ञता",
-                    whyUsCard1Text: "साइबरसुरक्षा, आईटी, र वित्तीय लेखापरीक्षण क्षमताहरूको एक अद्वितीय मिश्रण एकै छानामुनि।",
+                    whyUsCard1Text: "साइबरसुरक्षा, आईटी र लेखापरीक्षण सेवाहरू।",
                     whyUsCard2Title: "स्थानीय र विश्वव्यापी मापदण्ड",
-                    whyUsCard2Text: "नेपाली सन्दर्भको गहिरो बुझाइलाई अन्तर्राष्ट्रिय उत्कृष्ट अभ्यासहरूसँग जोड्नुहोस्।",
-                    whyUsCard3Title: "ग्राहक-केन्द्रित समाधान",
-                    whyUsCard3Text: "तपाईंको विशिष्ट व्यापार आवश्यकताहरू र लक्ष्यहरूसँग मिल्ने अनुकूलित रणनीतिहरू।",
-                    teamHeadline: "हाम्रो नेतृत्व टोली: तपाईंको सफलतालाई अगाडि बढाउँदै",
-                    teamMember1Name: "अलिश उप्रेती",
+                    whyUsCard2Text: "नेपालको सन्दर्भ र अन्तर्राष्ट्रिय अभ्यास।",
+                    whyUsCard3Title: "ग्राहक-केन्द्रित",
+                    whyUsCard3Text: "तपाईंको आवश्यकता अनुसार अनुकूलित समाधान।",
+                    teamHeadline: "हाम्रो नेतृत्व टोली",
                     teamMember1Role: "साइबरसुरक्षा रणनीतिकार",
-                    teamMember1Bio: "अमेरिकाका ठूला व्यवसायहरूका लागि डिजिटल प्रतिरक्षा सुदृढ गर्न व्यापक अनुभव, नेपालमा विश्वव्यापी उत्कृष्ट अभ्यासहरू ल्याउँदै।",
-                    teamMember2Name: "भावेश श्रेष्ठ",
+                    teamMember1Bio: "अमेरिकामा डिजिटल प्रतिरक्षा सुदृढ गर्ने व्यापक अनुभव।",
                     teamMember2Role: "लेखापरीक्षक (CPA/CA)",
-                    teamMember2Bio: "नेपालका विभिन्न क्षेत्रहरूमा १०००+ सफल लेखापरीक्षणहरू र ठूला परियोजनाहरूमा व्यापक संलग्नता, वित्तीय अखण्डता र अनुपालन सुनिश्चित गर्दै।",
-                    teamMember3Name: "हाम्रो विशेषज्ञ टोली",
-                    teamMember3Role: "आईटी र नियामक अनुपालनमा विशेषज्ञहरू",
-                    teamMember3Bio: "तपाईंको व्यवसायले सबै स्थानीय र अन्तर्राष्ट्रिय नियामक ढाँचाहरूको पालना गर्छ भन्ने सुनिश्चित गर्ने एक समर्पित टोली, कानूनी जोखिमहरूलाई न्यूनीकरण गर्दै र सुशासनलाई बढावा दिँदै।",
-                    teamMember4Name: "आकाश शर्मा",
+                    teamMember2Bio: "१०00+ सफल लेखापरीक्षणहरू।",
+                    teamMember3Role: "आईटी र नियामक अनुपालन",
+                    teamMember3Bio: "नियमहरूको पालना र सुशासन।",
                     teamMember4Role: "डेभलपर",
-                    teamMember4Bio: "गुगल र टी-मोबाइल जस्ता उद्योगका दिग्गज कम्पनीहरूमा व्यापक अनुभव भएका एक अनुभवी डेभलपर, उच्च-प्रभाव विकास क्षेत्रहरूमा नवीनता ल्याउँदै।",
-                    threatLandscapeHeadline: "नेपालको साइबर खतरा परिदृश्य नेभिगेट गर्दै",
-                    threatLandscapeSubHeadline: "नेपाली व्यवसायहरूले सामना गरिरहेका विकसित डिजिटल जोखिमहरू अन्वेषण गर्नुहोस्। यी खतराहरू बुझ्नु तपाईंको बलियो रक्षाको लागि पहिलो कदम हो।",
-                    threatInsightsHeadline: "वास्तविक-समय खतरा अन्तरदृष्टि (सिमुलेटेड डाटा)",
-                    threatInsightsSubHeadline: "एक प्रत्यक्ष प्रणालीमा, यो खण्ड नेपालका क्षेत्रहरूका लागि नवीनतम साइबरसुरक्षा तथ्याङ्कहरूसँग गतिशील रूपमा अद्यावधिक हुनेछ। तल चलिरहेको चुनौतीहरू हाइलाइट गर्ने हालका निष्कर्षहरू छन्:",
+                    teamMember4Bio: "गुगल र टी-मोबाइलमा अनुभवी।",
+                    threatLandscapeHeadline: "नेपालको साइबर खतरा परिदृश्य",
+                    threatLandscapeSubHeadline: "डिजिटल जोखिमहरू बुझ्नुहोस्।",
+                    threatInsightsHeadline: "वास्तविक-समय खतरा अन्तरदृष्टि",
+                    threatInsightsSubHeadline: "भर्खरका निष्कर्षहरू:",
                     insight1Value: "५२",
-                    insight1Desc: "नेपालमा रिपोर्ट गरिएका दैनिक साइबर अपराधका घटनाहरू (आर्थिक वर्ष २०८१-८२)।",
-                    insight2Value: "८७.८२% वृद्धि",
-                    insight2Desc: "वित्तीय घोटाला र ठगीका घटनाहरूमा वृद्धि (आ.व. २०८०-८१ देखि आ.व. २०८१-८२)।",
+                    insight1Desc: "दैनिक साइबर अपराधका घटनाहरू।",
+                    insight2Value: "८७.८२%",
+                    insight2Desc: "वित्तीय घोटाला वृद्धि।",
                     insight3Value: "~५२%",
-                    insight3Desc: "साइबर अपराधका घटनाहरू ह्याकिङसँग सम्बन्धित छन् (अगस्ट २०८१ अनुसार)।",
-                    insight4Value: "८०% भन्दा बढी",
-                    insight4Desc: "नेपालका वेबसाइटहरू साइबर आक्रमणका लागि कमजोर छन् (जनवरी २०८१ अनुसार)।",
+                    insight3Desc: "ह्याकिङसँग सम्बन्धित।",
+                    insight4Value: "८०%",
+                    insight4Desc: "वेबसाइटहरू कमजोर।",
                     insight5Value: "६७%",
-                    insight5Desc: "नेपालका SME हरूमा आधारभूत साइबरसुरक्षा अभ्यासहरूको कमी छ (२०८० सर्वेक्षण)।",
+                    insight5Desc: "SME हरूमा अभ्यासको कमी।",
                     insight6Value: "वित्तीय क्षेत्र",
-                    insight6Desc: "नेपालमा सबैभन्दा धेरै आक्रमण हुने क्षेत्र।",
+                    insight6Desc: "धेरै आक्रमण हुने क्षेत्र।",
                     noteLabel: "नोट:",
-                    insightNote: "माथिको डाटा नेपाली साइबर ब्यूरो र साइबरसुरक्षा विश्लेषणका हालैका रिपोर्टहरू र तथ्याङ्कहरूमा आधारित छ (जुलाई २०८२ अनुसार)। उत्पादन वातावरणमा, यी अन्तरदृष्टिहरू वास्तविक-समय डाटा स्रोतहरूबाट प्राप्त हुनेछन्।",
-                    liveThreatMapHeadline: "विश्वव्यापी साइबर खतरा मोनिटर (अवधारणात्मक)",
-                    liveThreatMapDescription: "यो खण्डले विश्वव्यापी साइबर खतराहरूको वास्तविक-समय अवधारणात्मक दृश्य प्रदान गर्दछ, साइबर युद्धको गतिशील प्रकृतिलाई हाइलाइट गर्दै। यो प्रत्यक्ष नक्सा नभए पनि, यसले विश्वभरका हालैका साइबरसुरक्षा समाचारहरू र प्रवृत्तिहरू प्रदर्शन गर्दछ, सतर्कता र विशेषज्ञ रक्षाको निरन्तर आवश्यकता प्रदर्शन गर्दछ।",
-                    mapPlaceholder: "विश्वव्यापी साइबर आक्रमण प्रवृत्ति (अवधारणात्मक ग्राफ)",
-                    globalThreatError: "विश्वव्यापी खतरा समाचार लोड गर्न असफल भयो। कृपया पछि फेरि प्रयास गर्नुहोस्।",
+                    insightNote: "डेटा नेपाली साइबर ब्यूरोमा आधारित छ।",
+                    liveThreatMapHeadline: "विश्वव्यापी साइबर खतरा मोनिटर",
+                    liveThreatMapDescription: "विश्वव्यापी साइबर खतराहरूको अवलोकन।",
+                    mapPlaceholder: "विश्वव्यापी साइबर आक्रमण प्रवृत्ति",
+                    globalThreatError: "समाचार लोड गर्न असफल।",
                     globalThreatGraphLabels: ['Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024'],
-                    globalThreatGraphData1Label: 'रैंसमवेयर आक्रमणहरू (मिलियन)',
-                    globalThreatGraphData2Label: 'डाटा उल्लङ्घन (अरब रेकर्ड)',
-                    auditingHeadline: "लेखापरीक्षण परिदृश्य: चुनौती र अवसरहरू",
-                    auditingSubHeadline: "हाम्रो लेखापरीक्षण सेवाहरू अनुपालनभन्दा बाहिर जान्छन्, विभिन्न क्षेत्रहरूमा, निर्माण सहित, वित्तीय स्वास्थ्य र सञ्चालन अखण्डतामा महत्त्वपूर्ण अन्तरदृष्टि प्रदान गर्दछ।",
-                    auditFindingsHeadline: "नेपालमा सामान्य लेखापरीक्षण निष्कर्षहरू",
-                    auditFindingsIntro: "हाम्रो अनुभवको आधारमा, नेपालमा लेखापरीक्षणको क्रममा पहिचान गरिएका सामान्य समस्याहरू प्रायः समावेश छन्:",
-                    auditFinding1: "अपर्याप्त आन्तरिक नियन्त्रणहरू, जसले सम्भावित ठगी वा त्रुटिहरू निम्त्याउँछ।",
-                    auditFinding2: "स्थानीय कर कानून र नियमहरूसँग गैर-अनुपालन।",
-                    auditFinding3: "वित्तीय लेनदेनका लागि उचित कागजातको अभाव, विशेष गरी निर्माण परियोजनाहरूमा।",
-                    auditFinding4: "आय र खर्चको कम रिपोर्टिङ वा गलत वर्गीकरण।",
-                    auditFinding5: "कमजोर सम्पत्ति व्यवस्थापन र सूची नियन्त्रण प्रणालीहरू।",
-                    lowInvolvementHeadline: "लेखापरीक्षणमा कम संलग्नता किन?",
-                    lowInvolvementIntro: "यसको महत्त्वपूर्ण महत्त्वको बावजुद, नेपालमा धेरै व्यवसायहरू र व्यक्तिहरूले धेरै कारकहरूको कारणले व्यावसायिक लेखापरीक्षणमा पूर्ण रूपमा संलग्न नहुन सक्छन्:",
-                    lowInvolvementReason1: "**जागरूकताको कमी:** कर अनुपालनभन्दा बाहिर नियमित, व्यापक लेखापरीक्षणका दीर्घकालीन फाइदाहरूको सीमित बुझाइ।",
-                    lowInvolvementReason2: "**अनुमानित लागत:** व्यवसायहरू, विशेष गरी SME हरू, लेखापरीक्षणलाई वित्तीय स्वास्थ्य र जोखिम न्यूनीकरणमा लगानीको सट्टा अनावश्यक खर्चको रूपमा हेर्न सक्छन्।",
-                    lowInvolvementReason3: "**सीमित क्षमता:** योग्य र अनुभवी लेखापरीक्षकहरूको अभाव, विशेष गरी जटिल निर्माण परियोजनाहरू जस्ता विशेष क्षेत्रहरूका लागि।",
-                    lowInvolvementReason4: "**अनौपचारिक अभ्यासहरू:** केही क्षेत्रहरूमा अनौपचारिक वित्तीय अभ्यासहरूको प्रचलन, जसले औपचारिक लेखापरीक्षणलाई चुनौतीपूर्ण बनाउँछ।",
-                    consequencesHeadline: "अपर्याप्त लेखापरीक्षणका परिणामहरू",
-                    consequencesText: "उचित लेखापरीक्षणलाई बेवास्ता गर्दा कानूनी दण्ड, लगानीकर्ता र सरोकारवालाहरूको विश्वास गुमाउने, पत्ता नलागेको ठगी, गलत वित्तीय रिपोर्टिङ, र सञ्चालन सुधारका अवसरहरू गुमाउने जस्ता गम्भीर परिणामहरू निम्त्याउन सक्छन्। हाम्रो फर्मले गहन र विश्वसनीय लेखापरीक्षण सेवाहरू प्रदान गरेर यी जोखिमहरू कम गर्न मद्दत गर्दछ।",
-                    testimonialsHeadline: "हाम्रा ग्राहकहरू के भन्छन्: सफलताका कथाहरू",
-                    testimonialsSubHeadline: "हामी नेपालभरका व्यवसायहरूको लागि एक विश्वसनीय साझेदार हुनमा गर्व गर्छौं।",
-                    testimonial1Text: "\"साइबरसुरक्षा मूल्याङ्कन अविश्वसनीय रूपमा गहन थियो र हामीले कहिल्यै थाहा नपाएका कमजोरीहरूप्रति हाम्रो आँखा खोलिदियो। उनीहरूको टोलीले हाम्रो डाटा सुरक्षित गर्न स्पष्ट, कार्ययोग्य चरणहरू प्रदान गर्यो। हामी अब धेरै सुरक्षित महसुस गर्छौं।\"",
+                    globalThreatGraphData1Label: 'रैंसमवेयर आक्रमणहरू',
+                    globalThreatGraphData2Label: 'डाटा उल्लङ्घन',
+                    auditingHeadline: "लेखापरीक्षण परिदृश्य",
+                    auditingSubHeadline: "वित्तीय स्वास्थ्यको जानकारी।",
+                    auditFindingsHeadline: "सामान्य लेखापरीक्षण निष्कर्षहरू",
+                    auditFindingsIntro: "मुख्य समस्याहरू:",
+                    auditFinding1: "अपर्याप्त आन्तरिक नियन्त्रण।",
+                    auditFinding2: "कर कानूनको पालना नहुनु।",
+                    auditFinding3: "कागजातको अभाव।",
+                    auditFinding4: "आयको कम रिपोर्टिङ।",
+                    auditFinding5: "कमजोर सम्पत्ति व्यवस्थापन।",
+                    lowInvolvementHeadline: "कम संलग्नता किन?",
+                    lowInvolvementIntro: "कारणहरू:",
+                    lowInvolvementReason1: "जागरूकताको कमी।",
+                    lowInvolvementReason2: "अनुमानित लागत।",
+                    lowInvolvementReason3: "सीमित क्षमता।",
+                    lowInvolvementReason4: "अनौपचारिक अभ्यास।",
+                    consequencesHeadline: "परिणामहरू",
+                    consequencesText: "कानूनी दण्ड र विश्वास गुमाउने।",
+                    testimonialsHeadline: "ग्राहक सफलता",
+                    testimonialsSubHeadline: "हाम्रा ग्राहकहरू के भन्छन्।",
+                    testimonial1Text: "साइबरसुरक्षा मूल्याङ्कनले हाम्रो सुरक्षा बलियो बनायो।",
                     testimonial1Name: "आईटी निर्देशक",
-                    testimonial1Company: "अग्रणी वित्तीय संस्था, काठमाडौं",
-                    testimonial2Text: "\"हाम्रो निर्माण परियोजनाको लागि अनुपालन लेखापरीक्षण नेभिगेट गर्नु एक ठूलो चुनौती थियो। लेखापरीक्षकहरू पेशेवर, ज्ञानी थिए, र हामीलाई प्रत्येक चरणमा मार्गदर्शन गरे, हामीले सबै नियामक आवश्यकताहरू पूरा गर्यौं भनेर सुनिश्चित गर्दै।\"",
+                    testimonial1Company: "वित्तीय संस्था, काठमाडौं",
+                    testimonial2Text: "अनुपालन लेखापरीक्षणमा उत्कृष्ट सहयोग मिल्यो।",
                     testimonial2Name: "परियोजना प्रबन्धक",
-                    testimonial2Company: "प्रमुख निर्माण फर्म, पोखरा",
-                    quizHeadline: "के तपाईं साइबर-स्मार्ट हुनुहुन्छ? आफ्नो ज्ञान परीक्षण गर्नुहोस्!",
-                    quizSubHeadline: "आफ्नो आधारभूत साइबरसुरक्षा ज्ञान परीक्षण गर्नुहोस् र सामान्य खतराहरू विरुद्ध तपाईं कति राम्रोसँग तयार हुनुहुन्छ हेर्नुहोस्।",
+                    testimonial2Company: "निर्माण फर्म, पोखरा",
+                    quizHeadline: "साइबर क्विज",
+                    quizSubHeadline: "आफ्नो ज्ञान परीक्षण गर्नुहोस्।",
                     quizNextBtn: "अर्को प्रश्न",
                     quizResultsHeadline: "क्विज परिणामहरू",
                     quizScorePrefix: "तपाईंको स्कोर: ",
-                    quizFeedbackExcellent: "उत्कृष्ट! तपाईं साइबर-स्मार्ट च्याम्पियन हुनुहुन्छ! साइबरसुरक्षाको तपाईंको बलियो बुझाइ प्रशंसनीय छ। तपाईंको सुरक्षालाई अर्को स्तरमा लैजान तयार हुनुहुन्छ? हाम्रा उन्नत समाधानहरू र विशेषज्ञ टोलीले तपाईंको डिजिटल प्रतिरक्षालाई अझ सुदृढ गर्न मद्दत गर्न यहाँ छन्। आउनुहोस्, जोडौं र तपाईंको व्यवसायको लागि एक अभेद्य ढाल बनाऔं!",
-                    quizFeedbackGood: "राम्रो काम! तपाईंसँग साइबरसुरक्षाका आधारभूत कुराहरूको राम्रो ज्ञान छ। विकसित डिजिटल परिदृश्यमा सधैं बढ्ने ठाउँ हुन्छ। आफ्नो सीपलाई तिखार्न र तपाईंको व्यवसाय साँच्चै लचिलो छ भनी सुनिश्चित गर्न चाहनुहुन्छ? हाम्रा अनुकूलित जागरूकता प्रशिक्षण र विशेषज्ञ परामर्शहरूले तपाईंलाई मार्गदर्शन गर्न सक्छन्। व्यक्तिगत सुरक्षा रोडम्यापको लागि हामीलाई सम्पर्क गर्नुहोस्!",
-                    quizFeedbackFair: "ठिकै छ। तपाईंसँग केही साइबरसुरक्षा ज्ञान छ, तर त्यहाँ क्षेत्रहरू छन् जहाँ तपाईं निश्चित रूपमा आफ्नो प्रतिरक्षालाई बलियो बनाउन सक्नुहुन्छ। डिजिटल संसार निरन्तर परिवर्तन भइरहेको छ, र अगाडि रहनु महत्त्वपूर्ण छ। हाम्रा विशेषज्ञहरूलाई ती खाली ठाउँहरू भर्न र तपाईंको मूल्यवान सम्पत्तिहरूलाई सुरक्षित राख्न मद्दत गर्न दिनुहोस्। नि:शुल्क सुरक्षा मूल्याङ्कनको लागि हामीलाई सम्पर्क गर्नुहोस्!",
-                    quizFeedbackPoor: "सुधार आवश्यक छ। चिन्ता नगर्नुहोस्, साइबरसुरक्षा जटिल हुन सक्छ, तर तपाईंको व्यवसायको सुरक्षा महत्त्वपूर्ण छ। तपाईंको क्विज परिणामहरूले केही महत्त्वपूर्ण ज्ञानका कमीहरू देखाउँछन् जसले तपाईंलाई कमजोर बनाउन सक्छ। अब कार्य गर्ने समय हो! हाम्रा व्यापक सुरक्षा जागरूकता प्रशिक्षण र विशेषज्ञ परामर्श सेवाहरू तपाईंलाई र तपाईंको टोलीलाई सुरक्षित रहनका लागि आवश्यक ज्ञान र उपकरणहरू प्रदान गर्न डिजाइन गरिएको छ। आज तपाईंको व्यवसायको लागि बलियो रक्षा निर्माण गर्ने बारे कुरा गरौं!",
-                    quizRetakeBtn: "क्विज पुनः लिनुहोस्",
-                    quizContactCTA: "हाम्रा विशेषज्ञहरूसँग आफ्नो सुरक्षा बलियो बनाउनुहोस्",
-                    quizQ1: "साइबर अपराधीहरूले मानिसहरूलाई संवेदनशील जानकारी प्रकट गर्नका लागि प्रयोग गर्ने सबैभन्दा सामान्य तरिका कुन हो?",
+                    quizFeedbackExcellent: "उत्कृष्ट!",
+                    quizFeedbackGood: "राम्रो काम!",
+                    quizFeedbackFair: "ठिकै छ।",
+                    quizFeedbackPoor: "सुधार आवश्यक छ।",
+                    quizRetakeBtn: "पुनः लिनुहोस्",
+                    quizContactCTA: "सुरक्षा बलियो बनाउनुहोस्",
+                    quizQ1: "साइबर अपराधीहरूले संवेदनशील जानकारी चोर्न प्रयोग गर्ने तरिका कुन हो?",
                     quizQ1A1: "फिसिङ इमेलहरू",
                     quizQ1A2: "बलियो पासवर्डहरू",
                     quizQ1A3: "एन्टिभाइरस सफ्टवेयर",
                     quizQ1A4: "दुई-कारक प्रमाणीकरण",
-                    quizQ2: "नेटवर्क सुरक्षामा 'फायरवाल' को प्राथमिक उद्देश्य के हो?",
-                    quizQ2A1: "इन्टरनेट जडानको गति बढाउन",
-                    quizQ2A2: "नेटवर्कमा अनाधिकृत पहुँच रोक्न",
-                    quizQ2A3: "डाटा सुरक्षित रूपमा भण्डारण गर्न",
-                    quizQ2A4: "इमेल खाताहरू व्यवस्थापन गर्न",
-                    quizQ3: "'रैंसमवेयर' ले के गर्छ?",
-                    quizQ3A1: "तपाईंका व्यक्तिगत फोटोहरू चोर्छ",
-                    quizQ3A2: "तपाईंका फाइलहरू इन्क्रिप्ट गर्छ र तिनीहरूको रिलीजको लागि भुक्तानी माग्छ",
-                    quizQ3A3: "तपाईंको कम्प्युटरको प्रदर्शन बढाउँछ",
-                    quizQ3A4: "तपाईंको सबै ब्राउज इतिहास मेटाउँछ",
-                    quizQ4: "तपाईंको सफ्टवेयर र अपरेटिङ सिस्टम नियमित रूपमा अद्यावधिक गर्नु किन महत्त्वपूर्ण छ?",
-                    quizQ4A1: "नयाँ सुविधाहरू प्राप्त गर्न",
-                    quizQ4A2: "सुरक्षा कमजोरीहरू र बगहरू ठीक गर्न",
-                    quizQ4A3: "प्रयोगकर्ता इन्टरफेस परिवर्तन गर्न",
-                    quizQ4A4: "हार्ड ड्राइभको ठाउँ बढाउन",
-                    quizQ5: "दुई-कारक प्रमाणीकरण (2FA) के हो?",
-                    quizQ5A1: "दुई फरक इमेल ठेगानाहरू प्रयोग गर्दै",
-                    quizQ5A2: "पासवर्ड र दोस्रो प्रमाणीकरण विधि (जस्तै, फोनबाट कोड) प्रयोग गरेर लग इन गर्दै",
-                    quizQ5A3: "आफ्नो पासवर्ड दुई विश्वसनीय साथीहरूसँग साझा गर्दै",
-                    quizQ5A4: "दुई एन्टिभाइरस कार्यक्रमहरू स्थापना गर्दै",
-                    quizQ6: "फिसिङ के हो?",
-                    quizQ6A1: "माछा मार्ने एक प्रकार।",
-                    quizQ6A2: "संवेदनशील जानकारी प्रकट गर्नका लागि तपाईंलाई धोका दिने प्रयास।",
-                    quizQ6A3: "कम्प्युटर भाइरसको एक प्रकार।",
-                    quizQ6A4: "फाइलहरू साझेदारी गर्ने सुरक्षित तरिका।",
-                    quizQ7: "यदि तपाईंले शंकास्पद इमेल प्राप्त गर्नुभयो भने के गर्नुपर्छ?",
-                    quizQ7A1: "तत्काल सबै लिङ्कहरूमा क्लिक गर्नुहोस्।",
-                    quizQ7A2: "थप जानकारीको लागि जवाफ दिनुहोस्।",
-                    quizQ7A3: "यसलाई मेटाउनुहोस् वा स्पामको रूपमा चिन्ह लगाउनुहोस्।",
-                    quizQ7A4: "यसलाई आफ्ना सबै सम्पर्कहरूमा फर्वार्ड गर्नुहोस्।",
-                    quizQ8: "बलियो पासवर्ड संयोजन के हो?",
-                    quizQ8A1: "तपाईंको जन्म मिति।",
-                    quizQ8A2: "ठूलो अक्षर, सानो अक्षर, संख्या, र प्रतीकहरूको मिश्रण।",
-                    quizQ8A3: "तपाईंको पाल्तु जनावरको नाम।",
-                    quizQ8A4: "एउटा सामान्य शब्द जस्तै \"password\"।",
-                    quizQ9: "विभिन्न खाताहरूका लागि फरक पासवर्डहरू प्रयोग गर्नु किन महत्त्वपूर्ण छ?",
-                    quizQ9A1: "यसले तिनीहरूलाई सम्झन सजिलो बनाउँछ।",
-                    quizQ9A2: "यदि एउटा खातामा सम्झौता भयो भने, अरू सुरक्षित रहन्छन्।",
-                    quizQ9A3: "यसले तपाईंको इन्टरनेट गति सुधार गर्दछ।",
-                    quizQ9A4: "यो महत्त्वपूर्ण छैन।",
-                    quizQ10: "एन्टिभाइरस सफ्टवेयरको उद्देश्य के हो?",
-                    quizQ10A1: "तपाईंको कम्प्युटरलाई छिटो बनाउन।",
-                    quizQ10A2: "दुर्भावनापूर्ण सफ्टवेयरबाट बचाउन।",
-                    quizQ10A3: "तपाईंको फाइलहरू व्यवस्थापन गर्न।",
-                    quizQ10A4: "इन्टरनेट सुरक्षित रूपमा ब्राउज गर्न।",
-                    quizQ11: "फिसिङ प्रयासको सामान्य संकेत के हो?",
-                    quizQ11A1: "उत्कृष्ट व्याकरण र हिज्जे।",
-                    quizQ11A2: "पासवर्ड जस्ता व्यक्तिगत जानकारीको लागि अनुरोध।",
-                    quizQ11A3: "ज्ञात प्रेषकबाट सन्देश।",
-                    quizQ11A4: "एक प्रसिद्ध वेबसाइटको लिङ्क।",
+                    quizQ2: "फायरवालको प्राथमिक उद्देश्य के हो?",
+                    quizQ2A1: "गति बढाउन",
+                    quizQ2A2: "अनाधिकृत पहुँच रोक्न",
+                    quizQ2A3: "डाटा भण्डारण गर्न",
+                    quizQ2A4: "इमेल व्यवस्थापन गर्न",
+                    quizQ3: "रैंसमवेयरले के गर्छ?",
+                    quizQ3A1: "फोटो चोर्छ",
+                    quizQ3A2: "फाइलहरू इन्क्रिप्ट गर्छ र फिरौती माग्छ",
+                    quizQ3A3: "कम्प्युटर छिटो बनाउँछ",
+                    quizQ3A4: "इतिहास मेटाउँछ",
+                    quizQ4: "सफ्टवेयर किन अद्यावधिक गर्नुपर्छ?",
+                    quizQ4A1: "नयाँ सुविधा",
+                    quizQ4A2: "सुरक्षा कमजोरी र बगहरू ठीक गर्न",
+                    quizQ4A3: "इन्टरफेस परिवर्तन",
+                    quizQ4A4: "ठाउँ बढाउन",
+                    quizQ5: "2FA भनेको के हो?",
+                    quizQ5A1: "दुई इमेल",
+                    quizQ5A2: "पासवर्ड र दोस्रो प्रमाणीकरण विधि",
+                    quizQ5A3: "पासवर्ड सेयर",
+                    quizQ5A4: "दुई एन्टिभाइरस",
+                    quizQ6: "फिसिङ भनेको के हो?",
+                    quizQ6A1: "माछा मार्ने",
+                    quizQ6A2: "संवेदनशील जानकारी चोर्ने प्रयास",
+                    quizQ6A3: "भाइरस",
+                    quizQ6A4: "फाइल सेयरिङ",
+                    quizQ7: "शंकास्पद इमेल आएमा के गर्ने?",
+                    quizQ7A1: "क्लिक गर्ने",
+                    quizQ7A2: "जवाफ दिने",
+                    quizQ7A3: "मेटाउने वा स्पाम चिन्ह लगाउने",
+                    quizQ7A4: "फर्वार्ड गर्ने",
+                    quizQ8: "बलियो पासवर्ड कस्तो हुन्छ?",
+                    quizQ8A1: "जन्म मिति",
+                    quizQ8A2: "अक्षर, संख्या र प्रतीकहरूको मिश्रण",
+                    quizQ8A3: "पाल्तु जनावरको नाम",
+                    quizQ8A4: "सामान्य शब्द",
+                    quizQ9: "फरक पासवर्ड किन प्रयोग गर्ने?",
+                    quizQ9A1: "सम्झन सजिलो",
+                    quizQ9A2: "एउटा ह्याक भए पनि अरू सुरक्षित",
+                    quizQ9A3: "इन्टरनेट गति",
+                    quizQ9A4: "महत्वपूर्ण छैन",
+                    quizQ10: "एन्टिभाइरसको काम के हो?",
+                    quizQ10A1: "कम्प्युटर छिटो बनाउने",
+                    quizQ10A2: "मालवेयरबाट बचाउने",
+                    quizQ10A3: "फाइल व्यवस्थापन",
+                    quizQ10A4: "ब्राउजिङ",
+                    quizQ11: "फिसिङको संकेत के हो?",
+                    quizQ11A1: "व्याकरण सही",
+                    quizQ11A2: "व्यक्तिगत जानकारीको माग",
+                    quizQ11A3: "ज्ञात प्रेषक",
+                    quizQ11A4: "प्रसिद्ध वेबसाइट",
                     quizQ12: "VPN को अर्थ के हो?",
-                    quizQ12A1: "अत्यन्त निजी नेटवर्क।",
-                    quizQ12A2: "भर्चुअल सार्वजनिक नेटवर्क।",
-                    quizQ12A3: "भर्चुअल निजी नेटवर्क।",
-                    quizQ12A4: "प्रमाणित व्यक्तिगत नेटवर्क।",
-                    quizQ13: "असुरक्षित सार्वजनिक Wi-Fi नेटवर्कहरूमा जडान गर्न किन जोगिनु पर्छ?",
-                    quizQ13A1: "तिनीहरू प्रायः ढिलो हुन्छन्।",
-                    quizQ13A2: "तपाईंको डाटा अरूले सजिलै रोक्न सक्छन्।",
-                    quizQ13A3: "तिनीहरूले तपाईंलाई पैसा चार्ज गर्न सक्छन्।",
-                    quizQ13A4: "तिनीहरूले तपाईंको ब्राउजिङ समय सीमित गर्छन्।",
-                    quizQ14: "साइबरसुरक्षामा 'सामाजिक इन्जिनियरिङ' के हो?",
-                    quizQ14A1: "मार्केटिङका लागि सामाजिक सञ्जाल प्रयोग गर्दै।",
-                    quizQ14A2: "जानकारी वा प्रणालीहरूमा पहुँच प्राप्त गर्न मानिसहरूलाई हेरफेर गर्दै।",
-                    quizQ14A3: "सुरक्षित सामाजिक सञ्जालहरू डिजाइन गर्दै।",
-                    quizQ14A4: "सामाजिक प्रवृत्तिहरूको विश्लेषण गर्दै।",
-                    quizQ15: "रैंसमवेयरबाट आफूलाई कसरी बचाउन सकिन्छ?",
-                    quizQ15A1: "शंकास्पद लिङ्कहरूमा क्लिक गरेर।",
-                    quizQ15A2: "नियमित रूपमा आफ्नो डाटा ब्याकअप गरेर।",
-                    quizQ15A3: "आफ्नो व्यक्तिगत जानकारी साझा गरेर।",
-                    quizQ15A4: "कम्प्युटर कहिल्यै प्रयोग नगरेर।",
-                    quizQ16: "सफ्टवेयर डाउनलोड गर्नको लागि सबैभन्दा राम्रो अभ्यास के हो?",
-                    quizQ16A1: "अनौपचारिक वेबसाइटहरूबाट डाउनलोड गर्नुहोस्।",
-                    quizQ16A2: "टोरेन्ट साइटहरूबाट डाउनलोड गर्नुहोस्।",
-                    quizQ16A3: "विश्वसनीय, आधिकारिक स्रोतहरूबाट डाउनलोड गर्नुहोस्।",
-                    quizQ16A4: "डाउनलोड गर्नु अघि आफ्नो एन्टिभाइरस असक्षम गर्नुहोस्।",
-                    quizQ17: "डाटा उल्लङ्घन के हो?",
-                    quizQ17A1: "एक नयाँ सफ्टवेयर अपडेट।",
-                    quizQ17A2: "संवेदनशील डाटामा अनाधिकृत पहुँच वा खुलासा।",
-                    quizQ17A3: "एक सफल मार्केटिङ अभियान।",
-                    quizQ17A4: "एक नेटवर्क गति परीक्षण।",
-                    quizQ18: "एक संगठनमा बलियो पासवर्ड नीतिको उद्देश्य के हो?",
-                    quizQ18A1: "पासवर्डहरू सम्झन गाह्रो बनाउन।",
-                    quizQ18A2: "अनाधिकृत पहुँचको जोखिम कम गर्न।",
-                    quizQ18A3: "आईटी समर्थन अनुरोधहरू बढाउन।",
-                    quizQ18A4: "अप्रचलित नियमहरूसँग पालना गर्न।",
-                    quizQ19: "इन्क्रिप्शन के हो?",
-                    quizQ19A1: "फाइलहरूलाई सानो बनाउने तरिका।",
-                    quizQ19A2: "अनाधिकृत पहुँच रोक्न डाटालाई कोडमा रूपान्तरण गर्दै।",
-                    quizQ19A3: "इमेलहरू छिटो पठाउने विधि।",
-                    quizQ19A4: "कम्प्युटर हार्डवेयरको एक प्रकार।",
-                    quizQ20: "सार्वजनिक कम्प्युटरहरू प्रयोग गरेपछि लग आउट गर्नु किन महत्त्वपूर्ण छ?",
-                    quizQ20A1: "ब्याट्री जीवन बचाउन।",
-                    quizQ20A2: "अरूलाई तपाईंको खाताहरूमा पहुँच गर्नबाट रोक्न।",
-                    quizQ20A3: "अर्को प्रयोगकर्ताको लागि कम्प्युटरको गति बढाउन।",
-                    quizQ20A4: "यो आवश्यक छैन।",
+                    quizQ12A1: "प्राइभेट नेटवर्क",
+                    quizQ12A2: "पब्लिक नेटवर्क",
+                    quizQ12A3: "भर्चुअल प्राइभेट नेटवर्क",
+                    quizQ12A4: "प्रमाणित नेटवर्क",
+                    quizQ13: "असुरक्षित सार्वजनिक Wi-Fi किन नचलाउने?",
+                    quizQ13A1: "ढिलो हुन्छ",
+                    quizQ13A2: "डाटा चोइन सक्छ",
+                    quizQ13A3: "पैसा लाग्छ",
+                    quizQ13A4: "समय सिमा",
+                    quizQ14: "सामाजिक इन्जिनियरिङ भनेको के हो?",
+                    quizQ14A1: "मार्केटिङ",
+                    quizQ14A2: "मानिसलाई झुक्याएर पहुँच लिने",
+                    quizQ14A3: "सञ्जाल डिजाइन",
+                    quizQ14A4: "प्रवृत्ति विश्लेषण",
+                    quizQ15: "रैंसमवेयरबाट कसरी जोगिने?",
+                    quizQ15A1: "लिंक क्लिक गरेर",
+                    quizQ15A2: "नियमित ब्याकअप गरेर",
+                    quizQ15A3: "जानकारी सेयर गरेर",
+                    quizQ15A4: "कम्प्युटर नचलाएर",
+                    quizQ16: "सफ्टवेयर कहाँबाट डाउनलोड गर्ने?",
+                    quizQ16A1: "अनौपचारिक साइट",
+                    quizQ16A2: "टोरेन्ट",
+                    quizQ16A3: "आधिकारिक स्रोत",
+                    quizQ16A4: "एन्टिभाइरस बन्द गरेर",
+                    quizQ17: "डाटा उल्लङ्घन भनेको के हो?",
+                    quizQ17A1: "सफ्टवेयर अपडेट",
+                    quizQ17A2: "गोप्य डाटामा अनाधिकृत पहुँच",
+                    quizQ17A3: "मार्केटिङ",
+                    quizQ17A4: "गति परीक्षण",
+                    quizQ18: "बलियो पासवर्ड नीतिको उद्देश्य?",
+                    quizQ18A1: "गाह्रो बनाउने",
+                    quizQ18A2: "अनाधिकृत पहुँच घटाउने",
+                    quizQ18A3: "समर्थन बढाउने",
+                    quizQ18A4: "नियम पालना",
+                    quizQ19: "इन्क्रिप्शन भनेको के हो?",
+                    quizQ19A1: "फाइल सानो बनाउने",
+                    quizQ19A2: "डाटालाई कोडमा रूपान्तरण गर्ने",
+                    quizQ19A3: "इमेल छिटो पठाउने",
+                    quizQ19A4: "हार्डवेयर",
+                    quizQ20: "सार्वजनिक कम्प्युटरमा किन लग आउट गर्ने?",
+                    quizQ20A1: "ब्याट्री बचाउन",
+                    quizQ20A2: "खाताको सुरक्षाका लागि",
+                    quizQ20A3: "गति बढाउन",
+                    quizQ20A4: "आवश्यक छैन",
                     faqsHeadline: "बारम्बार सोधिने प्रश्नहरू",
-                    faqsSubHeadline: "हाम्रा सेवाहरू र उद्योग बारे सामान्य प्रश्नहरूको द्रुत उत्तरहरू फेला पार्नुहोस्।",
-                    faq1Question: "नेपालमा मेरो व्यवसायको लागि साइबरसुरक्षाको महत्त्व के हो?",
-                    faq1Answer: "नेपालको डिजिटल परिदृश्य बढ्दै जाँदा साइबरसुरक्षा महत्त्वपूर्ण छ। यसले तपाईंको संवेदनशील डाटालाई सुरक्षा दिन्छ, रैंसमवेयर र फिसिङ जस्ता साइबर आक्रमणहरूबाट वित्तीय क्षति रोक्छ, ग्राहकको विश्वास कायम राख्छ, र विकसित डाटा सुरक्षा नियमहरूसँग अनुपालन सुनिश्चित गर्दछ। यस बिना, व्यवसायहरूले उल्लङ्घन, सञ्चालनमा अवरोध, र प्रतिष्ठामा क्षति जस्ता महत्त्वपूर्ण जोखिमहरूको सामना गर्छन्।",
-                    faq2Question: "तपाईं निर्माण साइटहरूको लागि कस्ता प्रकारका लेखापरीक्षणहरू गर्नुहुन्छ?",
-                    faq2Answer: "निर्माण साइटहरू र अन्य क्षेत्रहरूका लागि, हाम्रा CPA/CA विशेषज्ञहरूले वित्तीय विवरण लेखापरीक्षण, अनुपालन लेखापरीक्षण (स्थानीय भवन कोड, श्रम कानून, र वातावरणीय नियमहरूको पालना सुनिश्चित गर्दै), र कर लेखापरीक्षण गर्छन्। हामी वित्तीय पारदर्शिता, नियामक अनुपालन, र निर्माण उद्योगका लागि विशेष जोखिमहरू पहिचान गर्छौं।",
-                    faq3Question: "आईटी परामर्शले मेरो सानो व्यवसायलाई कसरी फाइदा पुर्याउन सक्छ?",
-                    faq3Answer: "आईटी परामर्शले साना व्यवसायहरूलाई उनीहरूको प्रविधि पूर्वाधारलाई अनुकूलित गर्न, सञ्चालन दक्षता सुधार गर्न, र सूचित आईटी लगानी गर्न मद्दत गर्दछ। हामी नेटवर्क डिजाइन, डाटा व्यवस्थापन रणनीतिहरू, क्लाउड अपनाउने, र प्रणाली एकीकरणमा सहयोग गर्न सक्छौं, तपाईंको प्रविधिले तपाईंको व्यवसायिक लक्ष्यहरूलाई प्रभावकारी र सुरक्षित रूपमा समर्थन गर्छ भन्ने सुनिश्चित गर्दै।",
-                    faq4Question: "के तपाईं ठूला उद्यमहरू र SME हरू दुवैका लागि सेवाहरू प्रदान गर्नुहुन्छ?",
-                    faq4Answer: "हो, हाम्रा सेवाहरू सबै आकारका व्यवसायहरूको आवश्यकताहरू पूरा गर्नका लागि स्केलेबल र अनुकूलित छन्, साना र मध्यम आकारका उद्यमहरू (SMEs) देखि ठूला निगमहरू र सरकारी संस्थाहरू सम्म। हामी बुझ्छौं कि प्रत्येक संस्थाको अद्वितीय आवश्यकताहरू र कमजोरीहरू छन्।",
-                    faq5Question: "मेरो व्यवसायले साइबरसुरक्षा मूल्याङ्कन कति पटक गर्नुपर्छ?",
-                    faq5Answer: "साइबरसुरक्षा मूल्याङ्कन (जस्तै VAPT) कम्तीमा वार्षिक रूपमा, वा तपाईंको आईटी वातावरणमा महत्त्वपूर्ण परिवर्तनहरू भएमा, नयाँ प्रणालीहरू परिनियोजन भएमा, वा कुनै सुरक्षा घटना पछि थप बारम्बार गर्न सिफारिस गरिन्छ। नियमित मूल्याङ्कनले विकसित खतराहरू विरुद्ध निरन्तर सुरक्षा सुनिश्चित गर्दछ।",
-                    contactHeadline: "तपाईंको भविष्य सुरक्षित गर्न तयार हुनुहुन्छ? आउनुहोस्, जोडौं!",
-                    contactSubHeadline: "नि:शुल्क, कुनै दायित्व नभएको परामर्शको लागि सम्पर्क गर्नुहोस्। हामी तपाईंलाई फस्टाउन मद्दत गर्न यहाँ छौं।",
-                    formNameLabel: "पूरा नाम",
-                    formEmailLabel: "इमेल ठेगाना",
-                    formPhoneLabel: "फोन नम्बर",
-                    formCompanyLabel: "कम्पनी",
-                    formMessageLabel: "सन्देश",
-                    formSubmitBtn: "सम्पर्कमा रहनुहोस्",
-                    messageBoxSuccess: "तपाईंको सन्देशको लागि धन्यवाद! हाम्रो टोलीले छिट्टै तपाईंसँग सम्पर्क गर्नेछ। नमस्ते।",
+                    faqsSubHeadline: "उत्तरहरू फेला पार्नुहोस्।",
+                    faq1Question: "नेपालमा साइबरसुरक्षाको महत्त्व?",
+                    faq1Answer: "डाटा सुरक्षा र वित्तीय क्षति रोक्न।",
+                    faq2Question: "निर्माण साइटमा कस्तो लेखापरीक्षण हुन्छ?",
+                    faq2Answer: "वित्तीय विवरण र अनुपालन लेखापरीक्षण।",
+                    faq3Question: "आईटी परामर्शले कसरी मद्दत गर्छ?",
+                    faq3Answer: "पूर्वाधार अनुकूलन गर्न।",
+                    faq4Question: "SME का लागि सेवाहरू छन्?",
+                    faq4Answer: "हो, सबै आकारका लागि।",
+                    faq5Question: "मूल्याङ्कन कति पटक गर्ने?",
+                    faq5Answer: "कम्तीमा वार्षिक रूपमा।",
+                    contactHeadline: "सम्पर्क गर्नुहोस्",
+                    contactSubHeadline: "निःशुल्क परामर्शको लागि।",
+                    messageBoxSuccess: "सन्देश प्राप्त भयो। धन्यवाद!",
                     footerQuickLinks: "द्रुत लिङ्कहरू",
-                    footerConnect: "हामीसँग जोडिनुहोस्",
+                    footerConnect: "जोडिनुहोस्",
                     emailPrefix: "इमेल: ",
-                    footerCopyright: "&copy; २०२५ नेपाल साइबरसुरक्षा, लेखापरीक्षण र आईटी परामर्श। सबै अधिकार सुरक्षित।",
-                    footerLocation: "काठमाडौं, नेपाल | नेपाली व्यवसायहरूको सुरक्षा गर्दै",
-                    quizCorrectFeedback: "सही!", // General correct feedback
-                    quizIncorrectPrefix: "गलत। सही उत्तर हो: ", // Prefix for incorrect feedback
-                    quizQ1Explanation: "फिसिङ इमेलहरू एक सामान्य रणनीति हो जहाँ आक्रमणकारीहरूले विश्वसनीय संस्थाहरूको नक्कल गर्छन् र प्राप्तकर्ताहरूलाई पासवर्ड वा वित्तीय विवरणहरू जस्ता संवेदनशील जानकारी प्रकट गर्न धोका दिन्छन्।",
-                    quizQ2Explanation: "फायरवालले बाधाको रूपमा कार्य गर्दछ, पूर्वनिर्धारित सुरक्षा नियमहरूको आधारमा भित्र र बाहिर जाने नेटवर्क ट्राफिकको निगरानी र नियन्त्रण गर्दछ, यसरी अनाधिकृत पहुँच रोक्छ।",
-                    quizQ3Explanation: "रैंसमवेयर एक दुर्भावनापूर्ण सफ्टवेयर हो जसले पीडितको फाइलहरूलाई इन्क्रिप्ट गर्दछ, तिनीहरूलाई पहुँचयोग्य बनाउँछ, र डिक्रिप्शनको लागि फिरौती भुक्तानी, सामान्यतया क्रिप्टोकरन्सीमा, माग्दछ।",
-                    quizQ4Explanation: "नियमित सफ्टवेयर अद्यावधिकहरूमा प्रायः नयाँ पत्ता लागेका कमजोरीहरूलाई ठीक गर्ने सुरक्षा प्याचहरू समावेश हुन्छन्, जसले तपाईंको प्रणालीलाई आक्रमणकारीहरूद्वारा शोषण हुनबाट बचाउँछ।",
-                    quizQ5Explanation: "2FA ले पासवर्डभन्दा बाहिर दोस्रो प्रमाणीकरण विधि (जस्तै, तपाईंको फोनबाट कोड वा फिंगरप्रिन्ट) आवश्यक पारेर सुरक्षाको अतिरिक्त तह थप्छ।",
-                    quizQ6Explanation: "फिसिङ एक साइबर अपराध हो जसमा लक्ष्य वा लक्ष्यहरूलाई इमेल, टेलिफोन वा पाठ सन्देश मार्फत एक वैध संस्थाको रूपमा प्रस्तुत गरेर सम्पर्क गरिन्छ ताकि व्यक्तिहरूलाई व्यक्तिगत रूपमा पहिचान योग्य जानकारी, बैंकिङ र क्रेडिट कार्ड विवरणहरू, र पासवर्डहरू जस्ता संवेदनशील डाटा प्रदान गर्न लोभ्याउन सकियोस्।",
-                    quizQ7Explanation: "शंकास्पद इमेलहरू मेटाउनाले वा स्पामको रूपमा चिन्ह लगाउनाले तपाईंलाई दुर्भावनापूर्ण लिङ्कहरूमा क्लिक गर्न वा संक्रमित संलग्नकहरू खोल्नबाट रोक्छ। तिनीहरूलाई कहिल्यै जवाफ नदिनुहोस् वा फर्वार्ड नगर्नुहोस्।",
-                    quizQ8Explanation: "एक बलियो पासवर्ड ठूलो अक्षर, सानो अक्षर, संख्या, र प्रतीकहरूको एक अद्वितीय संयोजन हुनुपर्छ, जसले आक्रमणकारीहरूलाई अनुमान गर्न वा क्र्याक गर्न गाह्रो बनाउँछ।",
-                    quizQ9Explanation: "विभिन्न खाताहरूका लागि फरक पासवर्डहरू प्रयोग गर्नाले यदि एउटा खातामा सम्झौता भयो भने क्षति सीमित गर्दछ। यदि आक्रमणकारीहरूले एउटा पासवर्डमा पहुँच प्राप्त गरे भने, तिनीहरूको तपाईंको अन्य खाताहरूमा स्वचालित रूपमा पहुँच हुनेछैन।",
-                    quizQ10Explanation: "एन्टिभाइरस सफ्टवेयर भाइरस, वर्म, र ट्रोजनहरू सहित दुर्भावनापूर्ण सफ्टवेयर पत्ता लगाउन, रोक्न, र हटाउन डिजाइन गरिएको हो, जसले तपाईंको कम्प्युटरलाई विभिन्न खतराहरूबाट बचाउँछ।",
-                    quizQ11Explanation: "फिसिङ प्रयासहरूमा प्रायः व्याकरण त्रुटिहरू, हिज्जे गल्तीहरू, जरुरी वा धम्कीपूर्ण भाषा, र व्यक्तिगत जानकारीको लागि अनुरोधहरू समावेश हुन्छन्, जुन वैध संस्थाहरूले इमेल मार्फत विरलै माग्छन्।",
-                    quizQ12Explanation: "VPN को अर्थ भर्चुअल निजी नेटवर्क हो। यसले इन्टरनेट जस्ता कम सुरक्षित नेटवर्कमा सुरक्षित, इन्क्रिप्टेड जडान सिर्जना गर्दछ, गोपनीयता र गुमनामता प्रदान गर्दछ।",
-                    quizQ13Explanation: "सार्वजनिक Wi-Fi नेटवर्कहरू प्रायः असुरक्षित हुन्छन्, जसको अर्थ तपाईंको डाटा सोही नेटवर्कमा दुर्भावनापूर्ण कलाकारहरूद्वारा सजिलै रोक्न सकिन्छ। यसले तपाईंको व्यक्तिगत र संवेदनशील जानकारीलाई जोखिममा पार्छ।",
-                    quizQ14Explanation: "सामाजिक इन्जिनियरिङ भनेको जानकारी वा प्रणालीहरूमा पहुँच प्राप्त गर्न मानिसहरूलाई मनोवैज्ञानिक रूपमा हेरफेर गर्नु हो। यो प्राविधिक ह्याकिङको सट्टा व्यक्तिहरूलाई धोका दिनमा निर्भर गर्दछ।",
-                    quizQ15Explanation: "नियमित रूपमा आफ्नो डाटालाई बाह्य ड्राइभ वा क्लाउड सेवामा ब्याकअप गर्नाले यदि तपाईंको फाइलहरू रैंसमवेयरद्वारा इन्क्रिप्ट भए पनि, तपाईंले फिरौती नतिरी तिनीहरूलाई पुनर्स्थापना गर्न सक्नुहुन्छ।",
-                    quizQ16Explanation: "सफ्टवेयरलाई विश्वसनीय, आधिकारिक स्रोतहरूबाट मात्र डाउनलोड गर्नाले मालवेयर वा सम्झौता गरिएका अनुप्रयोगहरू स्थापना गर्ने जोखिम कम गर्दछ। अनौपचारिक साइटहरूमा प्रायः पाइरेटेड वा संक्रमित सफ्टवेयर होस्ट गरिन्छ।",
-                    quizQ17Explanation: "डाटा उल्लङ्घन तब हुन्छ जब अनाधिकृत व्यक्तिहरूले संवेदनशील, सुरक्षित, वा गोप्य डाटामा पहुँच प्राप्त गर्छन्। यसले पहिचान चोरी, वित्तीय ठगी, र प्रतिष्ठामा क्षति पुर्याउन सक्छ।",
-                    quizQ18Explanation: "एक बलियो पासवर्ड नीतिले जटिल र अद्वितीय पासवर्डहरू सिर्जना गर्न नियमहरू लागू गर्दछ, जसले संगठनात्मक प्रणाली र डाटामा अनाधिकृत पहुँचको सम्भावनालाई उल्लेखनीय रूपमा कम गर्दछ।",
-                    quizQ19Explanation: "इन्क्रिप्शन भनेको जानकारी वा डाटालाई कोडमा रूपान्तरण गर्ने प्रक्रिया हो, विशेष गरी अनाधिकृत पहुँच रोक्नका लागि। यसले डाटालाई यस्तो तरिकाले स्क्र्याम्बल गर्दछ कि अधिकृत पक्षहरूले मात्र यसलाई बुझ्न सक्छन्।",
-                    quizQ20Explanation: "सार्वजनिक कम्प्युटरहरू प्रयोग गरेपछि लग आउट गर्नु महत्त्वपूर्ण छ किनभने यसले अर्को प्रयोगकर्तालाई तपाईंको खाताहरू, ब्राउजिङ इतिहास, वा तपाईंले खुला छोडेका कुनै पनि संवेदनशील जानकारीमा पहुँच गर्नबाट रोक्छ।",
-                    }
-                };
+                    footerCopyright: "&copy; २०२५ नेपाल साइबरसुरक्षा।",
+                    footerLocation: "काठमाडौं, नेपाल",
+                    quizCorrectFeedback: "सही!",
+                    quizIncorrectPrefix: "गलत। सही उत्तर: ",
+                    quizQ1Explanation: "फिसिङ मार्फत जानकारी चोर्छन्।",
+                    quizQ2Explanation: "फायरवालले ट्राफिक नियन्त्रण गर्छ।",
+                    quizQ3Explanation: "रैंसमवेयरले डाटा इन्क्रिप्ट गर्छ।",
+                    quizQ4Explanation: "अद्यावधिकले सुरक्षा बढाउँछ।",
+                    quizQ5Explanation: "2FA थप सुरक्षा तह हो।",
+                    quizQ6Explanation: "फिसिङ धोका हो।",
+                    quizQ7Explanation: "शंकास्पद इमेल मेटाउनु पर्छ।",
+                    quizQ8Explanation: "बलियो पासवर्डमा विभिन्न अक्षर हुन्छन्।",
+                    quizQ9Explanation: "फरक पासवर्डले सुरक्षा दिन्छ।",
+                    quizQ10Explanation: "मालवेयर हटाउँछ।",
+                    quizQ11Explanation: "व्यक्तिगत जानकारीको माग।",
+                    quizQ12Explanation: "भर्चुअल प्राइभेट नेटवर्क।",
+                    quizQ13Explanation: "डाटा चोइन सक्छ।",
+                    quizQ14Explanation: "मनोवैज्ञानिक हेरफेर।",
+                    quizQ15Explanation: "ब्याकअप राख्ने।",
+                    quizQ16Explanation: "आधिकारिक स्रोतबाट।",
+                    quizQ17Explanation: "अनाधिकृत पहुँच।",
+                    quizQ18Explanation: "जोखिम घटाउने।",
+                    quizQ19Explanation: "कोडमा रूपान्तरण।",
+                    quizQ20Explanation: "खाता सुरक्षित राख्न।"
+                }
+            };
 
-            let currentLang = 'en'; // Default language
+            let currentLang = 'en';
 
-            // Function to apply translations
             function applyTranslations() {
                 document.querySelectorAll('[data-lang-key]').forEach(element => {
                     const key = element.getAttribute('data-lang-key');
                     if (content[currentLang] && content[currentLang][key]) {
-                        // Special handling for score-display to not overwrite dynamic content
-                        if (element.tagName === 'SPAN' && element.id === 'score-display') {
-                            return; // Skip translation for this element as its content is set by JS
-                        }
-                        // Check if the content contains HTML tags (like <strong>)
+                        if (element.tagName === 'SPAN' && element.id === 'score-display') return;
                         if (content[currentLang][key].includes('<') && content[currentLang][key].includes('>')) {
                             element.innerHTML = content[currentLang][key];
                         } else {
@@ -1422,14 +1335,13 @@
                 });
             }
 
-            // Language toggle button event listener
             document.getElementById('lang-toggle').addEventListener('click', function () {
                 currentLang = currentLang === 'en' ? 'ne' : 'en';
                 this.textContent = currentLang === 'en' ? 'नेपाली' : 'English';
                 document.getElementById('mobile-lang-toggle').textContent = currentLang === 'en' ? 'नेपाली' : 'English';
                 applyTranslations();
-                updateChartsLanguage(); // Update chart labels when language changes
-                loadQuestion(); // Re-load the current quiz question to update its language
+                updateChartsLanguage();
+                loadQuestion();
             });
 
             document.getElementById('mobile-lang-toggle').addEventListener('click', function () {
@@ -1437,46 +1349,38 @@
                 this.textContent = currentLang === 'en' ? 'नेपाली' : 'English';
                 document.getElementById('lang-toggle').textContent = currentLang === 'en' ? 'नेपाली' : 'English';
                 applyTranslations();
-                updateChartsLanguage(); // Update chart labels when language changes
-                loadQuestion(); // Re-load the current quiz question to update its language
+                updateChartsLanguage();
+                loadQuestion();
             });
 
-            // Mobile menu toggle
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
 
-            // Close mobile menu when a link is clicked
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
                 });
             });
 
-            // Service category tabs functionality
             const serviceCategoryTabs = document.querySelectorAll('#service-category-tabs .service-category-tab');
             const serviceCategoryPanes = document.querySelectorAll('.service-category-pane');
 
             serviceCategoryTabs.forEach(tab => {
                 tab.addEventListener('click', () => {
-                    // Deactivate all category tabs
                     serviceCategoryTabs.forEach(t => t.classList.remove('active'));
-                    // Hide all category panes
                     serviceCategoryPanes.forEach(p => p.classList.add('hidden'));
 
-                    // Activate clicked tab
                     tab.classList.add('active');
-                    // Show corresponding pane
                     const targetCategory = tab.dataset.category;
                     document.getElementById(targetCategory).classList.remove('hidden');
 
-                    // Activate the first detail tab within the newly active category
                     const firstDetailTab = document.querySelector(`#${targetCategory}-tabs .service-detail-tab`);
                     const detailPanes = document.querySelectorAll(`#${targetCategory}-detail-content .service-detail-pane`);
 
-                    detailPanes.forEach(p => p.classList.add('hidden')); // Hide all detail panes
+                    detailPanes.forEach(p => p.classList.add('hidden'));
                     if (firstDetailTab) {
                         firstDetailTab.classList.add('active');
                         document.getElementById(firstDetailTab.dataset.target).classList.remove('hidden');
@@ -1484,7 +1388,6 @@
                 });
             });
 
-            // Service detail tabs functionality (within each category)
             document.querySelectorAll('.service-category-pane').forEach(categoryPane => {
                 const detailTabsContainer = categoryPane.querySelector('.flex.flex-wrap');
                 if (detailTabsContainer) {
@@ -1495,103 +1398,63 @@
                             const currentDetailContent = clickedTab.closest('.service-category-pane').querySelector('[id$="-detail-content"]');
                             const currentDetailPanes = currentDetailContent.querySelectorAll('.service-detail-pane');
 
-                            // Deactivate all detail tabs in this category
                             currentCategoryTabs.forEach(t => t.classList.remove('active'));
-                            // Hide all detail panes in this category
                             currentDetailPanes.forEach(p => p.classList.add('hidden'));
 
-                            // Activate clicked detail tab
                             clickedTab.classList.add('active');
-                            // Show corresponding detail pane
                             document.getElementById(clickedTab.dataset.target).classList.remove('hidden');
                         }
                     });
                 }
             });
 
-            // FAQ functionality
             document.querySelectorAll('.faq-question').forEach(question => {
                 question.addEventListener('click', () => {
                     const answer = question.nextElementSibling;
-                    const svg = question.querySelector('svg');
-
-                    // Toggle active class on the question
                     question.classList.toggle('active');
-
-                    // Toggle visibility of the answer
-                    if (answer.style.display === 'block') {
-                        answer.style.display = 'none';
-                    } else {
-                        answer.style.display = 'block';
-                    }
+                    answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
                 });
             });
 
-            // Contact Form Submission
             const contactForm = document.getElementById('contactForm');
             const messageBox = document.getElementById('messageBox');
 
             contactForm.addEventListener('submit', function (e) {
-                e.preventDefault(); // Prevent default form submission
-
-                // Simulate form submission success
-                console.log('Form submitted!');
-                console.log('Name:', document.getElementById('name').value);
-                console.log('Email:', document.getElementById('email').value);
-                console.log('Phone:', document.getElementById('phone').value); // Log phone number
-                console.log('Company:', document.getElementById('company').value);
-                console.log('Message:', document.getElementById('message').value);
-
-                // Show success message
+                e.preventDefault();
                 messageBox.textContent = content[currentLang].messageBoxSuccess;
                 messageBox.classList.add('show');
-
-                // Hide message after 3 seconds
                 setTimeout(() => {
                     messageBox.classList.remove('show');
                 }, 3000);
-
-                // Clear form fields
                 contactForm.reset();
             });
 
-            // Chart.js for Threat Landscape (Nepal)
             const ctxThreatChart = document.getElementById('threatChart').getContext('2d');
-            let threatChart; // Declare chart variable to update it later
+            let threatChart;
 
             function createThreatChart() {
-                if (threatChart) {
-                    threatChart.destroy(); // Destroy existing chart if it exists
-                }
+                if (threatChart) threatChart.destroy();
                 threatChart = new Chart(ctxThreatChart, {
                     type: 'bar',
                     data: {
                         labels: [
-                            content[currentLang].insight1Desc.split('(')[0].trim(), // Cybercrime cases
-                            content[currentLang].insight2Desc.split('(')[0].trim(), // Financial scams
-                            content[currentLang].insight3Desc.split('(')[0].trim(), // Hacking cases
-                            content[currentLang].insight4Desc.split('(')[0].trim(), // Vulnerable websites
-                            content[currentLang].insight5Desc.split('(')[0].trim(), // SMEs lack practices
-                            content[currentLang].insight6Desc.split('(')[0].trim() // Most attacked sector
+                            content[currentLang].insight1Desc.split('(')[0].trim(),
+                            content[currentLang].insight2Desc.split('(')[0].trim(),
+                            content[currentLang].insight3Desc.split('(')[0].trim(),
+                            content[currentLang].insight4Desc.split('(')[0].trim(),
+                            content[currentLang].insight5Desc.split('(')[0].trim(),
+                            content[currentLang].insight6Desc.split('(')[0].trim()
                         ],
                         datasets: [{
                             label: content[currentLang].threatInsightsHeadline,
-                            data: [52, 87.82, 52, 80, 67, 100], // Example data (scaled for visualization, 100 for financial sector as highest)
+                            data: [52, 87.82, 52, 80, 67, 100],
                             backgroundColor: [
-                                'rgba(59, 130, 246, 0.7)', // blue-500
-                                'rgba(239, 68, 68, 0.7)', // red-500
-                                'rgba(245, 158, 11, 0.7)', // amber-500
-                                'rgba(16, 185, 129, 0.7)', // emerald-500
-                                'rgba(139, 92, 246, 0.7)', // violet-500
-                                'rgba(236, 72, 153, 0.7)' // pink-500
-                            ],
-                            borderColor: [
-                                'rgba(59, 130, 246, 1)',
-                                'rgba(239, 68, 68, 1)',
-                                'rgba(245, 158, 11, 1)',
-                                'rgba(16, 185, 129, 1)',
-                                'rgba(139, 92, 246, 1)',
-                                'rgba(236, 72, 153, 1)'
+                                'rgba(59, 130, 246, 0.7)',
+                                'rgba(239, 68, 68, 0.7)',
+                                'rgba(245, 158, 11, 0.7)',
+                                'rgba(16, 185, 129, 0.7)',
+                                'rgba(139, 92, 246, 0.7)',
+                                'rgba(236, 72, 153, 0.7)'
                             ],
                             borderWidth: 1
                         }]
@@ -1599,65 +1462,39 @@
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
-                        indexAxis: 'y', // Make it a horizontal bar chart
+                        indexAxis: 'y',
                         plugins: {
-                            legend: {
-                                display: false,
-                            },
+                            legend: { display: false },
                             title: {
                                 display: true,
                                 text: content[currentLang].threatLandscapeHeadline,
-                                font: {
-                                    size: 18,
-                                    weight: 'bold'
-                                },
+                                font: { size: 18, weight: 'bold' },
                                 color: '#343a40'
-                            }
-                        },
-                        scales: {
-                            x: {
-                                beginAtZero: true,
-                                title: {
-                                    display: true,
-                                    text: 'Percentage / Count',
-                                    color: '#495057'
-                                },
-                                ticks: {
-                                    color: '#495057'
-                                }
-                            },
-                            y: {
-                                ticks: {
-                                    color: '#495057'
-                                }
                             }
                         }
                     }
                 });
             }
 
-            // Chart.js for Global Cyber Threat Monitor (Conceptual)
             const ctxGlobalThreatGraph = document.getElementById('globalThreatGraph').getContext('2d');
-            let globalThreatGraph; // Declare chart variable
+            let globalThreatGraph;
 
             function createGlobalThreatGraph() {
-                if (globalThreatGraph) {
-                    globalThreatGraph.destroy(); // Destroy existing chart if it exists
-                }
+                if (globalThreatGraph) globalThreatGraph.destroy();
                 globalThreatGraph = new Chart(ctxGlobalThreatGraph, {
                     type: 'line',
                     data: {
                         labels: content[currentLang].globalThreatGraphLabels,
                         datasets: [{
                             label: content[currentLang].globalThreatGraphData1Label,
-                            data: [12, 15, 18, 16], // Example data for phishing attempts
+                            data: [12, 15, 18, 16],
                             borderColor: 'rgb(255, 99, 132)',
                             backgroundColor: 'rgba(255, 99, 132, 0.2)',
                             tension: 0.3,
                             fill: true
                         }, {
                             label: content[currentLang].globalThreatGraphData2Label,
-                            data: [8, 10, 9, 11], // Example data for malware detections
+                            data: [8, 10, 9, 11],
                             borderColor: 'rgb(54, 162, 235)',
                             backgroundColor: 'rgba(54, 162, 235, 0.2)',
                             tension: 0.3,
@@ -1668,43 +1505,27 @@
                         responsive: true,
                         maintainAspectRatio: false,
                         plugins: {
-                            legend: {
-                                labels: {
-                                    color: '#ffffff' // White color for legend labels
-                                }
-                            },
-                            title: {
-                                display: false // Title is handled by mapPlaceholder P tag
-                            }
+                            legend: { labels: { color: '#ffffff' } }
                         },
                         scales: {
                             x: {
-                                ticks: {
-                                    color: '#ffffff' // White color for x-axis labels
-                                },
-                                grid: {
-                                    color: 'rgba(255, 255, 255, 0.1)' // Lighter grid lines
-                                }
+                                ticks: { color: '#ffffff' },
+                                grid: { color: 'rgba(255, 255, 255, 0.1)' }
                             },
                             y: {
-                                ticks: {
-                                    color: '#ffffff' // White color for y-axis labels
-                                },
-                                grid: {
-                                    color: 'rgba(255, 255, 255, 0.1)' // Lighter grid lines
-                                }
+                                ticks: { color: '#ffffff' },
+                                grid: { color: 'rgba(255, 255, 255, 0.1)' }
                             }
                         }
                     }
                 });
-                }
-            
+            }
+
             function updateChartsLanguage() {
                 createThreatChart();
                 createGlobalThreatGraph();
             }
 
-            // Fetch and display global threat news (simulated API call)
             async function fetchGlobalThreatNews() {
                 const globalThreatNewsDiv = document.getElementById('global-threat-news');
                 const globalThreatError = document.getElementById('global-threat-error');
@@ -1712,13 +1533,10 @@
                 globalThreatError.classList.add('hidden');
 
                 try {
-                    // Simulate API call to Gemini API for news headlines
-                    // In a real scenario, this would call a backend service that fetches real news
                     const prompt = "Provide 5 recent, concise, and impactful global cybersecurity news headlines or trends. Focus on diverse topics like data breaches, new malware, government advisories, or major cyberattacks. Format as a markdown unordered list.";
-                    let chatHistory = [];
-                    chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                    let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
                     const payload = { contents: chatHistory };
-                    const apiKey = ""; // Canvas will provide this in runtime
+                    const apiKey = ""; 
                     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
                     const response = await fetch(apiUrl, {
@@ -1737,146 +1555,42 @@
                     } else {
                         globalThreatNewsDiv.innerHTML = '';
                         globalThreatError.classList.remove('hidden');
-                        console.error('Gemini API returned an unexpected structure or no content.');
                     }
                 } catch (error) {
                     globalThreatNewsDiv.innerHTML = '';
                     globalThreatError.classList.add('hidden');
-                    console.error('Error fetching global threat news:', error);
                 }
             }
 
-            // Cyber Quiz Logic
             const allQuizQuestions = [
-                {
-                    questionKey: "quizQ1",
-                    optionsKeys: ["quizQ1A1", "quizQ1A2", "quizQ1A3", "quizQ1A4"],
-                    correctAnswerKey: "quizQ1A1",
-                    explanationKey: "quizQ1Explanation"
-                },
-                {
-                    questionKey: "quizQ2",
-                    optionsKeys: ["quizQ2A1", "quizQ2A2", "quizQ2A3", "quizQ2A4"],
-                    correctAnswerKey: "quizQ2A2",
-                    explanationKey: "quizQ2Explanation"
-                },
-                {
-                    questionKey: "quizQ3",
-                    optionsKeys: ["quizQ3A1", "quizQ3A2", "quizQ3A3", "quizQ3A4"],
-                    correctAnswerKey: "quizQ3A2",
-                    explanationKey: "quizQ3Explanation"
-                },
-                {
-                    questionKey: "quizQ4",
-                    optionsKeys: ["quizQ4A1", "quizQ4A2", "quizQ4A3", "quizQ4A4"],
-                    correctAnswerKey: "quizQ4A2",
-                    explanationKey: "quizQ4Explanation"
-                },
-                {
-                    questionKey: "quizQ5",
-                    optionsKeys: ["quizQ5A1", "quizQ5A2", "quizQ5A3", "quizQ5A4"],
-                    correctAnswerKey: "quizQ5A2",
-                    explanationKey: "quizQ5Explanation"
-                },
-                {
-                    questionKey: "quizQ6",
-                    optionsKeys: ["quizQ6A1", "quizQ6A2", "quizQ6A3", "quizQ6A4"],
-                    correctAnswerKey: "quizQ6A2",
-                    explanationKey: "quizQ6Explanation"
-                },
-                {
-                    questionKey: "quizQ7",
-                    optionsKeys: ["quizQ7A1", "quizQ7A2", "quizQ7A3", "quizQ7A4"],
-                    correctAnswerKey: "quizQ7A3",
-                    explanationKey: "quizQ7Explanation"
-                },
-                {
-                    questionKey: "quizQ8",
-                    optionsKeys: ["quizQ8A1", "quizQ8A2", "quizQ8A3", "quizQ8A4"],
-                    correctAnswerKey: "quizQ8A2",
-                    explanationKey: "quizQ8Explanation"
-                },
-                {
-                    questionKey: "quizQ9",
-                    optionsKeys: ["quizQ9A1", "quizQ9A2", "quizQ9A3", "quizQ9A4"],
-                    correctAnswerKey: "quizQ9A2",
-                    explanationKey: "quizQ9Explanation"
-                },
-                {
-                    questionKey: "quizQ10",
-                    optionsKeys: ["quizQ10A1", "quizQ10A2", "quizQ10A3", "quizQ10A4"],
-                    correctAnswerKey: "quizQ10A2",
-                    explanationKey: "quizQ10Explanation"
-                },
-                {
-                    questionKey: "quizQ11",
-                    optionsKeys: ["quizQ11A1", "quizQ11A2", "quizQ11A3", "quizQ11A4"],
-                    correctAnswerKey: "quizQ11A2",
-                    explanationKey: "quizQ11Explanation"
-                },
-                {
-                    questionKey: "quizQ12",
-                    optionsKeys: ["quizQ12A1", "quizQ12A2", "quizQ12A3", "quizQ12A4"],
-                    correctAnswerKey: "quizQ12A3",
-                    explanationKey: "quizQ12Explanation"
-                },
-                {
-                    questionKey: "quizQ13",
-                    optionsKeys: ["quizQ13A1", "quizQ13A2", "quizQ13A3", "quizQ13A4"],
-                    correctAnswerKey: "quizQ13A2",
-                    explanationKey: "quizQ13Explanation"
-                },
-                {
-                    questionKey: "quizQ14",
-                    optionsKeys: ["quizQ14A1", "quizQ14A2", "quizQ14A3", "quizQ14A4"],
-                    correctAnswerKey: "quizQ14A2",
-                    explanationKey: "quizQ14Explanation"
-                },
-                {
-                    questionKey: "quizQ15",
-                    optionsKeys: ["quizQ15A1", "quizQ15A2", "quizQ15A3", "quizQ15A4"],
-                    correctAnswerKey: "quizQ15A2",
-                    explanationKey: "quizQ15Explanation"
-                },
-                {
-                    questionKey: "quizQ16",
-                    optionsKeys: ["quizQ16A1", "quizQ16A2", "quizQ16A3", "quizQ16A4"],
-                    correctAnswerKey: "quizQ16A3",
-                    explanationKey: "quizQ16Explanation"
-                },
-                {
-                    questionKey: "quizQ17",
-                    optionsKeys: ["quizQ17A1", "quizQ17A2", "quizQ17A3", "quizQ17A4"],
-                    correctAnswerKey: "quizQ17A2",
-                    explanationKey: "quizQ17Explanation"
-                },
-                {
-                    questionKey: "quizQ18",
-                    optionsKeys: ["quizQ18A1", "quizQ18A2", "quizQ18A3", "quizQ18A4"],
-                    correctAnswerKey: "quizQ18A2",
-                    explanationKey: "quizQ18Explanation"
-                },
-                {
-                    questionKey: "quizQ19",
-                    optionsKeys: ["quizQ19A1", "quizQ19A2", "quizQ19A3", "quizQ19A4"],
-                    correctAnswerKey: "quizQ19A2",
-                    explanationKey: "quizQ19Explanation"
-                },
-                {
-                    questionKey: "quizQ20",
-                    optionsKeys: ["quizQ20A1", "quizQ20A2", "quizQ20A3", "quizQ20A4"],
-                    correctAnswerKey: "quizQ20A2",
-                    explanationKey: "quizQ20Explanation"
-                }
+                { questionKey: "quizQ1", optionsKeys: ["quizQ1A1", "quizQ1A2", "quizQ1A3", "quizQ1A4"], correctAnswerKey: "quizQ1A1", explanationKey: "quizQ1Explanation" },
+                { questionKey: "quizQ2", optionsKeys: ["quizQ2A1", "quizQ2A2", "quizQ2A3", "quizQ2A4"], correctAnswerKey: "quizQ2A2", explanationKey: "quizQ2Explanation" },
+                { questionKey: "quizQ3", optionsKeys: ["quizQ3A1", "quizQ3A2", "quizQ3A3", "quizQ3A4"], correctAnswerKey: "quizQ3A2", explanationKey: "quizQ3Explanation" },
+                { questionKey: "quizQ4", optionsKeys: ["quizQ4A1", "quizQ4A2", "quizQ4A3", "quizQ4A4"], correctAnswerKey: "quizQ4A2", explanationKey: "quizQ4Explanation" },
+                { questionKey: "quizQ5", optionsKeys: ["quizQ5A1", "quizQ5A2", "quizQ5A3", "quizQ5A4"], correctAnswerKey: "quizQ5A2", explanationKey: "quizQ5Explanation" },
+                { questionKey: "quizQ6", optionsKeys: ["quizQ6A1", "quizQ6A2", "quizQ6A3", "quizQ6A4"], correctAnswerKey: "quizQ6A2", explanationKey: "quizQ6Explanation" },
+                { questionKey: "quizQ7", optionsKeys: ["quizQ7A1", "quizQ7A2", "quizQ7A3", "quizQ7A4"], correctAnswerKey: "quizQ7A3", explanationKey: "quizQ7Explanation" },
+                { questionKey: "quizQ8", optionsKeys: ["quizQ8A1", "quizQ8A2", "quizQ8A3", "quizQ8A4"], correctAnswerKey: "quizQ8A2", explanationKey: "quizQ8Explanation" },
+                { questionKey: "quizQ9", optionsKeys: ["quizQ9A1", "quizQ9A2", "quizQ9A3", "quizQ9A4"], correctAnswerKey: "quizQ9A2", explanationKey: "quizQ9Explanation" },
+                { questionKey: "quizQ10", optionsKeys: ["quizQ10A1", "quizQ10A2", "quizQ10A3", "quizQ10A4"], correctAnswerKey: "quizQ10A2", explanationKey: "quizQ10Explanation" },
+                { questionKey: "quizQ11", optionsKeys: ["quizQ11A1", "quizQ11A2", "quizQ11A3", "quizQ11A4"], correctAnswerKey: "quizQ11A2", explanationKey: "quizQ11Explanation" },
+                { questionKey: "quizQ12", optionsKeys: ["quizQ12A1", "quizQ12A2", "quizQ12A3", "quizQ12A4"], correctAnswerKey: "quizQ12A3", explanationKey: "quizQ12Explanation" },
+                { questionKey: "quizQ13", optionsKeys: ["quizQ13A1", "quizQ13A2", "quizQ13A3", "quizQ13A4"], correctAnswerKey: "quizQ13A2", explanationKey: "quizQ13Explanation" },
+                { questionKey: "quizQ14", optionsKeys: ["quizQ14A1", "quizQ14A2", "quizQ14A3", "quizQ14A4"], correctAnswerKey: "quizQ14A2", explanationKey: "quizQ14Explanation" },
+                { questionKey: "quizQ15", optionsKeys: ["quizQ15A1", "quizQ15A2", "quizQ15A3", "quizQ15A4"], correctAnswerKey: "quizQ15A2", explanationKey: "quizQ15Explanation" },
+                { questionKey: "quizQ16", optionsKeys: ["quizQ16A1", "quizQ16A2", "quizQ16A3", "quizQ16A4"], correctAnswerKey: "quizQ16A3", explanationKey: "quizQ16Explanation" },
+                { questionKey: "quizQ17", optionsKeys: ["quizQ17A1", "quizQ17A2", "quizQ17A3", "quizQ17A4"], correctAnswerKey: "quizQ17A2", explanationKey: "quizQ17Explanation" },
+                { questionKey: "quizQ18", optionsKeys: ["quizQ18A1", "quizQ18A2", "quizQ18A3", "quizQ18A4"], correctAnswerKey: "quizQ18A2", explanationKey: "quizQ18Explanation" },
+                { questionKey: "quizQ19", optionsKeys: ["quizQ19A1", "quizQ19A2", "quizQ19A3", "quizQ19A4"], correctAnswerKey: "quizQ19A2", explanationKey: "quizQ19Explanation" },
+                { questionKey: "quizQ20", optionsKeys: ["quizQ20A1", "quizQ20A2", "quizQ20A3", "quizQ20A4"], correctAnswerKey: "quizQ20A2", explanationKey: "quizQ20Explanation" }
             ];
 
-            const QUIZ_QUESTION_COUNT = 5; // Number of questions to show per quiz session
-            let currentQuizQuestions = []; // Stores the 5 questions for the current session
-
+            const QUIZ_QUESTION_COUNT = 4; // Set to 4 questions per session
+            let currentQuizQuestions = [];
             let currentQuestionIndex = 0;
             let score = 0;
             let selectedOption = null;
-            let answerGivenForCurrentQuestion = false; // Flag to prevent multiple answers per question
+            let answerGivenForCurrentQuestion = false;
 
             const quizContainer = document.getElementById('quiz-container');
             const quizResults = document.getElementById('quiz-results');
@@ -1886,10 +1600,8 @@
             const scoreDisplay = document.getElementById('score-display');
             const quizFeedback = document.getElementById('quiz-feedback');
             const retakeQuizBtn = document.getElementById('retake-quiz-btn');
-            const quizContactCTA = document.getElementById('quiz-contact-cta');
             const quizInstantFeedback = document.getElementById('quiz-instant-feedback');
 
-            // Function to shuffle an array (Fisher-Yates algorithm)
             function shuffleArray(array) {
                 for (let i = array.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
@@ -1899,7 +1611,6 @@
             }
 
             function startNewQuiz() {
-                // Shuffle all questions and pick the first QUIZ_QUESTION_COUNT
                 currentQuizQuestions = shuffleArray([...allQuizQuestions]).slice(0, QUIZ_QUESTION_COUNT);
                 currentQuestionIndex = 0;
                 score = 0;
@@ -1909,23 +1620,22 @@
             }
 
             function loadQuestion() {
-                selectedOption = null; // Reset selected option for new question
-                answerGivenForCurrentQuestion = false; // Reset flag
-                nextQuestionBtn.disabled = true; // Disable next button
-                nextQuestionBtn.classList.add('opacity-50', 'cursor-not-allowed'); // Add disabled styling
-                quizInstantFeedback.classList.add('hidden'); // Hide instant feedback
+                selectedOption = null;
+                answerGivenForCurrentQuestion = false;
+                nextQuestionBtn.disabled = true;
+                nextQuestionBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                quizInstantFeedback.classList.add('hidden');
 
-                const q = currentQuizQuestions[currentQuestionIndex]; // Use question from current session's pool
+                const q = currentQuizQuestions[currentQuestionIndex];
                 quizQuestionElement.textContent = content[currentLang][q.questionKey];
-                quizOptionsElement.innerHTML = ''; // Clear previous options
+                quizOptionsElement.innerHTML = '';
 
-                // Shuffle options for the current question
                 const shuffledOptions = shuffleArray([...q.optionsKeys]);
 
                 shuffledOptions.forEach((optionKey, index) => {
                     const optionDiv = document.createElement('div');
                     optionDiv.className = 'flex items-center p-4 border border-gray-200 rounded-lg cursor-pointer hover:bg-blue-50 transition-colors duration-200 quiz-option-item';
-                    optionDiv.dataset.optionKey = optionKey; // Store option key for easy lookup
+                    optionDiv.dataset.optionKey = optionKey;
                     optionDiv.innerHTML = `
                         <input type="radio" id="option${index}" name="quizOption" value="${optionKey}" class="hidden">
                         <label for="option${index}" class="flex items-center w-full cursor-pointer">
@@ -1936,22 +1646,18 @@
                         </label>
                     `;
                     optionDiv.addEventListener('click', () => {
-                        if (answerGivenForCurrentQuestion) return; // Prevent re-answering
+                        if (answerGivenForCurrentQuestion) return;
 
-                        // Deselect previous option visually
                         quizOptionsElement.querySelectorAll('.option-indicator').forEach(indicator => indicator.classList.add('hidden'));
                         quizOptionsElement.querySelectorAll('.border-blue-500').forEach(border => border.classList.remove('border-blue-500'));
                         quizOptionsElement.querySelectorAll('.correct').forEach(el => el.classList.remove('correct'));
                         quizOptionsElement.querySelectorAll('.incorrect').forEach(el => el.classList.remove('incorrect'));
                         
-                        // Select current option visually
                         optionDiv.querySelector('.option-indicator').classList.remove('hidden');
-                        optionDiv.classList.add('border-blue-500'); // Highlight selected option
-                        
+                        optionDiv.classList.add('border-blue-500');
                         optionDiv.querySelector('input').checked = true;
                         selectedOption = optionKey;
                         
-                        // Provide immediate feedback
                         evaluateAnswer(optionDiv);
                     });
                     quizOptionsElement.appendChild(optionDiv);
@@ -1959,22 +1665,20 @@
             }
 
             function evaluateAnswer(selectedOptionDiv) {
-                answerGivenForCurrentQuestion = true; // Set flag
+                answerGivenForCurrentQuestion = true;
                 const q = currentQuizQuestions[currentQuestionIndex];
                 const isCorrect = (selectedOption === q.correctAnswerKey);
-                const instantFeedbackText = document.getElementById('quiz-instant-feedback');
 
                 if (isCorrect) {
                     selectedOptionDiv.classList.add('correct');
                     score++;
-                    instantFeedbackText.textContent = `${content[currentLang].quizCorrectFeedback} ${content[currentLang][q.explanationKey]}`; // Add explanation for correct answers
-                    instantFeedbackText.style.color = '#28a745'; // Green
+                    quizInstantFeedback.textContent = `${content[currentLang].quizCorrectFeedback} ${content[currentLang][q.explanationKey]}`;
+                    quizInstantFeedback.style.color = '#28a745';
                 } else {
                     selectedOptionDiv.classList.add('incorrect');
-                    instantFeedbackText.textContent = `${content[currentLang].quizIncorrectPrefix} ${content[currentLang][q.correctAnswerKey]}. ${content[currentLang][q.explanationKey]}`; // Add explanation for incorrect answers
-                    instantFeedbackText.style.color = '#dc3545'; // Red
+                    quizInstantFeedback.textContent = `${content[currentLang].quizIncorrectPrefix} ${content[currentLang][q.correctAnswerKey]}. ${content[currentLang][q.explanationKey]}`;
+                    quizInstantFeedback.style.color = '#dc3545';
 
-                    // Highlight the correct answer
                     quizOptionsElement.querySelectorAll('.quiz-option-item').forEach(option => {
                         if (option.dataset.optionKey === q.correctAnswerKey) {
                             option.classList.add('correct');
@@ -1983,13 +1687,11 @@
                 }
                 quizInstantFeedback.classList.remove('hidden');
 
-                // Disable all options after an answer is given
                 quizOptionsElement.querySelectorAll('.quiz-option-item').forEach(option => {
-                    option.style.pointerEvents = 'none'; // Disable clicks
+                    option.style.pointerEvents = 'none';
                     option.style.cursor = 'default';
                 });
 
-                // Enable the next question button
                 nextQuestionBtn.disabled = false;
                 nextQuestionBtn.classList.remove('opacity-50', 'cursor-not-allowed');
             }
@@ -2004,19 +1706,18 @@
             });
 
             retakeQuizBtn.addEventListener('click', () => {
-                startNewQuiz(); // Start a new quiz with new random questions
+                startNewQuiz();
             });
 
             function showResults() {
                 quizContainer.classList.add('hidden');
                 quizResults.classList.remove('hidden');
                 
-                // Creative score display
                 let scoreText = `${score} out of ${currentQuizQuestions.length} correct!`;
                 if (score === currentQuizQuestions.length) {
-                    scoreText += ' 🎉'; // Add a celebratory emoji for perfect score
+                    scoreText += ' 🎉';
                 }
-                scoreDisplay.textContent = scoreText; // Update the content of the span
+                scoreDisplay.textContent = scoreText;
 
                 let feedbackText = "";
                 const percentage = (score / currentQuizQuestions.length) * 100;
@@ -2030,167 +1731,15 @@
                 } else {
                     feedbackText = content[currentLang].quizFeedbackPoor;
                 }
-                quizFeedback.innerHTML = feedbackText; // Use innerHTML to allow for bold tags
-                quizContactCTA.textContent = content[currentLang].quizContactCTA;
+                quizFeedback.innerHTML = feedbackText;
             }
 
-            // Initial calls
             applyTranslations();
             createThreatChart();
             createGlobalThreatGraph();
             fetchGlobalThreatNews();
-            startNewQuiz(); // Start the first quiz when the page loads
+            startNewQuiz();
         });
     </script>
-    <script>
-document.addEventListener("DOMContentLoaded", function () {
-  /* =============== Language Helpers =============== */
-  function normalizeLang(val) {
-    if (!val) return "en";
-    const v = String(val).toLowerCase();
-    return ["np","ne","nep","nepali","ne-np","np-np","ne_np","np_np"].includes(v) ? "np" : "en";
-  }
-
-  let langSelect = document.getElementById("language");
-  let currentLang = normalizeLang(langSelect?.value || "en");
-
-  /* =============== Quiz Bank (20 bilingual Qs + explanations) =============== */
-  const quizData = [
-    { en:"Which of the following is the most common phishing indicator?", np:"तलमध्ये कुन फिसिङको सामान्य संकेत हो?", options:[["Generic greetings","सामान्य अभिवादन"],["Perfect grammar","सही व्याकरण"],["Company logo","कम्पनी लोगो"],["Secure URL","सुरक्षित URL"]], correct:0, ex:{ en:"Phishing often uses generic greetings like 'Dear user'.", np:"फिसिङ इमेलले प्रायः ‘Dear user’ जस्ता सामान्य अभिवादन प्रयोग गर्छ।" } },
-    { en:"What does HTTPS signify?", np:"HTTPS ले के जनाउँछ?", options:[["Website is faster","वेबसाइट छिटो हुन्छ"],["Connection is encrypted","जडान एनक्रिप्ट हुन्छ"],["Website is free","वेबसाइट निःशुल्क"],["Website is fake","वेबसाइट नक्कली"]], correct:1, ex:{ en:"HTTPS means encrypted traffic.", np:"HTTPS को अर्थ ट्राफिक एनक्रिप्ट हुन्छ।" } },
-    // ... keep all the remaining 18 questions as in your version ...
-  ];
-
-  /* =============== Quiz Logic =============== */
-  let selectedSet = [], state = [], currentIndex = 0, score = 0;
-  const elQ = document.getElementById("quiz-question");
-  const elOpts = document.getElementById("quiz-options");
-  const elFeedback = document.getElementById("quiz-instant-feedback");
-  const elNext = document.getElementById("next-question-btn");
-  const elResults = document.getElementById("quiz-results");
-  const elScore = document.getElementById("score-display");
-  const elSummary = document.getElementById("quiz-feedback");
-  const elRetake = document.getElementById("retake-quiz-btn");
-
-  function pickRandom(arr,n){ return [...arr].sort(()=>Math.random()-0.5).slice(0,n); }
-
-  function renderQuestion() {
-    const q = selectedSet[currentIndex], st = state[currentIndex];
-    elQ.textContent = q[currentLang];
-    elOpts.innerHTML=""; elFeedback.classList.add("hidden");
-    elNext.disabled=true; elNext.classList.add("opacity-50","cursor-not-allowed");
-
-    q.options.forEach((opt,i)=>{
-      const btn=document.createElement("button");
-      btn.textContent=opt[currentLang==="en"?0:1];
-      btn.className="quiz-option-item w-full text-left p-3 border rounded-lg hover:bg-gray-100 transition";
-      btn.addEventListener("click",()=>checkAnswer(i));
-      elOpts.appendChild(btn);
-    });
-
-    if(st.answered){ // re-apply state
-      const buttons=elOpts.querySelectorAll("button");
-      buttons.forEach((b,i)=>{
-        b.disabled=true;
-        if(i===q.correct) b.classList.add("correct");
-        if(i===st.selected && st.selected!==q.correct) b.classList.add("incorrect");
-      });
-      elFeedback.textContent = (st.selected===q.correct ? (currentLang==="en"?"✅ Correct! ":"✅ सही! ") : (currentLang==="en"?"❌ Incorrect. ":"❌ गलत. ")) + q.ex[currentLang];
-      elFeedback.classList.remove("hidden");
-      elFeedback.classList.toggle("text-green-600",st.selected===q.correct);
-      elFeedback.classList.toggle("text-red-600",st.selected!==q.correct);
-      elNext.disabled=false; elNext.classList.remove("opacity-50","cursor-not-allowed");
-    }
-  }
-
-  function checkAnswer(idx){
-    const q=selectedSet[currentIndex], st=state[currentIndex];
-    if(st.answered) return;
-    st.answered=true; st.selected=idx;
-    const buttons=elOpts.querySelectorAll("button");
-    buttons.forEach((b,i)=>{
-      b.disabled=true;
-      if(i===q.correct) b.classList.add("correct");
-      if(i===idx && idx!==q.correct) b.classList.add("incorrect");
-    });
-    if(idx===q.correct){ score++; elFeedback.textContent=(currentLang==="en"?"✅ Correct! ":"✅ सही! ")+q.ex[currentLang]; elFeedback.classList.remove("hidden","text-red-600"); elFeedback.classList.add("text-green-600"); }
-    else{ elFeedback.textContent=(currentLang==="en"?"❌ Incorrect. ":"❌ गलत. ")+q.ex[currentLang]; elFeedback.classList.remove("hidden","text-green-600"); elFeedback.classList.add("text-red-600"); }
-    elNext.disabled=false; elNext.classList.remove("opacity-50","cursor-not-allowed");
-  }
-
-  elNext.addEventListener("click",()=>{ currentIndex++; if(currentIndex<selectedSet.length){renderQuestion();} else{showResults();} });
-  elRetake.addEventListener("click",()=>startQuiz(currentLang));
-
-  function showResults(){
-    document.getElementById("quiz-container").classList.add("hidden");
-    elResults.classList.remove("hidden");
-    elScore.textContent=`${score}/${selectedSet.length}`;
-    elSummary.textContent=currentLang==="en"?(score===selectedSet.length?"🌟 Outstanding!":score>=3?"👍 Good job!":"⚠️ Needs improvement."):(score===selectedSet.length?"🌟 उत्कृष्ट!":score>=3?"👍 राम्रो काम!":"⚠️ सुधार आवश्यक।");
-  }
-
-  function startQuiz(lang){
-    currentLang=normalizeLang(lang);
-    selectedSet=pickRandom(quizData,5);
-    state=selectedSet.map(()=>({answered:false,selected:null}));
-    currentIndex=0; score=0;
-    elResults.classList.add("hidden"); document.getElementById("quiz-container").classList.remove("hidden");
-    renderQuestion();
-  }
-
-  /* =============== Charts =============== */
-  function renderCharts(lang){
-    lang=normalizeLang(lang);
-    const labels={ en:["Hacking","Phishing","Scams","Malware","Other"], np:["ह्याकिङ","फिसिङ","ठगी","मालवेयर","अन्य"] };
-    const globalLabels={ en:["Q1 2024","Q2 2024","Q3 2024","Q4 2024"], np:["त्रैमासिक १","त्रैमासिक २","त्रैमासिक ३","त्रैमासिक ४"] };
-    if(window.threatChartInstance) window.threatChartInstance.destroy();
-    if(window.globalChartInstance) window.globalChartInstance.destroy();
-    const ctx1=document.getElementById("threatChart");
-    if(ctx1){ window.threatChartInstance=new Chart(ctx1,{ type:"bar", data:{ labels:labels[lang], datasets:[{ label:lang==="en"?"Reported Cases":"प्रतिवेदन भएका घटनाहरू", data:[52,40,35,20,15], backgroundColor:["rgba(54,162,235,0.6)","rgba(255,99,132,0.6)","rgba(255,206,86,0.6)","rgba(75,192,192,0.6)","rgba(153,102,255,0.6)"] }]}, options:{ responsive:true, plugins:{ legend:{display:false} } } }); }
-    const ctx2=document.getElementById("globalThreatGraph");
-    if(ctx2){ window.globalChartInstance=new Chart(ctx2,{ type:"line", data:{ labels:globalLabels[lang], datasets:[{ label:lang==="en"?"Ransomware Attacks (M)":"र्यानसमवेयर आक्रमण (मिलियन)", data:[12,18,15,20], borderColor:"rgba(255,99,132,1)", fill:false, tension:0.3 },{ label:lang==="en"?"Data Breaches (B Records)":"डेटा चुहावट (अरब रेकर्ड)", data:[5,8,7,10], borderColor:"rgba(54,162,235,1)", fill:false, tension:0.3 }]}, options:{ responsive:true, plugins:{ legend:{position:"bottom"} } } }); }
-  }
-
-  /* =============== Language Wiring =============== */
-  if(langSelect){ langSelect.addEventListener("change",function(){ const lang=normalizeLang(this.value); currentLang=lang; renderQuestion(); renderCharts(lang); }); }
-
-  // Initial
-  startQuiz(currentLang); renderCharts(currentLang);
-});
-</script>
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
